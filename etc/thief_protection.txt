@@ -1,0 +1,10 @@
+10,Leather Armor +1
+20,Bracers of Defense AC 8	
+30,Bracers of Defense AC 7
+40,Leather Armor +2
+50,Bracers of Defense AC 6
+60,Bracers of Defense AC 5
+70,Leather Armor +3
+80,Bracers of Defense AC 4
+90,Bracers of Defense AC 3
+100,Bracers of Defense AC 2

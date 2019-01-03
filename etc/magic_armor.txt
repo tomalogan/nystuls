@@ -1,0 +1,31 @@
+7,Ring Mail +1
+14,Scale Mail +1
+21,Bronze Plate Mail +1
+28,Chain Mail +1
+35,Splint Mail +1
+42,Plate Mail +1
+49,Bronze Plate Mail +2
+56,Scale Mail +2
+62,Chain Mail +2
+68,Ring Mail +2
+74,Splint Mail +2
+91,Plate Armor; Field +1
+102,Plate Mail +2
+110,Chain Mail +3
+115,Splint Mail +3
+120,Chain Mail +4
+120,Scale Mail +3
+126,Plate Mail +3
+128,Splint Mail +4
+133,Plate Armor; Field +2
+138,Plate Armor; Full +1
+143,Plate Mail +4
+149,Plate Mail +5
+154,Anything Armor
+158,Plate Mail of Etherealness
+165,Plate Armor; Field +3
+172,Plate Armor; Full +2
+179,Plate Armor; Field +4
+186,Plate Armor; Full +3
+193,Plate Armor; Field +5
+200,Plate Armor; Full +4

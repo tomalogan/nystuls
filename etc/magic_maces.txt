@@ -1,0 +1,17 @@
+10,Quarterstaff Magic +1
+23,Hammer +1
+36,Mace +1
+49,Flail +1
+62,Quarterstaff Magic +2
+75,Hammer +2
+88,Mace +2
+100,Quarterstaff Magic +3
+113,Flail +2
+126,Mace +3
+139,Quarterstaff Magic +4
+152,Hammer +3
+165,Mace +4
+178,Hammer +4
+190,Quarterstaff Magic +5
+195,Mace of Disruption
+200,Mace +5

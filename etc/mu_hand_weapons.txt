@@ -1,0 +1,11 @@
+25,Dagger +1
+35,Dagger +1/+2 vs. creatures smaller than man-sized
+45,Dagger +2
+55,Dagger +2/+3 vs. creatures larger than man-sized
+65,Quarterstaff Magic +1
+72,Dagger +3
+77,Dagger of Venom
+85,Quarterstaff Magic +2
+92,Quarterstaff Magic +3
+96,Quarterstaff Magic +4
+100,Quarterstaff Magic +5

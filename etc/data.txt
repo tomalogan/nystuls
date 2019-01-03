@@ -1,0 +1,597 @@
+IIIA,Potions
+01,03,Animal Control,250,400,*
+04,06,Clairaudience,250,400
+07,09,Clairvoyance,300,500
+10,12,Climbing,300,500
+13,15,Delusion,0,150
+16,18,Diminution,300,500
+19,20,Dragon Control,500,5000,*,1000,9000
+12,23,ESP,500,850
+24,26,Extra-Healing,400,1600
+27,29,Fire Resistance,250,400
+30,32,Flying,500,750
+33,34,Gaseous Form,300,400
+35,36,Giant Control,400,1000,*,900,6000
+37,39,Giant Strength (F),500,900,*,750,1400
+40,41,Growth,250,300
+42,44,Healing,200,800
+45,46,Healing XX,800,3200
+47,47,HEAL,1600,6400
+48,49,Heroism (F),300,500
+50,51,Human Control,500,900,*
+52,54,Invisibility,250,500
+55,57,Invulnerability (F),350,500
+58,60,Levitation,250,400
+61,63,Longevity,500,1000
+64,66,Oil of Etherealness,600,1500
+67,69,Oil of Slipperiness,400,750
+70,72,Philter of Love,200,300
+73,75,Philter of Persuasiveness,400,850
+76,78,Plant Control,250,300
+79,81,Polymorph (self),200,350
+82,84,Poison,0,0
+85,87,Speed,200,450
+88,90,Super-Heroism (F),450,750
+91,93,Sweet Water,200,250
+94,96,Treasure Finding,600,2000
+97,97,Undead Control,700,2500,*
+98,100,Water Breathing,400,900
+IIIA2,Potions
+01,05,Elixir of Health,350,2000
+06,15,Elixir of Life,250,2500
+16,20,Elixir of Madness,0,0
+21,25,Elixir of Youth,500,10000
+26,30,Fire Breath,400,4000
+31,35,Oil of Acid Resistance,500,5000
+36,40,Oil of Disenchantment,750,3500
+41,45,Oil of Elemental Invulnerability,1000,5000
+46,49,Oil of Fiery Burning,500,4000
+50,55,Oil of Fumbling,0,1000
+56,60,Oil of Impact,750,5000
+61,65,Oil of Sharpness (per app),100,500,*
+66,70,Oil of Timelessness,500,2000
+71,75,Philter of Beauty,250,1500
+76,80,Philter of Glibness,500,2500
+81,85,Philter of Stammering & Stuttering,0,1500
+86,90,Rainbow Hues,200,800
+91,95,Ventriloquism,200,800
+96,100,Vitality,300,2500
+IIIB,Scrolls
+01,10,1 Spell,1,4,*
+11,16,1 Spell,1,6,*
+17,19,1 Spell,2,9,*
+20,24,2 Spells,1,4,*
+25,27,2 Spells,1,8,*
+28,32,3 Spells,1,4,*
+33,35,3 Spells,2,9,*
+36,39,4 Spells,1,6,*
+40,42,4 Spells,1,8,*
+43,46,5 Spells,1,6,*
+47,49,5 Spells,1,8,*
+50,52,6 Spells,1,6,*
+53,54,6 Spells,3,8,*
+55,57,7 Spells,1,8,*
+58,59,7 Spells,2,9,*
+60,60,7 Spells,4,9,*
+61,62,Protection from Demons,2500,12500
+63,64,Protection from Devils,2500,12500
+65,70,Protection from Elementals,1500,7500
+71,76,Protection from Lycanthropes,1000,5000
+77,82,Protection from Magic,1500,7500
+83,87,Protection from Petrification,2000,10000
+88,92,Protection from Posession,2000,10000
+93,97,Protection from Undead,1500,15000
+97,100,Curse,2500,25000
+IIIB2,Scrolls
+01,02,Protection from Demons,2500,12500
+03,07,Protection from Breath Weapon (Dragon),2000,10000
+08,12,Protection from Breath Weapon (Non-Dragon),2000,10000
+13,17,Protection from Cold,2000,10000
+18,22,Protection from Electricity,1500,7500
+23,27,Protection from Fire,2000,10000
+28,32,Protection from Gas,2000,10000
+33,37,Protection from Illusions,1500,7500
+38,42,Protection from Paralyzation,1500,7500
+43,48,Protection from Plants,1000,5000
+49,54,Protection from Poison,1000,5000
+55,59,Protection from Traps,2000,10000
+60,64,Protection from Water,1500,7500
+65,70,Protection from Weapons (Magical blunt),1000,5000
+71,76,Protection from Weapons (Magical edged),1000,5000
+77,82,Protection from Weapons (Magical missile),1000,5000
+83,88,Protection from Weapons (Non-Magic blunt),1000,5000
+89,94,Protection from Weapons (Non-Magic edged),1000,5000
+95,100,Protection from Weapons (Non-Magic missile),1000,5000
+IIIC,Rings
+01,06,Contrariness,0,1000
+07,12,Delusion,0,2000
+13,14,Djinni Summoning,3000,20000
+15,15,Elemental Command,5000,25000
+16,21,Feather Falling,1000,5000
+22,27,Fire Resistance,1000,5000
+28,30,Free Action,1000,5000
+31,33,Human Influence,2000,10000
+34,40,Invisibility,1500,15000
+41,43,Mammal Control,1000,5000
+44,44,Multiple Wishes,5000,50000
+45,60,Protection,2000,10000,*,4000,20000
+61,61,Regeneration,5000,40000
+62,63,Shooting Stars,3000,15000
+64,65,Spell Storing,2500,22500
+66,69,Spell Turning,2000,17500
+70,75,Swimming,1000,5000
+76,77,Telekinesis,2000,10000
+78,79,Three Wishes,3000,35000
+80,85,Warmth,1000,5000
+86,90,Water Walking,1000,5000
+91,98,Weakness,0,1000
+99,99,Wizardry (M),4000,50000
+100,100,X-ray Vision,4000,35000
+IIIC2,Rings
+01,08,Animal Friendship,1000,5000
+09,10,Anything,5000,55000
+11,20,Blinking,1000,5000
+21,22,Boccob,250,2500
+23,31,Chameleon Power,1000,5000
+32,40,Clumsiness,0,3000
+41,49,Farrie,1000,7500
+50,58,Jumping,1000,5000
+59,67,Mind Shielding,500,5000
+68,70,Ram (of the),750,7500
+71,79,Shocking Grasp,1000,5000
+80,92,Sustenance,500,3500
+93,100,Truth,1000,5000
+IIID,Rods & Staves
+01,06,Rod of Absorbtion (CM),7500,40000
+07,10,Rod of Alertness,7000,50000
+11,11,Rod of Beguiling (CMT),5000,30000
+12,21,Rod of Cancellation,10000,15000
+22,26,Rod of Flailing,2000,20000
+27,27,Rod of Lordly Might (F),6000,20000
+28,30,Rod of Passage,5000,50000
+31,31,Rod of Ressurection,10000,35000
+32,32,Rod of Rulership,8000,35000
+33,36,Rod of Security,3000,30000
+37,37,Rod of Smiting (CF),4000,15000
+38,40,Rod of Splendor,2500,25000
+41,41,Staff of Command (CM),5000,25000
+42,48,Staff of Curing (C),6000,25000
+49,55,Staff-Mace,1500,12500
+56,56,Staff of the Magi (M),15000,75000
+57,57,Staff of Power (M),12000,60000
+58,63,Staff of the Serpent (C),7000,35000
+64,70,Staff of Slinging (D),2000,10000
+71,76,Staff-Spear,1000,5000,*,3500,25000
+77,82,Staff of Striking (CM),6000,15000
+83,85,Staff of Swarming (CM),100,500,*
+86,86,Staff of Thunder & Lightning,8000,20000
+87,90,Staff of Whithering (C),8000,35000
+91,100,Staff of the Woodlands (D),8000,40000
+IIID2,Wands
+01,01,Anything Wand,2500,12500
+02,05,Buckler Wand (FMT),500,5000
+06,07,Conjuration (M),7000,35000
+08,10,Defoliation,1000,6000
+11,12,Earth & Stone,1000,10000,*,1500,15000
+13,16,Enemy Detection,2000,10000
+17,20,Fear (CM),3000,15000
+21,22,Fire (M),4500,25000
+23,26,Fireballs,2000,16000
+27,30,Flame Extinguishing,1250,10000
+31,31,Force (FM),3000,30000
+32,32,Frost (M),6000,50000
+33,35,Ice Storms,2500,20000
+36,39,Illumination,2000,10000
+40,43,Illusion (M),3000,20000
+44,45,Lightning (M),4000,30000
+46,49,Lightning Bolts,2000,16000
+50,53,Magic Detection,2500,25000
+54,61,Magic Missiles,4000,35000
+62,66,Metal & Mineral Detection,1500,7500
+67,68,Metal Command,2500,10000
+69,74,Negation,3500,15000
+75,78,Paralyzation (M),3500,25000
+79,82,Polymorphing (M),3500,25000
+83,86,Secret Door & Trap Location,5000,40000
+87,90,Size Alteration,3000,20000
+91,92,Steam & Vapor (CM),4500,25000
+93,100,Wonder,6000,10000
+IIIE1,Miscellaneous Magic
+01,02,Alchemy Jug,3000,12000
+03,04,Amulet of Inescapable Location,0,1000
+05,05,Amulet of Life Protection,5000,20000
+06,07,Amulet of the Planes,6000,30000
+08,11,Amulet of Proof Against Detection and Location,4000,15000
+12,13,Apparatus of Kwalish,8000,35000
+14,16,Arrow of Direction,2500,17500
+17,17,Artifact or Relic,10000,1000000
+18,20,Bag of Beans,1000,5000
+21,21,Bag of Devouring,0,1500
+22,26,Bag of Holding,5000,25000
+27,27,Bag of Transmuting,0,500
+28,29,Bag of Tricks,2500,15000
+30,31,Beaker of Plentiful Potions,1500,12500
+32,32,Boat (Folding),10000,25000
+33,33,Book of Exalted Deeds (C),8000,80000
+34,34,Book of Infinite Spells,9000,100000
+35,35,Book of Vile Darkness (C),8000,80000
+36,36,Boots of Dancing,0,5000
+37,42,Boots of Elvenkind,1000,5000
+43,47,Boots of Levitation,2000,15000
+48,51,Boots of Speed,2500,20000
+52,55,Boots of Striding and Springing,2500,20000
+56,58,Bowl Commanding Water Elementals (M),4000,25000
+59,59,Bowl of Watery Death (M),0,1000
+60,79,Bracers of Defense,500,3000,*
+80,81,Bracers of Defenselessness,0,2000
+82,84,Brazier Commanding Fire Elementals (M),4000,25000
+85,85,Brazier of Sleep Smoke (M),0,1000
+86,92,Brooch of Shielding,1000,10000
+93,93,Broom of Animated Attack,0,3000
+94,98,Broom of Flying,2000,10000
+99,100,Bucknard's Everfull Purse,1500,15000,*,4000,40000
+IIIE2,Miscellaneous Magic
+01,06,Candle of Invocation (C),1000,5000
+07,08,Carpet of Flying,7500,25000
+09,10,Censer Controlling Air Elementals (M),4000,25000
+11,11,Censer of Summoning Hostile Air Elementals (M),0,1000
+12,13,Chime of Opening,3500,20000
+14,14,Chime of Hunger,0,0
+15,18,Cloak of Displacement,3000,17500
+19,27,Cloak of Elvenkind,1000,6000
+28,30,Cloak of Manta Ray,2000,12500
+31,32,Cloak of Poisonousness,0,2500
+33,55,Cloak of Protection,1000,10000,*
+56,60,Crystal Ball (M),1000,5000,*
+61,61,Crystal Hypnosis ball (M),0,3000
+62,63,Cube of Force,3000,20000
+64,65,Cube of Frost Resistance,2000,14000
+66,67,Cubic Gate,5000,17500
+68,69,Daern 's Instant Fortress,7000,27500
+70,72,Decanter of Endless Water,1000,3000
+73,76,Deck of Many Things,0,10000
+77,77,Drums of Deafening,0,500
+78,79,Drums of Panic,6500,35000
+80,85,Dust of Appearance,1000,4000
+86,91,Dust of Disappearance,2000,8000
+92,92,Dust of Sneezing and Choking,0,1000
+93,93,Efreeti Bottle,9000,45000
+94,94,Eversmoking Bottle,500,2500
+95,95,Eyes of Charming (M),4000,24000
+96,97,Eyes of the Eagle,3500,18000
+98,99,Eyes of Minute Seeing,2000,12500
+100,100,Eyes of Petrification,12500,50000
+IIIE3,Miscellaneous Magic
+01,15,Figurine of Wondrous Power,100,1000,*
+16,16,Flask of Curses,0,1000
+17,18,Gauntlets of Dexterity,1000,10000
+19,20,Gauntlets of Fumbling,0,1000
+21,22,Gauntlets of Ogre Power (CFT),1000,10000
+23,25,Gauntlets of Swimming and Climbing (CFT),1000,10000
+26,26,Gem of Brightness,2000,17500
+27,27,Gem of Seeing,2000,25000
+28,28,Girdle of Femininity/Masculinity (CFT),0,1000
+29,29,Girdle of Giant Strength (CFT),2000,25000,*,4000,50000
+30,30,Helm of Brilliance,2500,60000
+31,35,Helm of Comprehending Languages & Reading Magic,1000,12500
+36,37,Helm of Opposite Alignment,0,1000
+38,39,Helm of Telepathy,3000,35000
+40,40,Helm of Teleportation,2500,30000
+41,45,Helm of Underwater Action,1000,10000
+46,46,Horn of Blasting,1000,55000
+47,48,Horn of Bubbles,0,0
+49,49,Horn of Collapsing,1500,25000
+50,53,Horn of the Tritons (CF),2000,17500
+54,60,Horn of Valhalla,1000,15000
+61,63,Horseshoes of Speed,2000,10000
+64,65,Horseshoes of a Zephyr,1500,7500
+66,70,Incense of Meditation (C),500,7500
+71,71,Incense of Obsession (C),0,500
+72,72,Ioun Stones,3000,15000,*
+73,78,Instrument of the Bards,1000,5000,*
+79,80,Iron Flask,1000,10000,*,2000,20000
+81,85,Javelin of Lightning (F),250,3000
+86,90,Javelin of Piercing (F),250,3000
+91,91,Jewel of Attacks,0,1000
+92,92,Jewel of Flawlessness,0,1000,*
+93,100,Keoghtom's Ointment,500,10000
+IIIE4,Miscellaneous Magic
+01,01,Libram of Gainful Conjuration (M),8000,80000
+02,02,Libram of Ineffable Damnation (M),8000,80000
+03,03,Libram of Silver Magic (M),8000,80000
+04,04,Lyre of Building,5000,30000
+05,05,Manual of Bodily Health,5000,100000
+06,06,Manual of Gainful Exercise,5000,100000
+07,07,Manual of Golems (CM),3000,30000
+08,08,Manual of Puissant Skill at Arms (F),8000,80000
+09,09,Manual of Quickness of Action,5000,100000
+10,10,Manual of Stealthy Pilfering (T),8000,80000
+11,11,Mattock of the Titans (F),3500,7000
+12,12,Maul of the Titans,4000,12000
+13,15,Medallion of ESP,1000,10000,*,3000,30000
+16,17,Medallion of Thought Projection,0,1000
+18,18,Mirror of Life Trapping (M),2500,25000
+19,19,Mirror of Mental Prowess,5000,50000
+20,20,Mirror of Opposition,0,2000
+21,23,Necklace of Adaptation,1000,10000
+24,27,Necklace of Missiles,50,200,*
+28,33,Necklace of Prayer Beads (C),500,3000,*
+34,35,Necklace of Strangulation,0,1000
+36,38,Net of Entrapment (CFT),1000,7500
+39,42,Net of Snaring (CFT),1000,6000
+43,44,Nolzur's Marvelous Pigments,500,3000,*
+45,46,Pearl of Power (M),200,2000,*
+47,48,Pearl of Wisdom (C),500,5000
+49,50,Periapt of Foul Rotting,0,1000
+51,53,Periapt of Health,1000,10000
+54,60,Periapt of Proof Against Poison,1500,25000
+61,64,Periapt of Wound Closure,1000,10000
+65,70,Phylactery of Faithfulness (C),1000,7500
+71,74,Phylactery of Long Years (C),3000,25000
+75,76,Phylactery of Monstrous Attention (C),0,2000
+77,84,Pipes of the Sewers,1750,8500
+85,85,Portable Hole,5000,50000
+86,100,Quaal's Feather Token,500,2000,*,2000,7000
+IIIE5,Miscellaneous Magic
+01,01,Robe of the Archmagi (M),6000,65000
+02,08,Robe of Blending,3500,35000
+09,09,Robe of Eyes (M),4500,50000
+10,10,Robe of Powerlessness (M),0,1000
+11,11,Robe of Scintillating Colors (CM),2750,25000
+12,19,Robe of Useful Items (M),1500,15000
+20,25,Rope of Climbing,1000,10000
+26,27,Rope of Constriction,0,1000
+28,31,Rope of Entanglement,1250,12000
+32,32,Rug of Smothering,0,1500
+33,33,Rug of Welcome (M),6500,45000
+34,34,Saw of Mighty Cutting (F),1750,12500
+35,35,Scarab of Death,0,2500
+36,38,Scarab of Enraging Enemies,1000,8000
+39,40,Scarab of Insanity,1500,11000
+41,46,Scarab of Protection,2500,25000
+47,47,Spade of Colossal Excavation (F),1000,6500
+48,48,Sphere of Annihilation (M),3750,30000
+49,50,Stone of Controlling Earth Elementals,1500,12500
+51,52,Stone of Good Luck (Luckstone),3000,25000
+53,54,Stone of Weight (Loadstone),0,1000
+55,57,Talisman of Pure Good (C),3500,27500
+58,58,Talisman of the Sphere (M),1000,10000
+59,60,Talisman of Ultimate Evil (C),3500,32500
+61,66,Talisman of Zagy,1000,10000
+67,67,Tome of Clear Thought,8000,96000
+68,68,Tome of Leadership and Influence,75000,80000
+69,69,Tome of Understanding,8000,87000
+70,76,Trident of Fish Command (CFT),500,4000
+77,78,Trident of Submission (F),1250,12500
+79,83,Trident of Warning (CFT),1000,10000
+84,85,Trident of Yearning,0,1000
+86,87,Vacuous Grimoire,0,1000
+88,90,Well of Many Worlds,6000,12000
+91,100,Wings of Flying,750,7500
+IIIE6,Miscellaneous Magic
+01,04,Amulet Versus Undead,200,1000,*
+05,05,Anything Item,4000,40000
+06,07,Beads of Force,200,1000,*
+08,14,Boccob’s Blessed Book (M),4500,35000
+15,16,Boots of the North,1500,7500
+17,19,Boots of Varied Tracks,1500,7500
+20,20,Winged Boots,2000,20000
+21,24,Bracers of Archery (F),1000,10000
+25,26,Bracers of Brachiation,1000,10000
+27,28,Chime of Interruption,2000,20000
+29,30,Cloak of Arachnida,3000,25000
+31,34,Cloak of the Bat,1500,15000
+35,36,Cyclocone (M),3000,15000
+37,40,Dart of the Hornets’ Nest,750,7500
+41,42,Deck of Illusions,1500,15000
+43,44,Dicerion of Light & Darkness (C),2500,25000
+45,47,Dust of Dryness,1000,8000
+48,50,Dust of Illusion,10,100,*
+51,54,Dust of Tracelessness,500,200,*
+55,56,Egg of Desire,0,10000,*
+57,60,Egg of Reason,250,2500
+61,62,Egg of Shattering,0,500
+63,65,Gem of Insight,3000,30000
+66,68,Girdle of Dwarvenkind,3500,20000
+69,76,Girdle of Many Pouches,1000,10000
+77,79,Gloves of Missile Snaring,1500,10000
+80,83,Gloves of Thievery,1000,5000
+84,88,Hat of Difference,1000,8000
+89,95,Hat of Disguise,1000,7500
+96,100,Hat of Stupidity,0,1000
+IIIE7,Miscellaneous Magic
+01,05,Heward’s Handy Haversack,3000,30000
+06,10,Horn of Fog,400,4000
+11,12,Horn of Goodness (Evil),750,3250
+13,14,Iron Bands of Bilarro,750,5000
+15,18,Lens of Detection,250,1500
+19,21,Lens of Ultravision,750,500
+22,23,Mantle of Celestian,1500,15000
+24,27,Murlynd’s Spoon,750,4000
+28,29,Pearl of the Sirines,900,4500
+30,31,Philosopher’s Stone,1000,10000
+32,37,Pouch of Accessibility,1250,12500
+38,38,Prison of Zagyg (M),2750,25000
+39,40,Quiver of Ehlonna,1500,10000
+41,42,Robe of Stars (M),4000,12000
+43,48,Robe of Vermin (M),0,1000
+49,50,Scarab Versus Golems,1000,10000,*
+51,54,Shadow Lanthorn,750,6000
+55,57,Sheet of Smallness,1250,12500
+58,59,Shoes of Fharlanghn,2000,20000
+60,64,Slippers of Kicking,750,6000
+65,70,Slippers of Spider Climbing,1000,10000
+71,72,Sovereign Glue,100,750,*
+73,77,Spoon of Stirring,500,5000
+78,81,Stone Horse,2000,12000
+82,84,Ultimate Solution,1000,7000
+85,88,Wind Fan,500,2500
+89,92,Zagyg’s Flowing Flagon,750,3500
+93,100,Zagyg’s Spell Component Case (M),100,1000,*
+IIIF,Armor and Shield                    
+01,05,Chain Mail +1,600,3500
+06,09,Chain Mail +2,1200,7500
+10,11,Chain Mail +3,2000,12500
+12,19,Leather Armor +1,300,2000
+20,26,Plate Mail +1,800,5000
+27,32,Plate Mail +2,1750,10500
+33,35,Plate Mail +3,2750,15500
+36,37,Plate Mail +4,3500,20500
+38,38,Plate Mail +5,4500,37500
+39,39,Plate Mail of Etherealness,5000,30000
+40,44,Plate Mail of Vulnerability,0,1500
+45,50,Ring Mail +1,400,2500
+51,55,Scale Mail +1,500,3000
+56,59,Scale Mail +2,1100,6750
+60,63,Splint Mail +1,700,4000
+64,66,Splint Mail +2,1500,8500
+67,68,Splint Mail +3,2250,14500
+69,69,Splint Mail +4,3000,19000
+70,75,Studded Leather +1,400,2500
+76,84,Shield +1,250,2500
+85,89,Shield +2,500,5000
+90,93,Shield +3,800,8000
+94,95,Shield +4,1200,17000
+96,96,Shield +5,1750,37500
+97,97,Shield large +1 (+4 vs. missiles),400,4000
+98,100,Shield - 1 (missile attractor),0,750
+IIIF2,Armor and Shield
+01,01,Anything Armor,4500,45000
+02,07,Bronze Plate Mail +1,500,3000
+08,11,Bronze Plate Mail +2,1000,7500
+12,17,Buckler +1,150,1500
+18,21,Buckler +2,350,3500
+22,23,Buckler +3,1000,10000
+24,25,Chain Mail +4,4000,30000
+26,31,Elfin Chain Mail +1,1200,7500
+32,35,Elfin Chain Mail +2,2000,12500
+36,38,Elfin Chain Mail +3,3000,20000
+39,40,Elfin Chain Mail +4,5000,30000
+41,41,Elfin Chain Mail +5,7500,50000
+42,50,Leather Armor +2,1000,7500
+51,55,Leather Armor +3,1750,12500
+56,62,Plate Armor; Field +1,1500,15000
+63,68,Plate Armor; Field +2,3000,30000
+69,71,Plate Armor; Field +3,5000,50000
+72,73,Plate Armor; Field +4,8000,80000
+74,74,Plate Armor; Field +5,12000,120000
+75,80,Plate Armor; Full +1,3000,30000
+81,84,Plate Armor; Full +2,5000,50000
+85,87,Plate Armor; Full +3,8000,80000
+88,89,Plate Armor; Full +4,12000,120000
+90,93,Ring Mail +2,1250,6000
+94,95,Scale Mail +3,2500,12500
+96,100,Studded Leather +2,1250,6500
+IIIG,Swords
+01,25,Sword +1,400,2000,*
+26,30,Sword +1/+2 vs. magic-using & enchanted creatures,600,3000,*
+31,35,Sword +1/+3 vs. lycanthropes & shape-changers,700,3500,*
+36,40,Sword +1/+3 vs. regenerating creatures,800,4000,*
+41,45,Sword +1/+4 vs. reptiles,800,4000,*
+46,49,Sword +1/+2/+3/+4 Flame Tongue,900,4500,*
+50,50,Sword +1 Luck Blade,1000,5000,*
+51,58,Sword +2,800,4000,*
+59,62,Sword +2 Giant Slayer,900,9000,*
+63,66,Sword +2 Dragon Slayer,900,9000,*
+67,70,Short Sword of Quickness (+2),1000,8000
+71,76,Sword +3,1400,7000,*
+77,79,Sword +3 Frost Brand: +6 vs. fire using/dwelling,1600,12000,*
+80,81,Sword of the Planes,2000,15000,*
+82,84,Sword +4,2000,30000,*
+85,86,Sword +4 Defender,3000,45000,*
+87,88,Sword +5,3000,45000,*
+89,94,Sword +1 Cursed,400,0,*
+95,98,Sword -2 Cursed,600,0,*
+99,100,Sword Cursed Berserking,900,0,*
+IIIG2,Swords
+01,15,Sun Blade,3000,20000,*
+16,16,Sword Anything,5000,35000,*
+17,32,Sword Broad "Final Word" Type,10000,50000
+33,45,Sword of Dancing,4400,22000,*
+46,61,Sword +5 Defender,3600,65000,*
+62,69,Sword +6 Defender,5000,90000,*
+70,84,Sword +5 Holy Avenger,4000,75000,*
+85,91,Sword +6 Holy Avenger,7000,100000,*
+92,93,Sword of Life Stealing,5000,25000,*
+94,95,Sword +2 Nine Lives Stealer,1600,8000,*
+96,97,Sword of Sharpness,7000,35000,*
+98,98,Sword Vorpal Weapon,10000,50000,*
+99,100,Sword of Wounding,4400,22000,*
+IIIH,Miscellaneous Weapons
+01,08,Arrow +1,2,10,*
+09,12,Arrow +2,5,30,*
+13,14,Arrow +3,15,75,*
+15,15,Arrow of Slaying,250,2500
+16,20,Axe +1,300,1750
+21,22,Axe +2,600,3750
+23,23,Axe +2 Throwing,750,4500
+24,24,Axe +3,1000,7000
+25,27,Battle Axe +1,400,2500
+28,32,Bolt +2,5,30,*
+33,35,Bow +1,500,3500
+36,36,Crossbow of Accuracy +3,2000,12000
+37,37,Crossbow of Distance,1500,7500
+38,38,Crossbow of Speed,1500,7500
+39,46,Dagger +1/+2 vs. creatures smaller than man-sized,100,750
+47,50,Dagger +2/+3 vs. creatures larger than man-sized,250,2000
+51,51,Dagger of Venom,350,3000
+52,56,Flail +1,450,4000
+57,60,Hammer +1,300,2500
+61,62,Hammer +2,650,6000
+63,63,Hammer +3 Dwarven Thrower,1500,15000
+64,64,Hammer of Thunderbolts,2500,25000
+65,67,Javelin +2,750,5000
+68,72,Mace +1,350,3000
+73,75,Mace +2,700,4500
+76,76,Mace of Disruption,1750,17500
+77,77,Mace +4,1500,15000
+78,80,Military Pick +1,350,2500
+81,83,Morning Star +1,400,3000
+84,88,Scimitar +2,750,6000
+89,89,Sling of Seeking +2,700,7000
+90,94,Spear +1,500,3000
+95,96,Spear +2,1000,6500
+97,97,Spear +3,1750,15000
+98,99,Spear Cursed Backbiter,0,1000
+100,100,Trident (Military Fork) +3,1500,12500
+IIIH2,Miscellaneous Weapons
+01,02,Arrow +4,15,200,*
+03,03,Axe +4,1500,12000
+04,04,Axe of Hurling,1000,10000,*
+05,10,Battle Axe +2,800,5000
+11,13,BattleAxe +3,1200,9000
+14,20,Bolt +1,2,10,*
+21,22,Bolt +3,15,75,*
+23,27,+1 Sling Bullet,2,10,*
+28,31,+2 Sling Bullet,5,30,*
+32,34,+3 Sling Bullet,15,75,*
+35,35,Sling Bullet of Impact,100,750,*
+36,40,Dagger +1,75,500
+41,43,Dagger +2,200,1500
+44,44,Dagger +2 Longtooth,250,2500
+45,46,Dagger +3,350,2500
+47,47,Dagger of Throwing,1000,10000,*
+48,51,Dart +1,5,40,*
+52,54,Dart +2,15,150,*
+55,56,Dart +3,75,750,*
+57,57,Dart of Homing,450,4500
+58,61,Flail +2,1000,9000
+62,62,Hammer +4,1500,10000
+63,63,Hornblade,1000,10000,*
+64,68,Javelin +1,300,2000
+69,70,Javelin +3,1250,7500
+71,75,Knife +1,50,350
+76,78,Knife +2,125,1000
+79,79,Knife Buckle,1000,10000,*
+80,81,Lance +1,600,3500
+82,82,Mace +3,1000,10000
+83,83,Mace +5,3000,40000
+84,86,Morning Star +2,900,7000
+87,87,PoleArm +1,500,3000
+88,89,Quarterstaff Magic,1000,10000,*
+90,92,Scimitar +1,300,2000
+93,94,Scimitar +3,1250,10000
+95,95,Scimitar of Speed,1000,10000,*
+96,96,Scimitar +4,2000,20000
+97,99,Spear +4,2500,25000
+100,100,Spear +5,3000,30000

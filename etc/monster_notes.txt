@@ -1,0 +1,23 @@
+Monster Database:
+
+Name			string
+Freq
+NAPP			Range (x-y)
+AC			string
+MV			string
+HD			Range (x-y)+z or xxx HP or x/y/z   or xx+  (lich)
+Lair                       	0-100 
+TT         		None or string ABD-F  (F in Lair), or special (gelatinous cube) (cavemen)
+NATT                   	string
+DA			string
+SA			
+SD
+MR 			number or special (ghost)
+Int
+Ali
+Size       		range (x-y) corresponds to HD x-y
+
+
+
+
+

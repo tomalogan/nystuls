@@ -1,0 +1,14 @@
+14,+1 Sling Bullet
+21,+2 Sling Bullet
+28,Dart +1,
+35,+3 Sling Bullet
+42,Dart +2
+49,Dart +3
+56,Sling Bullet of Impact1,1,4
+63,Dagger of Throwing +1
+70,Dagger of Throwing +2
+77,Dart of Homing
+84,Dagger of Throwing +3
+91,Dagger of Throwing +4
+96,Sling of Seeking +2
+100,Dart of the Hornet's Nest

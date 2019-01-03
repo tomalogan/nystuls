@@ -1,0 +1,6 @@
+50,Dagger +1
+58,Dagger +1/+2 vs. creatures smaller than man-sized
+68,Dagger +2
+75,Dagger +2/+3 vs. creatures larger than man-sized
+85,Dagger +3
+95,Dagger of Venom

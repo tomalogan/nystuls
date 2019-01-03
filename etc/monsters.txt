@@ -1,0 +1,418 @@
+Monster Manual
+Aerial Servant,V,1,3,24”,16,0,None,1,8-32,Suprise on 1-4,Can be hit only by magic weapons,0,Semi,N,L,8
+Ankheg,R,1-6,2/4,12”(6”),3-8,15,C,1,3-18+1-4,Squirt Acid,None,0,Non,N,L,5
+Ant,R,1-100,3,18”,2,10,QQQS,1,1-6,Warriors have point sting,None,0,Animal,N,S,3
+Ape,V,1-4,6,12”,4+1,0,None,3,1-3/1-3/1-6,Rending,None,0,Low,N,M,4
+Ape (Carnivorous),R,2-8,6,12”,5,10,C,3,1-4/1-4/1-8,Rending,None,0,Low,N,L,4
+Axe Beak,U,1-6,6,18”,3,0,None,3,1-3/1-3/2-8,None,None,0,Animal,N,L,2
+Baboon,C,10-40,7,12”,1+1,0,None,1,1-4,None,Climbing,0,Low,N,S,1
+Badger,U,2-5,4,6”(3”),1+2,0,None,3,1-2/1-2/1-3,None,None,0,Semi,N,S,1
+Baluchitherium,R,1-3,5,12”,14,0,None,2,5-20,None,None,0,Semi,N,L,8
+Barracuda,U,2-12,6,//30”,1-3,0,None,1,2-8,None,None,0,Non,N,S-L,1
+Basilisk,U,1-4,4,6”,6+1,40,F,1,1-10,Gaze turns to stone,None,0,Animal,N,M,6
+Bear (Black),C,1-3,7,12”,3+3,0,None,3,1-3/1-3/1-6,Hugs: 2-8,None,0,Semi,N,M,3
+Bear (Brown),U,1-6,6,12”,5+5,0,0,3,1-6/1-6/1-8,Hugs: 2-12,None,0,Semi,N,L,5
+Bear (Cave),U,1-2,6,12”,6+6,0,None,3,1-8/1-8/1-12,Hugs: 2-16,None,0,Semi,N,L,5
+Beaver (Giant),V,10-40,6,6”//12”,4,80,C,1,4-16,None,None,0,Low to Average,N,M,3
+Beetle (Bombardier),C,3-12,4,9”,2+2,0,None,1,2-12,Acid Cloud,Firing Cloud,0,Non,N,M,3
+Beetle (Boring),C,3-18,3,6”,5,40,CRST,1,5-20,None,None,0,Animal,N,L,3
+Beetle (Fire),C,3-12,4,12”,1+2,0,None,1,2-8,None,None,0,Non,N,S,1
+Beetle (Rhinoceros),U,1-6,2,6”,12,0,None,2,3-18/2-16,None,None,0,Non,N,L,7
+Beetle (Stag),C,2-12,3,6”,7,0,None,3,4-16/1-10/1-10,None,None,0,None,N,L,5
+Beetle (Water),C,1-12,3,3”//12”,4,0,None,1,3-18,None,None,0,Non,N,L,3
+Beholder,V,1,0/2/7,3”,10,80,IST,1,2-8,Magic,Anti-magic ray,Special,Exceptional,LE,L,10
+Black Pudding,U,1-4,6,6”,10,0,None,1,3-24,Dissolve wood and metal,blows/cold/lightning do not harm,0,Non,N,S-L,7 
+Blink Dog,R,4-16,5,12”,4,20,C,1,1-6,From rear 75% of the time,Teleporting,0,Average,LG,M,4
+Boar (Giant),U,2-8,6,12”,7,0,None,1,3-18,None,None,0,Animial,N,L,3
+Boar (Warthog),C,1-6,7,12”,3,0,None,2,2-8/2-8,None,None,0,Animal,N,M,2
+Brownie,R,4-16,3,12”,0.5,20,OPQ,1,1-3,Spells,Save as 9th level Cleric,0,High,LG,S,3
+Buffalo,U,2-24,7,15”,5,0,None,2,1-8/1-8,Charge,Head is AC 3,0,Semi,N,L,5
+Bugbear,U,6-36,5,9”,3+1,25,JKLM-B,1,2-8,Surprise in 1-3,None,0,Low to Average,CE,L,3
+Bulette,V,1-2,-2/4/6,14”(3”),9,0,None,3,4-48/3-18/3-18,8’ Jump,None,0,Animal,N,L,7
+Bull,C,1-20,7,15”,4,0,None,2,1-6/1-6,Charge,None,0,Semi,N,L,3
+Camel,C,1-12,7,21",3,0,None,1,1-4,Spitting,None,0,Animal,N,L,2
+Carrion Crawler,U,1-6,3/7,12",3+1,50,B,8,Praalysis,None,None,0,Non,N,L,6
+Catoblepas,V,1-3,7,6",6+2,60,C,1,1-6+Stun,Gaze causes death,None,0,Semi,N,L,6
+Cattle,C,20-200,7,15",1-4,0,None,1,1-4,Stampede,None,0,Smei,N,L,2
+Centaur,R,4-24,5(4),18",4,5,MQ-DIT,2,1-6/1-6,Human weapon,None,0,Low-Average,N-CG,L,3
+Centipede (Giant),C,2-24,9,15",0.25,0,None,1,0,Poison,None,0,Non,N,S,2
+Chimera,R,1-4,6/5/2,9"/18",9,40,F,6,1-3/1-3/1-4/1-4/2-8/3-12,Breath weapon,None,0,Semi,CE,L,6
+Cockatrice,U,1-6,6,6"/18",5,30,D,1,1-3,Touch turns to stone,None,0,Animal,N,S,5
+Couatl,V,1-5,5,6"/18",9,10,BI,2,1-3/2-8,Poison/Magic Use,Become ethereal,0,Genius,LG,M,8
+Crab (Giant),R,2-12,3,9",3,0,None,2,2-8/2-8,None,None,0,Non,N,L,2
+Crayfish (Giant),U,1-4,4,6"//12",4+4,0,None,2,2-12/2-12,None,None,0,Non,N,L,3
+Crocodile,C,3-24,5,6"//12",3,0,None,2,2-8/1-12,None,None,0,Animal,N,L,3
+Crocodile (Giant),U,2-12,4,6"//12",7,0,None,2,3-18/2-20,None,None,0,Animal,N,L,5
+Demon Demogorgon,V,1,-8,15",200 HP,50,RTSV,3,Special,Many,+2 or better weapon to hit,95,Supra-Genius,CE,L,10
+Demon Juiblex,V,1,-7,3",88 HP,60,PPRR,1,4-40,Many,+2 or better weapon to hit,65,Genius,CE,L,10
+Demon Manes,R,4-16,7,3",1,0,None,3,1-2/1-2/1-4,None,+1 or better weapon to hit,0,Semi,CE,S,1
+Demon Orcus,V,1,-6,9"/18",120 HP,50,PSTU,2,Special,Many,+3 or better weapon to hit,85,Supra-Genius,CE,L,10
+Demon Type I,C,1-6,0,12"/18",8,5,B,5,1-4/1-4/1-8/1-8/1-6,Many,Many,50,Low,CE,L,7
+Demon Type II,C,1-6,-2,6"//12",9,10,C,3,1-3/1-3/4-16,Many,Many,55,Low,CE,L,7
+Demon Type III,U,1-6,-4,9",10,15,D,5,2-12/2-12/1-3/1-3/2-5,Many,Many,60,Average,CE,L,7
+Demon Type IV,U,1-6,-1,9"/12",11,15,E,3,1-4/1-4/2-8,+2 to hit/many,+1 or better weapons to hit,65,Very,CE,L,7
+Demon Type V,R,1-6,-1/-5,12",7+7,10,G,7,2-8 and 6 varying,Many,+1 or better weapons to hit,80,High,CE,L,7
+Demon Type VI,R,1-6,-2,6"/15",8+8,20,F,1,2-13,Whips and Flame,+1 or better weapons to hit,75,High,CE,L,8
+Demon Yeenoghu,V,1,-5,18",100 HP,35,CGI,1 (special),3-18 (+special),Many,+1 or better weapon to hit,80,Exceptional,CE,L,10
+Devil Asmodeus,V,1,-7,12"/24",199 HP,90,IRUV,1,4-14,Many,+3 or better weapon to hit,90,Supra-genius,LE,L,10
+Devil Baalzebul,V,1,-5,9"/24",166 HP,80,ERV,1 bit,2-12+poison,Many,+3 or better weapon to hit,85,Genius,LE,L,10
+Devil Barbed,U,3-12,0,12",8,50,None,3,2-8/2-8/3-12,Many,Many,35,Very,LE,M,7
+Devil Bone,U,2-8,-1,15",9,55,None,1,3-12,Many,Many,40,Very,LE,L,7
+Devil Dispater,V,1,-2,15",144 HP,80,QQQQQQQQQQS,Many,Many,Many,+2 or better weapons to hit,80,Genius,LE,M,10
+Devil Erinyes,U,4-16,2,6"/21",6+6,20,R,1,2-8,Many,Many,30,Average,LE,M,6
+Devil Geryon,V,1,-3,3"/18",133 HP,70,HR,3,3-18/3-18/2-8,Many,+2 or better weapon to hit,75,Exceptional,LE,L,10
+Devil Horned,U,2-5,-5,9"/18",5+5,55,I,4 or 1+weapon,1-4/1-4/2-5/1-3 or 1-3+weapon,Many,+1 or better weapon to hit,50,High,LE,L,7
+Devil Ice,U,1-4,-4,6",11,60,QR,4,1-4/1-4/2-8/3-12,Many,+2 or better weapon to hit,55,High,LE,L,8
+Devil Lemure,C,5-30,7,3",3,100,None,1,1-3,None,Special,0,Semi,LE,M,3
+Devil Pit Fiend,R,1-3,-3,6"/15",13,65,JR,2,5-8/7-12,Many,+2 or better weapons to hit,65,Exceptional,LE,L,9
+Dinosaur Anatosaurus,C,2-12,5,12",12,0,None,1,1-4,None,None,0,Non,N,L,7
+Dinosaur Anklyosaurus,U,2-5,0,6",9,0,None,1,3-18,None,None,0,Non,N,L,6
+Dinosaur Antrodemus,U,1-2,5,15",15,0,None,3,1-4/1-4/6-24,None,None,0,Non,N,L,7
+Dinosaur Apatosaurus,C,1-6,5,6",30,0,None,1,3-18,None,None,0,Non,N,L,8
+Dinosaur Archelon Ischyros,U,1-4,3,3//15",7,0,None,1,3-12,None,None,0,Non,N,L,4
+Dinosaur Brachiosaurus,U,1-6,5,6",36,0,None,1,5-20,None,None,0,Non,N,L,8
+Dinosaur Camarasaurus,C,2-8,6,6",20,0,None,1,3-12,None,None,0,Non,N,L,8
+Dinosaur Ceratosaurus,U,1-4,5,15",8,0,None,3,1-6/1-6/4-16,None,None,0,Non,N,L,6
+Dinosaur Cetiosaurus,U,1-4,6,6",24,0,None,1,3-18,None,None,0,Non,N,L,8
+Dinosaur Dinichthys,C,1-4,7,//21",10,0,None,1,5-20,Swallow,None,0,Non,N,L,7
+Dinosaur Diplodocus,C,1-6,6,6",24,0,None,1,3-18,None,None,0,Non,N,L,8
+Dinosaur Elasmosaurus,U,1-2,7,15",15,0,None,1,4-24,None,None,0,Non,N,L,7
+Dinosaur Gorgosaurus,U,1-2,5,15",13,0,None,3,1-3/1-3/7-28,None,None,0,Non,N,L,7
+Dinosaur Iguanadon,U,3-18,4,15",6,0,None,3,1-3/1-3/2-8,None,None,0,Non,N,L,3
+Dinosaur Lambeosaurus,C,2-16,6,12",12,0,None,1,2-12,None,None,0,Non,N,L,7
+Dinosaur Megalosaurus,U,1-2,5,12",12,0,None,1,3-18,None,None,0,Non,N,L,7
+Dinosaur Monoclonius,C,2-12,3/4,6",8,0,None,1,2-16,None,None,0,Non,N,L,6
+Dinosaur Mosasaurus,U,1-3,7,3"//15",12,0,None,1,4-32,None,None,0,Non,N,L,7
+Dinosaur Paleoscincus,U,1-4,-3,3",9,0,None,1,2-12,None,Spikes,0,Non,N,L,7
+Dinosaur Pentaceratops,U,2-12,2/6,9",12,0,None,3,1-6/1-10/1-10,None,Trample,0,Non,N,L,7
+Dinosaur Plateosaurus,C,5-20,5,12",8,0,None,0,0,None,None,0,Non,N,L,5
+Dinosaur Plesiosaurus,C,1-3,5,6"//12",20,0,None,1,5-20,Flippers,None,0,Non,N,L,8
+Dinosaur Pteranodon,C,3-18,7,3"/15",3+3,0,None,1,2-8,None,None,0,Non,N,L,3
+Dinosaur Stegosaurus,C,2-8,2/5,6",18,0,None,1,5-20,None,None,0,Non,N,L,7
+Dinosaur Styracosaurus,C,2-8,2/4,6",10,0,None,1,2-16,None,None,0,Non,N,L,7
+Dinosaur Teratosaurus,U,1-3,5,18",10,0,None,3,1-3/1-3/3-18,None,None,0,Non,N,L,6
+Dinosaur Triceratops,C,2-8,2/6,9",16,0,None,3,1-8/1-12/1-12,None,None,0,Non,N,L,8
+Dinosaur Tyrannosaurus Rex,U,1-2,5,15",18,0,None,3,1-6/1-6/5-40,None,None,0,Non,N,L,9
+Displacer Beast,V,2-5,4,15",6,25,D,2,2-8/2-8,None,-2on opponent's attack dice; displaced,Save as 12th level fighter +2 on die, Semi,N,L,5
+Djinni,V,1,4,9"/24",7+3,0,None,1,2-16,Many,None,0,Average-high,CG,L,6
+Dog (War),U,2-8,6,12",2+2,0,None,1,2-8,NOne,None,0,Semi,N,M,2
+Dog (Wild),C,4-16,7,15",1+1,0,None,1,1-4,None,None,0,Semi,N,S,1
+Dolphin,U,2-20,5,30",2+2,0,None,1,2-8,None,Save as 4th level fighter,0,Very,LG,M,3
+Doppleganger,V,3-12,5,9",4,20,E,1,1-12,Surprise on 1-4,Shape change,Special,Very,N,M,5
+Dragon Black,U,1-4,3,12"/24",6-8,30,H,3,1-4/1-4/3-18,Breath weapon + possible magic use,None,0,Average,CE,L,6
+Dragon Blue,R,1-4,2,9"/24",8-10,50,HS,3,1-6/1-6/3-24,Breath weapon + possible magic use,None,0,Very,LE,L,7
+Dragon Brass,U,1-4,2,12"/24",6-8,25,H,3,1-4/1-4/4-16,Breath weapon + possible magic use,None,0,High,CG,L,6
+Dragon Bronze,R,1-4,0,9"/24",8-10,45,HST,3,1-6/1-6/4-24,Breath weapon + possible magic use,None,0,Exceptional,LG,L,7
+Dragon Chromatic,V,1,0,6"/18",16,90,HSTUHSTOHSTU,6,2-16/3-18/2-20/3-24/3-30/1-6,Breath weapon/poison/magic use,None,0,Genius,LE,L,10
+Dragon Copper,U,1-4,1,9"/24",7-9,35,HS,3,1-4/1-4/5-20,Breath weapon + possible magic use,None,0,High,CG,L,7
+Dragon Gold,V,1-3,3,12"/30",10-12,65,HRST,3,1-8/1-8/6-36,Breath weapon and magic use,None,0,Genius,LG,L,8
+Dragon Green,R,1-4,2,9"/24",7-9,40,H,3,1-6/1-6/2-20,Breath weapon + possible magic use,None,0,Average to very,LE,L,7
+Dragon Platinum,V,1,-3,9"/30",21,75,HIRSTVHIRSTVHIRSTV,3,2-12/2-12/6-48,Breath weapon + magic use,None,0,Supra-genius,LG,L,10
+Dragon Red,R,1-4,-1,9"/24",9-11,60,HST,3,1-8/1-8/3-30,Breath weapon + possible magic use,None,0,Exceptional,CE,L,8
+Dragon Silver,V,1-4,-1,9"/24",9-11,55,HT,3,1-6/1-6/5-30,Breath weapon + possible magic use,None,0,Expectional,LG,L,8
+Dragon White,U,1-4,3,12"/30",5-7,20,EOS,3,1-4/1-4/2-16,Breath weapon + possible magic use,None,0,Average(low),CE,L,6
+Dragonne,V,1,6/2,15"/9",9,40,BST,3,1-8/1-8/3-18,Roar,None,0,Low,N,L,7
+Dragon Turtle,V,1,0,3"//9",12-14,5,BRSTV,3,2-12/2-12/4-32,Capsize boats,None,0,Very,N,L,9
+Dryad,V,1-6,9,12",2,70,Mx100Qx10,1,1-4,Charm,Special,50,High,N,M,3
+Dwarf,C,40-400,4,6",1,50,Mx5-GQx20R,1,1-8,Special,Save at 4 levels higher,0,Very,LG,S,2
+Eagle (Giant),R,1-20,7,3"/48",4,20,QC,3,1-6/1-6/2-12,Special,Special,0,Average,N,L,3
+Ear Seekers,V,1-4,9,1",1 HP,90,None,1,Special,None,None,0,Non,N,S,1
+Eel (Electric),R,1-3,9,12",2,0,None,1,1-3,Jolt,None,0,Non,N,M,3
+Eel (Giant),U,1-4,6,9",5,0,None,1,3-18,None,None,0,,Non,S,2
+Eel (Weed),V,10-60,8,15",1=1,100,OPR,1,1,Poison,None,0,Non,N,S,3
+Efreeti,V,1,2,9"/24",10,0,None,1,3-24,Special,None,0,Very,N (tends toward LE),L,7
+Elemental (Air),V,1,2,36",8/12/16,0,None,1,2-20,Special,+2 or better weapon to hit,0,Low,N,L,7
+Elemental (Earth),V,1,2,6",8/12/16,0,None,1,4-32,Special,+2 or better weapon to hit,0,Low,N,L,7
+Elemental (Fire),V,1,2,12",8/12/16,0,None,1,3-24,Special,+2 or better weapon to hit,0,Low,N,L,7
+Elemental (Water),V,1,2,6"//18",8/12/16,0,None,1,5-30,Special,+2 or better weapon to hit,0,Low,N,L,7
+Elephant (Asiatic),C,1-20,6,12",10,0,None,5,(2-12)x5,None,None,0,Semi,N,L,7
+Elephant (Loxodont),C,1-12,6,15",11,0,None,5,(2-16)x5,None,None,0,Semi,N,L,7
+Elf,U,20-2000,5,12",1+1,70,N-GST,1,1-10 or by weapon type,+1 with noraml bow or sword,Special,90% charm or sleep,High and up,CG,M,2
+Ettin,V,1-4,3,12",10,20,O-CY,2,2-16/3-18,None,Surprised only on 1,0,Low,CE,L,7
+Eye of the Deep,V,1,5,//6",10-12,20,R,3,2-8/2-8/1-6,Special,None,0,Very,LE,L,8
+Flightless Bird,C,2-20,7,18",1-3,0,None,1,1-4 or 2-8,None,None,0,Animal,N,M,2
+Frog (Giant),U,5-40,7,3"//9",1-3,0,None,1,1-3/1-6/2-8,Special,None,0,Non,N,S to M,2
+Frog (Killer),V,3-18,8,6"//12",1+4,0,None,3,1-2/1-2/2-5,Special,None,0,Non,N,S,2
+Frog (Poisonous),R,2-12,8,3"//9",1,0,None,1,1,Special,None,0,Semi,N,S,2
+Fungi (Violet),R,1-4,7,1",3,0,None,1-4,Special,Special,None,0,Non,N,S,3
+Gar (Giant),R,1-6,3,//30",8,0,None,1,5-20,None,None,0,Non,N,L,6
+Gargoyle,U,2-16,5,9"/15",4+4,20,Mx10-C,4,1-3/1-3/1-6/1-4,None,+1 or better weapon to hit,0,Low,CE,M,4
+Gargoyle (Kopoacinth),U,2-16,5,9"//15",4+4,20,Mx10-C,4,1-3/1-3/1-6/1-4,None,+1 or better weapon to hit,0,Low,CE,M,4
+Gas Spore,R,1-3,9,3",1 HP,0,None,1,Special,Special,Special,0,Non,N,L,2
+Gelatinous Cube,U,1,8,6",4,0,special,1,2-8,Paralyzation/Surprise on 1-3,Special,0,Non,N,L,3
+Ghast,R,1-6,4,15",4,10,BQRST,3,1-4/1-4/1-8,Paralyzation,Nausea,0,Very,CE,M,4
+Ghost,V,1,0 (or 8),9",10,25,ES,1,Age 10-40 years,Special,Special,Special,High,LE,M,8
+Ghoul,U,2-24,6,9",2,20,BT,3,1-3/1-3/1-6,Paralyzation,Immune to sleep/charm,0,Low,CE,M,3
+Cloud Giant,R,1-6,2,15",12+2-7,40,EQx5,1,6-36,Hurling rocks for 2-24,Suprised only on 1,0,Average to very,N(good 50%;evil 50%),L,8
+Fire Giant,U,1-8,3,12",11+2-5,35,E,1,5-30,Hurling rocks for 2-20,Impervious to fire,0,Average to low,LE,L,7
+Frost Giant,R,1-8,4,12",10+1-4,30,E,1,4-24,Hurling rocks for 2-20,Impervious to cold,0,Average to low,CE,L,7
+Hill Giant,C,1-10,4,12",8+1-2,25,D,1,2-16,Hurling rocks for 2-16,Catch hurled rocks,0,Low,CE,L,7
+Stone Giant,U,1-8,0,12",9+1-3,30,D,1,3-18,Hurling rocks for 3-30,Catch hurled rocks,0,Average,N,L,7
+Storm Giant,R,1-4,1,15",15+2-7,55,EQx10S,1,7-42,Hurl lightning 8-64/Spell use,Impervious to Electricty,0,Exceptional,CG,L,9
+Gnoll,U,20-200,5,9",2,20,LM-DQx5S,1,2-8 or by weapon,None,None,0,Low-average,CE,L,2
+Gnome,R,40-400,5,6",1,50,MMM-CQx20,1,1-6 or by weapon,None,Save at 4 levels higher,0,Very,N to LG,S,1
+Goat (Giant),R,1-12,7,18",3+1,0,None,1,2-16,Charge,None,0,Semi,N,L,3
+Goblin,U,40-400,6,6",1=1,40,K-C,1,1-6 or by weapon,None,None,0,Average(low),LE,S,1
+Clay Golem,V,1,7,7",50 HP,0,None,1,3-30,Special,Special,Special,Non,N,L,8
+Flesh Golem,V,1,9,8",40 HP,0,None,2,2-16/2-16,Special,Special,Semi,,N,L,7
+Iron Golem,V,1,3,6",80 HP,0,None,1,4-40,Poisonous gas cloud,Special,Special,Non,N,L,10
+Stone Golem,V,1,5,6",60 HP,0,None,1,3-24,Special,Special,Special,Non,N,L,9
+Gorgon,R,1-4,2,12",8,40,E,1,2-12,Petrification,None,0,Animal,N,L,7
+Gray Ooze,R,1-3,8,1",3+3,0,None,1,2-16,Special,Special,Special,Animal,N,M to L,4
+Green Slime,R,1-6,9,0",2,0,None,0,0,Special,Special,Special,Non,N,S,6
+Griffon,U,2-12,3,12"/30",7,25,CS,3,1-4/1-4/2-16,None,None,0,Semi,N,L,5
+Groaning Spirit,V,1,0,15",7,70,D,1,1-8,Special,+1 or better weapon to hit,50,Exceptional,CE,M,7
+Halfling,R,30-300,7,9",1=2,70,K-B,1,1-6 or by weapon,+3 with bow or sling,save at 4 levels higher,0,Very,LG,S,1
+Harpy,R,2-12,7,6"/15",3,25,C,3,1-3/1-3/1-6,Singing and charm,None,0,Low,CE,M,3
+Hell Hound,V,2-8,4,12",4-7,30,C,1,1-10,Breathe fire,Special,0,Low,LE,M,4
+Herd Animal,C,20-200,7,15" to 24",1-5,0,None,Variable,Variable,Stampede,None,0,Animal,N,S/M/L,1
+Hippocampus,R,2-8,5,//24",4,0,None,1,1-4,None,None,0,Average,CG,L,3
+Hippogriff,R,2-16,5,18"/36",3+3,10,Qx5,3,1-6/1-6/1-10,None,None,0,Semi,N,L,3
+Hippopotamus,U,2-12,6,9"//12",8,0,None,1,2-12 or 3-18,Trip watercraft,None,0,Animal,N,L,5
+Hobgoblin,U,20-200,5,9",1+1,25,JM-DQx5,1,1-8 or by weapon,None,None,0,Average,LE,M,1
+Homonculous,V,1,6,6"/18",2,0,None,1,1-3,Bite causes sleep,Special,Special,Special,Special,S,3
+Horse Draft,C,1,7,24",3,0,None,1,1-3,None,None,0,Animal,N,L,2
+Horse Heavy,U,1,7,15",3+3,0,None,3,1-8/1-8/1-3,None,None,0,Animal,N,L,2
+Horse Light,U,1,7,24",2,0,None,2,1-4/1-4,None,None,0,Animal,N,L,2
+Horse Medium,U,1,7,18",2+2,0,None,3,1-6/1-6/1-3,None,None,0,Animal,N,L,2
+Horse Pony,U,1,7,12",1+1,0,None,1,1-2,None,None,0,Animal,N,L,2
+Horse Wild,U,5-30,7,24",2,0,None,1,1-3,None,None,0,Animal,N,L,2
+5-headed hydra,U,1,5,9",5,20,B,5,1-6,None,None,0,Semi,N,L,4
+6-headed hydra,U,1,5,9",5,20,B,6,1-6,None,None,0,Semi,N,L,4
+7-headed hydra,U,1,5,9",5,20,B,7,1-8,None,None,0,Semi,N,L,5
+8-headed hydra,U,1,5,9",5,20,B,8,1-8,None,None,0,Semi,N,L,6
+9-headed hydra,U,1,5,9",5,20,B,9,1-8,None,None,0,Semi,N,L,6
+10-headed hydra,U,1,5,9",5,20,B,10,1-8,None,None,0,Semi,N,L,7
+11-headed hydra,U,1,5,9",5,20,B,11,1-10,None,None,0,Semi,N,L,7
+12-headed hydra,U,1,5,9",5,20,B,12,1-10,None,None,0,Semi,N,L,7
+13-headed hydra,U,1,5,9",5,20,B,13,1-10,None,None,0,Semi,N,L,7
+14-headed hydra,U,1,5,9",5,20,B,14,1-12,None,None,0,Semi,N,L,8
+15-headed hydra,U,1,5,9",5,20,B,15,1-12,None,None,0,Semi,N,L,8
+16-headed hydra,U,1,5,9",5,20,B,16,2-12,None,None,0,Semi,N,L,8
+5-headed pyro-hydra,U,1,5,9",5,20,B,5,1-6,None,None,0,Semi,N,L,6
+6-headed pyro-hydra,U,1,5,9",5,20,B,6,1-6,None,None,0,Semi,N,L,6
+7-headed pyro-hydra,U,1,5,9",5,20,B,7,1-8,None,None,0,Semi,N,L,7
+8-headed pyro-hydra,U,1,5,9",5,20,B,8,1-8,None,None,0,Semi,N,L,7
+9-headed pyro-hydra,U,1,5,9",5,20,B,9,1-8,None,None,0,Semi,N,L,7
+10-headed pyro-hydra,U,1,5,9",5,20,B,10,1-8,None,None,0,Semi,N,L,8
+11-headed pyro-hydra,U,1,5,9",5,20,B,11,1-10,None,None,0,Semi,N,L,8
+12-headed pyro-hydra,U,1,5,9",5,20,B,12,1-10,None,None,0,Semi,N,L,9
+Hyena,C,2-12,7,12",3,0,None,1,2-8,None,None,0,Animal,N,M,2
+Hyenadon,V,2-8,7,12",5,0,None,1,3-12,None,None,0,Animal,N,L,3
+Imp,V,1,2,6"/18",2+2,0,None,1,1-4,Special,Special,25,Average,LE,S,5
+Invisible Stalker,V,1,3,12",8,0,None,1,4-16,Suprise on 1-5,Invisibility,30,High,N,L,7
+Irish Deer,R,1-8,7,18",4,0,None,1(2),2-12(2-12),None,None,0,Animal,N,L,3
+Ixitxachitl,V,10-100,6,//12",1+1,60,special,1,3-12,Evil cleric spells,None,0,Average to High,CE,M,2
+Jackal,C,1-6,7,12",0.5,0,None,1,1-2,None,None,0,Semi,N,S,1
+Jackalwere,R,1-4,4,12",4,30,C,1,2-8,Gaze causes sleep,Iron or +1 weapons to hit,0,Very,CE,M,6
+Jaguar,U,1-2,6,15",4+1,5,None,3,1-3/1-3/1-8,Read claws for 2-5/2-5,Surprised only on 1,0,Semi,N,L,4
+Ki-Rin,V,1,-5,24"/48",12,5,IST,3,2-8/2-8/3-18,Magic Use,Special,90,Supra-genius,LG,L,9
+Kobold,U,40-400,7,6",0.5,40,J-OQx5,1,1-4 or by weapon type,None,None,0,Average(low),LE,S,1
+Lamia,V,1,3,24",9,60,D,1,1-4,Spells,None,0,High,CE,M,7
+Lammasu,R,2-8,6,12"/24",7+7,30,RST,2,1-6/1-6,Spell Use,Spell Use,30,Genius,LG,L,6
+Lamprey,U,1-2,7,12",1+2,0,None,1,1-2,Drain blood,None,0,Non,N,S,2
+Lamprey (Giant),R,1-4,6,9",5,0,None,1,1-6,Drain blood,None,0,Non,N,M,4
+Larva,C,10-40,7,6",1,100,None,1,2-5,None,None,0,Low,Evil,M,1
+Leech (Giant),U,4-16,9,3",1-4,0,None,1,1-4,Drain blood,None,0,Non,N,S to M,4
+Leopard,U,1-2,6,12",3+2,5,None,3,1-3/1-3/1-6,Rear claws for 1-4/1-4,Surprised only on a 1,0,Semi,N,M,3
+Leprechaun,U,1-20,8,15",0.5+1,10,F,0,0,Spell use,Spell use,80,Exceptional,N,S,3
+Leucrotta,R,1-4,4,18",6+1,40,D,1,3-18,Voice imitation,Rear kick,0,Average,CE,L,5
+Lich,V,1,0,6",11+,90,A,1,1-10,Spell use,+1 or better weaopon to hit,0,Supra-genius,N(E),M,10
+Lion,U,2-12,5/6,12",5+2,25,None,3,1-4/1-4/1-10,Rear rake 2-7/2-7,Suprised only on a 1,0,Semi,N,L,5
+Moutain Lion,U,1-2,6,15",3+1,70,None,3,1-3/1-3/1-6,Rear rake 1-4/1-4,Suprised only on a 1,0,Semi,N,M,3
+Spotted Lion,R,2-8,5/6,12",6+2,25,None,3,1-4/1-4/1-12,Rear rake 2-8/2-8,Suprised only on a 1,0,Semi,N,L,5
+Fire Lizard,V,1-4,3,9",10,50,BQx10ST,3,1-8/1-8/2-16,Flame breath for 2-12,None,0,Animal,N,L,7
+Giant Lizard,U,2-12,5,15",3+1,0,None,1,1-8,None,None,0,Non,N,L,3
+Minotaur Lizard,R,1-8,5,6",8,80,JKLMNQC,3,2-12/2-12/3-18,Suprise on 1-4; Incapacitating bit ,None,0,Non,N,L,6
+Subterrean Lizard,U,1-6,5,12",6,20,OPQx5,1,2-12,None,None,0,Non,N,L,5
+Lizard Man,R,10-40,5(4),6"//12",2+1,30,D,3,1-2/1-2/1-8,None,None,0,Low(average),N,M,2
+Lochathah,R,20-200,6,//12",2,10,A,1,By weapon,None,None,0,Very,N,M,1
+Lurker Above,U,1-4,6,1"/9",10,50,CY,1,1-6,Surpise on 1-4; Smothering,None,0,Non,N,L,7
+Lycanthrope Werebear,R,1-4,2,9",7+3,10,RTX,3,1-3/1-3/2-8,Hug for 2-16,Silver or +1 weapon to hit,0,Exceptional,CG,L,6
+Lycanthrope Wereboar,R,2-8,4,12",5+2,20,BS,1,2-12,None,Silver or +1 weapon to hit,0,Average,N,L,5
+Lycanthrope Wererat,U,4-24,6,12",3+1,30,C,1,1-8,Surprise on 1-4,Silver or +1 weapon to hit,0,Very,LE,S-M,3
+Lycanthrope Weretiger,V,1-6,3,12",6+2,15,DQx5,3,1-4/1-4/1-12,Rear rake for 2-5/2-5,Silver or +1 weapon to hit,0,Average,N,L,6
+Lycanthrope Werewolf,C,3-18,5,15",4+3,25,S,1,2-8,Surprise on 1-3,Silver or +1 weapon to hit,0,Average,CE,L,4
+Lynx (Giant),R,1-4,6,12",2+2,5,None,3,1-2/1-2/1-4,Rear rake for 1-3/1-3,None,0,Very,N,M,3
+Mammoth,C,1-12,5,12",13,0,None,5,3-18/3-18/2-16/2-16/2-12,None,None,0,Semi,N,L,7
+Manticore,U,1-4,4,12"/18",6+3,20,E,3,1-3/1-3/1-8,Tail spikes,None,0,Low,LE,L,6
+Mastodon,C,1-12,6,15",12,0,None,5,2-16/2-16/2-12/2-12/2-12,None,None,0,Semi,N,L,6
+Medusa,R,1-3,5,9",6,50,PQx10XV,1,1-4,Gaze turns to stone + poison,None,0,Very,LE,M,6
+Men Bandit,C,20-200,Varies,Varies,1=2,20,M-A,1,By weapon type,Leader types,None,0,Average to very,N(CE),M,1
+Men Berserker,R,10-100,7,12",1=1,10,K-B,1(or2),By weapon type,Leader types,Leader types,0,Average to very,N,M,2
+Men Bucaneer,U,50-300,Varies,12"//6",1=2,80,K-W,1,By weapon type,Leader types,Leader types,0,Average to very,N(CE),M,2
+Men Cavemen,R,10-100,8(7),12",2(1),40,special,1,By weapon type,None,None,0,Low (to average),N,M,3
+Men Dervish,U,30-300,Varies,Varies,1=2,5,JL-Z,1,By weapon type,Leader types,Leader types,0,Average to very,LG(N),M,1
+Men Merchant,C,50-300,Varies,Varies,1=2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,N,M,2
+Men Pilgrim,U,10-100,Varies,Varies,1=2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,Varies,M,1
+Merman,U,20-200,7,1//18",1+1,25,CR,1,By weapon type,Special,None,0,Average to very,N,M,1
+Mimic,R,1,7,3",7-10,0,None,1,3-12,Glue,Camoflage,0,Semi to average,N,L,7
+Mind Flayer,R,1-4,5,12",8+4,50,BSTX,4,2,Mind blast,None,90,Genius,LE,M,7
+Minotaur,R,1-8,6,12",6+3,20,C,2,2-8 or 1-4/By weapon type,None,Surprised only on a 1,0,Low,CE,L,5
+Morkoth,V,1,3,//18",7,100,G,1,1-10,Hypnosis,Spell Reflection,Special,Exceptional,CE,M,7
+Mule,C,1,7,12",3,0,None,1 or 2,12/1-6,None,None,0,Semi,N,L,1
+Mummy,R,2-8,3,6",6+3,80,D,1,1-12,Fear,Special,Special,Low,LE,M,7
+Naga Gaurdian,V,1-2,3,15",11-12,75,H,2,1-6/2-8,Spell use/spit,Spell use,0,Exceptional,LG,L,8
+Naga Spirit,R,1-3,4,12",9-10,60,BTX,1,1-3,Spell use/poison/charm,Spell use,0,High,CE,L,7
+Naga Water,U,1-4,5,9"//18",7-8,45,D,1,1-4,Spell use/poison,Spell use,0,Very,N,M,7
+Neo-Otyugh,R,1,0,6",9-12,0,None,3,2-12/2-12/1-3,Disease,Never surprised,0,Average-very,N,L,7
+Night Hag,V,1,9,9",8,0,None,1,2-12,Spell like powers,Spell immunity,65,Exceptional,N(E),M,7
+Nightmare,V,1,-4,15"/36",6+6,0,None,3,2-8/4-10/4-10,None,Smoking cloud,0,High,N(E),L,6
+Nixie,R,20-80,7,6"//12",0.5,95,CQ,1,By weapon,Charm,None,25,Very,N,S,2
+Nymph,V,1-4,9,12",3,100,Qx10X,0,0,Blindness or death,None,0,Exceptional,N(G),M,5
+Ochre Jelly,U,1-3,8,3",6,0,None,1,3-12,None,Lightning divides,0,Non,N,M,3
+Octopus (Giant),R,1-3,7,3"//12",8,70,R,7,1-4(x6)/2-12,Constriction,Ink cloud,0,Animal,N(E),L,6
+Ogre,C,2-20,5,9",4+1,20,Mx10-QBS,1,1-10 or by weapon,None,None,0,Low,CE,L,3
+Ogre Mage,V,1-6,4,9"/15",5+2,35,GRS,1,1-12,Cond of cold,Spell use,0,Average to exceptional,LE,L,6
+Orc,C,30-300,6,9",1,35,L-COQx10S,1,1-8 or by weapon,None,None,0,Average(low),LE,M,1
+Otter (Giant),R,2-5,5,9"//18",5,10,None,1,3-18,None,None,0,Semi,N,L,3
+Otyugh,U,1(2),3,6",6-8,0,None,3,1-8/1-8/2-5,Disease,Never surprised,0,Low-average,N,M-L,6
+Owl (Giant),R,2-5,6,3"/18",4,5,Qx5X,3,2-8/2-8/2-5,Surprise on 1-5,None,0,Very,N,M,3
+Owlbear,R,2-5,5,12",5+2,30,C,3,1-6/1-6/2-12,Hug,None,0,Low,N,L,4
+Pegasus,V,1-10,6,24"/48",4,15,None,3,1-8/1-8/1-3,None,None,0,Average,CG,L,3
+Peryton,R,2-8,7,12"/21",4,10,B,1,4-16,+2 to hit,+2 or better weapon to hit,0,Average,CE,L,3
+Piercer,U,3-18,3,1",1-4,0,None,1,1-6/2-12/3-18/4-24,95% likely to surprise,None,0,Non,N,S to M,3
+Pike (Giant),R,1-8,5,//36",4,0,None,1,4-16,Surprise on 1-4,None,0,Non,N,L,3
+Porcupine (Giant),U,1-2,5,6",6,0,None,1,2-8,Shoots quills,Quills,0,Animal,N,L,5
+Portuguese Man-O-War (Giant),U,1-10,9,//1",1-4,0,None,1,1-10,Paralyzation,Transparent,0,Non,N,S to L,4
+Pseudo-Dragon,V,1,2,6"/24",2,5,Qx10,1,1-3,Poison sting,Chameleon power,35,Average,N(G),S,4
+Purple Worm,R,1-2,6,9",15,30,BQx5X,1 and 1,2-24/2-8,Swallow whole+poison sting,None,0,Non,N,L,8
+Quasit,V,1,2,15",3,0,Qx3,3,1-2/1-2/1-4,Dexterity loss/attack as 7HD,Spell immunity/regeneration,25,Low,CE,S,5
+Rakshasa,V,1-4,-4,15",7,25,F,3,1-3/1-3/2-5,Illusion and ESP,Spell use and immunity,0,Very,LE,M,6
+Ram (Giant),R,2-8,6,15",4,0,C,1,2-12,Charge,None,0,Animal,N,L,3
+Rat (Giant),C,5-50,7,12"//6",0.5,10,C,1,1-3,Disease,None,0,Semi,N,S,1
+Manta Ray,U,1,6,//18",8-11,0,Jx10Kx10Lx10Mx10Nx10Qx5X,1 and 1,3-12/2-20,Swallow whole,None,0,Non,N,L,7
+Pungi Ray,R,1-3,7,//12",4,30,None,1 to 12,1-4 each,Poison barbs,None,0,Non,N,L,5
+Sting Ray,C,1-3,7,//9",1,0,None,1,1-3,Paralyzation poison sting,None,0,Non,N,S,3
+Remorhaz,V,1,0/2/4,12",7-14,20,F,1,6-36,Swallow whole,Heated surface,75,Animal,N,L,7
+Rhinceros,C,1-6,6,12",8-9,0,None,1,2-8 or 2-12,Charge,None,0,Animal,N,L,6
+Wolly Rhinoceros,C,1-4,5,12",10,30,C,1,2-12,Charge,None,0,Animal,N,L,4,7
+Roc,R,1-2,4,3"/30",18,10,C,2 or 1,3-18/3-18 or 4-24,None,None,0,Animal,N,L,8
+Roper,R,1-3,0,3",10-12,90,Nx3Qx5,1,5-20,6 poisonous strands,Some spell immunity,80,Exceptional,CE,L,7
+Rot Grub,R,5-20,9,1",1 HP,0,None,0,0,Burrows into flesh,None,0,Non,N,S,1
+Rust Monster,U,1-2,2,18",5,10,Qx10,2,0,Corrodes metal,None,0,Animal,N,M,4
+Sahuagin,U,20-80,5,12"//24",2+2,25,N-IOPQx10XY,1,By weapon type,Special,Special,0,High,LE,M,2
+Salamander,R,2-5,5/3,9",7+7,75,F,2,By weapon type/2-12,Heat,+1 or better weaspon to hit,0,High,CE,M,6
+Satyr,U,2-8,5,18",5,40,ISX,1,2-8,Special,Special,50,Very,N,M,5
+Scorpion (Giant),U,1-4,3,15",5+5,50,D,3,1-10/1-10/1-4,Poison sting,None,0,Non,N,M,6
+Sea Hag,U,1-4,7,//15",3,10,CY,1,1-4,Death look,Special,50,Average,CE,M,6
+Sea Horse (Giant),C,1-20,7,//21",2-4,0,None,1,1-4/2-5/2-8,None,None,0,Semi,N,L,1
+Sea Lion,U,3-12,5/3,//18",6,20,B,3,1-6/1-6/2-12,None,None,0,Semi,N,L,3
+Shadow,R,2-20,7,12",3+3,40,F,1,2-5,Strength drain,+1 or better weapon to hit,0,Low,CE,M,5
+Shambling Mound,R,1-3,0,6",8-11,30,BTX,2,2-16/2-16,Suffocation,Special,0,Low,N,L,7
+Shark,C,3-12,6,//24",3-8,0,None,1,2-5/2-8/3-12,None,None,0,Non,N,M to L,3
+Shark (Giant),R,1-3,5,18",10-15,0,None,1,4-16/5-20/6-24,Swallow whole,None,0,Non,N,L,5
+Shedu,R,2-8,4,12"/24",9+9,25,G,2,1-6/1-6,Psionics,Psionics,25,Exceptional,LG,L,7
+Shrieker,C,2-8,7,1",3,0,None,0,0,None,Noise,0,Non,N,S to L,1
+Skeleton,R,3-30,7,12",1,0,None,1,1-6,None,Edge weapons to 1/2,0,Non,N,M,1
+Skunk (Giant),U,1,7,9",5,0,None,1,1-6,Squirt musk,Squirt musk,0,Animal,N,M,4
+Slithering Tracker,R,1,5,12",5,10,C,0,0,Paralyzation,Transparency,0,Average,N,S,5
+Slug (Giant),U,1,8,6",12,0,None,1,1-12,Spit acid,Special,0,Non,N,L,7
+Snake Amphisbaena (Giant),V,1-3,3,12",6,0,None,2,1-3/1-3,Poison,Immune to cold,0,Animal,N,M,5
+Snake Constrictor (Giant),U,1-2,5,9",6+1,0,None,2,1-4/2-8,Constriction,None,0,Animal,N,L,4
+Snake Poisonous (Giant),U,1-6,5,15",4+2,0,None,1,1-3,Poison,None,0,Animal,N,L,5
+Snake Sea (Giant),U,1-8,5,//12",8-10,0,None,2,1-6/3-18,Constriction,None,0,Animal,N,L,6
+Snake Spitting (Giant),R,1-4,5,12",4+2,0,None,1,1-3,Spit poison,None,0,Animal,N,M,5
+Spectre,R,1-6,2,15"/30",7+3,20,Qx3XY,1,1-8,Energy drain,+1 or better weapon to hit,0,High,LE,M,7
+Androsphinx,V,1,-2,18"/30",12,60,U,2,2-12/2-12,Roar,None,0,Exceptional,CG,L,7
+Criosphinx,R,1-4,0,12"/24",10,30,F,3,2-8/2-8/3-18,None,None,0,Average,N,L,7
+Gynosphinx,R,1,-1,15"/24",8,15,RX,2,2-8/2-8,Spell use,None,0,Genius,N,L,7
+Hieracosphinx,R,1-6,1,9"/36",9,20,E,3,2-8/2-8/1-10,None,None,0,Low,CE,L,6
+Spider (Giant),U,1-8,4,3"*12",4+4,70,C,1,2-8,Web,None,0,Low,CE,L,5
+Spider (Huge),C,1-12,6,18",2+2,50,JKLMNQ,1,1-6,Leap 3"/Surpise 1 out of 5,None,0,Animal,N,M,3
+Spider (Large),C,2-20,8,6"*15",1+1,60,JKLMN,1,1,Poison,None,0,Non,N,S,3
+Spider (Phase),R,1-4,7,6"*15",5+5,75,E,1,1-6,Poison,Out of phase,0,Low,N,L,6
+Water Spider (Giant),C,1-10,5,15",3+3,90,JKLMNQ,1,1-4,Poison,None,0,Semi,N,M,4
+Sprite,R,10-100,6,9"/18",1,20,C,1,By weapon type,Sleep poison,Can be invisible and silent,0,Very,N(G),S,3
+Squid (Giant),R,1,7/3,3"//18",12,40,A,9,1-6(x8)/5-20,Constriction,Ink spray,0,Non,N,L,7
+Strangle Weed,C,3-12,6,0",2-4,100,JKLMNQC,1,Special,Special,None,0,Animal,N,S,2
+Su-monster,U,1-12,6,9",5+5,30,CY,5,1-4(x4)/2-8,None,None,0,Average,Chaotic,M,4
+Sylph,V,1,9,12"/36",3,10,Qx10X,0,0,Spell use,Summon air elemental,50,Expceptional,N(G),M,5
+Thought Eater,R,1-3,9,6",3,0,None,0,0,Drains intelligence,None,0,Non,N,S,5
+Tick (Giant),R,3-12,3,3",2-4,0,None,1,1-4,Blood drain,None,0,Non,N,S,3
+Tiger,U,1-4,6,12",5+5,5,None,3,2-5/2-5/1-10,Rear rake for 2-8/2-8,Surprised only on a 1,0,Semi,N,L,4
+Sabre-tooth Tiger,R,1-2,6,12",7+2,10,None,3,2-5/2-5/2-12,Read rake for 2-8/2-8,Surprised only on a 1,0,Animal,N,L,6
+Titan Lesser,V,1-2,2/1,15",17-18,10,EQx10R,1,7-42,Spell use,Spell use,60,Genius to Supra-Genius,CG,L,9
+Titan Major,V,1-2,0/-1,15",19-20,10,EQx10R,1,7-42,Spell use,Spell use,60,Genius to Supra-Genius,CG,L,9
+Titan Elder,V,1-2,-2/-3,21",21-22,10,EQx10R,1,8-48,Spell use,Spell use,60,Genius to Supra-Genius,CG,L,10
+Titanothere,U,1-12,6,12",12,0,None,1,2-16,Charge & trample,None,0,Animal,N,L,7
+Toad (Giant),C,1-12,6,6"+6" hop,2+4,0,None,1,2-8,Leaping attack,None,0,Animal,N,M,2
+Ice Toad,R,1-4,4,9",5,40,C,1,3-12,Radiate cold for 3-18,None,0,Animal,N,L,4
+Poisonous Toad,U,1-8,7,6"+6" hop,2,0,None,1,2-5,Poison,None,0,Animal,N,M,2
+Trapper,R,1,3,3",12,85,G,4+,Special,,None,0,Highly,N,L,6
+Treant (Shrubling),R,1-20,0,12",7-8,10,Qx5S,2,2-16/2-16,Animate tree,Never surprised,0,Very,CG,L,7
+Treant (Mature),R,1-20,0,12",9-10,10,Qx5S,2,3-18/3-18,Animate tree,Never surprised,0,Very,CG,L,7
+Treant (Moss trunk),R,1-20,0,12",11-12,10,Qx5S,2,4-24/4-24,Animate tree,Never surprised,0,Very,CG,L,7
+Triton,R,10-60,5,15",3,25,CRSTX,1,By weapon type,Special,Special,90,High and up,N(G),M,3
+Troglodyte,C,10-100,5,12",2,15,A,3 or 1,1-3/1-3/2-5 or by weapon type,Revulsion odor,None,0,Low,CE,M,2
+Troll,U,1-12,4,12",6+6,40,D,3,5-8/5-8/2-12,Attack multiple oppenents,Regeneration,0,Low,CE,L,6
+Sea Turtle (Giant),U,1-3,2/5,1"//15",15,0,None,1,4-16,Capsize watercraft,None,0,Non,N,L,6
+Snapping turtle (Giant),U,1-4,0/5,3"//12",10,0,None,1,6-24,Surprise in 1-4,None,0,Non,N,L,7
+Umber Hulk,R,1-4,2,6",8+8,30,G,3,3-12/3-12/2-10,Confusion,None,0,Average,CE,L,7
+Unicorn,R,2-5,2,24",4+4,5,X,3,1-6/1-6/1-12,Charge/+2 to hit,Imminities,0,Average,CG,L,7
+Vampire,R,1-4,1,12"/18",8+3,25,F,1,5-10,Energy drain,+1 or better weapon to hit,0,Exceptional,CE,M,8
+Wasp (Giant),R,1-20,4,6"/21",4,25,Qx20,2,2-8/1-4,Poison,None,0,Non,N,M,5
+Water Weird,V,1-3,4,12",3+3,50,IOPY,0,0,Drowning,Spell imminities,0,Very,CE,L,5
+Weasel (Giant),R,1-8,6,15",3+3,15,None,1,2-12,Blood Drain,None,0,Animal,N,M,3
+Whale,C,1-8,4,18" to 24",12-36,0,None,1 or 1,5-20 to 15-60 or 1-8 to 5-40,Tail,None,0,Low,N,L,7
+Wight,U,2-16,5,12",4+3,70,B,1,1-4,Enery drain,Silver or magic weapons to hit,0,Average,LE,M,6
+Will-o-wisp,U,1-3,-8,18",9,5,Z,1,2-16,Special,Special,0,Exceptional,CE,S,7
+Wind walker,R,1-3,7,15"/30",6+3,20,CR,Special,3-18,Special,Special,0,Very,N,L,6
+Wolf,C,2-20,7,18",2+2,10,None,1,2-5,None,None,0,Semi,N,S,2
+Dire Wolf,R,3-12,6,18",3+3,10,None,1,2-8,None,None,0,Semi-low,N,M,3
+Wolf (Worg),R,3-12,6,18",4+4,10,None,1,2-8,None,None,0,Low,N(E),L,3
+Winter Wolf,V,2-8,5,18",6,10,None,1,2-8,Frost,None,0,Average,N(E),L,4
+Wolverine,U,1,5,12",3,15,None,3,1-4/1-4/2-5,Musk,None,0,Semi,N(E),S,3
+Wolverine (Giant),R,1,4,15",4+4,15,None,3,2-5/2-5/2-8,Musk,None,0,Semi,N(E),S,4
+Wraith,U,2-12,4,12"/24",5+3,25,E,1,1-6,Energy drain,Silver or magic weapons to hit,0,Very,LE,M,6
+Wyvern,U,1-6,3,6"/24",7+7,30,E,2,2-16/1-6,Poison,None,0,Low,N(E),L,6
+Xorn,V,1-4,-2,9",7+7,40,OPQx5XY,4,1-3(x3)/6-24,Surprise on a 1-5,Spell immunities,0,Average,N,M,7
+Yeti,V,1-6,6,15",4+4,10,D,2,1-6/1-6,Special,Impervious to cold,0,Average,N,L,5
+Zombie,R,3-24,8,6",2,0,None,1,1-8,None,None,0,Non,N,M,1
+Fiend Folio
+AArakocra,V,1-10,7,6"/36",1+2,5,D,2,1-3/1-3 or by weapon type,None,None,0,Average,NG,M,2
+Achairerai,V,1-8,8/-1,18",100 HP,5,F,3,1-8/1-8/1-10,None,Toxic smoke,35,Average,CE,L,7
+Adherer,R,1-4,3,9",4,20,None,1,1-3,Adhesion,Special,0,Semi,LE,M,3
+Algoid,V,1-6,5,6",5,20,D,2,1-10/1-10,None,Immune to edge weapons less than +2/Immune to fireball&lgihtning,0,Semi,CN,M,5
+Al-Mi'raj,V,2-20,6,18",1,5,None,1,1-4,None,None,0,Animal,N,S,1
+Apparition,V,1-4,0,24",8,20,E,1,Special,None,Only hit by magic or silver weapons,0,Average,CE,M,6
+Assassin Bug,R,2,5,6"/18",1+1,50,None,1,1-4,Paralyzation,None,0,Animal,N,S,2
+Astral Searcher,V,4-24,10,12",2,0,None,1,1-6,All victims AC 5,None,50,Non,Any,M,3
+Babbler,V,1-4,6,6" or 12",5,15,B,3,1-6/1-6/1-8,Surprise,None,0,Average,CE,L,3
+Bat (Giant),U,3-18,8,3”/18”,1,50,None,1,1-4,None,Missiles at -3 to hit,0,Non,N,S,1
+Berbalang,V,1,6,6”/24”,1+1,100,D,3,1-4/1-4/1-6,None,None,0,Very,CE,M,3
+Blindheim,V,1-4,1,9”,4+2,5,B,1,1-8,Blinding stare,None,0,Animal,CE,S,3
+Blood Hawk,U,4-15,7,24”,1+1,25,Qx2,3,1-4/1-4/1-6,None,None,0,Semi,N,S,1
+Bloodworm (Giant),R,1-4,4,6”,6,50,Q,1,1-8+blood drain,None,None,0,Non,N,L,4
+Bonesnapper,R,1-3,4,6”,4,20,C,2,1-8/1-4,None,None,0,Non,N,M,3
+Booka,U,1-4,7,12”/18”,0.5,75,J,0,0,Trickery,Invisibility,10,Very,N(CG),S,1
+Bullywug,R,10-80,6,3”//15”,1,20,JKM-Qx5C,3 or 1,1-2/1-2/2-5 or by weapon,Hop,Camouflage,0,Low to average,CE,S to M,1
+Bunyip,R,1,10,//12”,5,30,None,1,1-6,None,None,0,Animal,N,M,3
+Carbuncle,R,1,2,3”,1,10,None,0,0,None,Can will itself to die,0,Low-average,N(Chaotic),S,1
+Caryatid Column,V,1-12,5,6”,22 HP,0,None,1,2-8,None,Break weapons/reduced damage/all saves at +4,0,Non,N,M,5
+Caterwaul,V,1,6,18” or 24”,4+2,20,NRSU,3,1-4/1-4/1-6,Screech;Multiple attacks,Hide in shadows/move silent,0,Low,CE,M,4
+CIFAL,R,1-6,6,6”,8 or 10,15,Q,1,1-12,None,Damage from edged weapons reduced,0,Non,N,M,7
+Clubnek,U,2-8,8,12”,2,0,None,3,1-6/1-6/1-8,None,None,0,Low,N,M,1
+Coffer Corpse,R,1,8,6”,2,80,B,1,1-6 or by weapon,None,Only hit by magic weapons,0,Low,CE,M,2
+Crabman,R,2-12,4,9”//6”,3,25,K,2,1-4/1-4,None,None,0,Low to Average,N,L,2
+Crypt Thing,V,1,3,12”,6,100,Z,1,1-8,Special,Special,0,Very,N,M,5
+Dakon,U,6-60,5,6”,1+1,50,E,2,1-10/1-10,None,None,0,Average,LN,M,1
+Dark Creeper,R,1,0,9”,1+1,20,Special,1,1-4,Darkness,None,0,Average,CN,S,3
+Dark Stalker,V,1,0,9”,2+1,20,Special,1,1-6,Darkness,Wall of fog,0,Average,CN,M,4
+Death Dog,V,5-50,7,12”,2+1,0,0,2,1-10/1-10,Disease,None,0,Animal,N(E),M,3
+Death Knight,V,1,0,Variable,9,0,0,1,By weapon type,Special,Special,75,Average-genius,CE,M,8
+Lolth,V,1,-10,1”*9”(15”),16,25,Qx5RXx3,1 and 1 (1),4-16+poison and webs (by weapon type),Special,Special,70,Godlike,CE,L(M),10
+Styx Devil,V,1-2,-1,6”/15”,6+6,60,QR,1,2-8,Special,Cannot be hit by normal weapons,50,High,LE,M,7
+Devil Dog,R,4-16,6,30”,6,10,None,1,2-8,Throat attack,None,0,Average,CE,M,5
+Dire Corby,R,1-12,6,12”,2,20,Qx5,2,1-6/1-6,None,None,0,Low,NE,M,1
+Disenchanter,V,1-2,5,12”,5,0,None,1,Special,Disenchants,Only hit by magical weapons,0,Average,N,M,4
+Doombat,R,1-8,4,18”,6+3,100,None,2,1-6/1-4,Shriek,None,0,Animal,NE,M,5
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+,V,1-10,7,6",1+2,5,D,2,1-3/1-3,None,None,0,Average,NG,M,2
+
