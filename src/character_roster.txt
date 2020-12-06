@@ -1,0 +1,9 @@
+Character_Name AC
+Jasper 1  
+Squiffy -1
+Bart -1
+Alfredo 4
+Abby 8
+WandaLynn 2
+Nate 3
+Zabbit 3

@@ -3,12 +3,14 @@ import random
 import logging
 from interp import interp
 
+
 def set_wand_subtype(item):
     if item['name'] == 'Earth & Stone':
         get_wand_earth_stone_type(item)
 
+
 def get_wand_earth_stone_type(item):
-    rand = random.randint(1,2)
+    rand = random.randint(1, 2)
     if rand == 1:
         item['name'] = item['name'] + " (basic)"
     else:
@@ -16,19 +18,22 @@ def get_wand_earth_stone_type(item):
         item['gplo'] = item['gphi']
         item['name'] = item['name'] + " (with transmute)"
 
+
 def set_rod_subtype(item):
     if item['name'] == 'Staff-Spear':
         get_staff_spear_type(item)
     if item['name'] == 'Staff of Swarming (CM)':
         get_staff_swarming_type(item)
 
+
 def get_staff_swarming_type(item):
-    rand = random.randint(1,50)
-    item['cnt']=rand
-    item['name']=item['name']+" ({})".format(rand)
+    rand = random.randint(1, 50)
+    item['cnt'] = rand
+    item['name'] = item['name'] + " ({})".format(rand)
+
 
 def get_staff_spear_type(item):
-    rand = random.randint(1,20)
+    rand = random.randint(1, 20)
     if rand <= 6:
         item['name'] = item['name'] + " +1"
         item['xplo'] = 1000

@@ -8,16 +8,18 @@ import argparse
 import datetime
 from utils import *
 
+
 def get_response():
-    action = "A" 
+    action = "A"
     while not type(action) is int:
         try:
             action = input("Action: ")
         except:
             logging.info("Please enter a valid integer.")
-    return(action)
+    return (action)
 
-def add_item(inventory,item,cart):
+
+def add_item(inventory, item, cart):
     if (inventory[item]['cnt'] > 0):
         new_item = copy.deepcopy(inventory[item])
         if new_item['cnt'] > 1:
@@ -31,18 +33,19 @@ def add_item(inventory,item,cart):
         if (cnt <= inventory[item]['cnt']):
             new_item['cnt'] = cnt
             cart['items'].append(new_item)
-            cart['total'] = cart['total'] + int(new_item['gplo'])*int(new_item['cnt'])
-            inventory[item]['cnt'] -= cnt 
+            cart['total'] = cart['total'] + int(new_item['gplo']) * int(new_item['cnt'])
+            inventory[item]['cnt'] -= cnt
             logging.info("Added {} to cart".format(new_item['name']))
-        else: 
+        else:
             logging.info("Invalid entry")
+
 
 def show_cart(cart):
     total = 0
     logging.info("----------------------------------------------------------------------------")
     logging.info("-----------------------  Cart Contents -------------------------------------")
     logging.info("----------------------------------------------------------------------------")
-    if len(cart['items'])>0:
+    if len(cart['items']) > 0:
         for x in xrange(len(cart['items'])):
             # Print out the item
             item = cart['items'][x]
@@ -50,7 +53,7 @@ def show_cart(cart):
                 gp = int(item['gplo'])
                 cnt = int(item['cnt'])
                 tot = gp * cnt
-                logging.info("{:3} {:50}{:5d} GP X {:3d} = {:5} GP".format(x,item['name'],gp,cnt,tot))
+                logging.info("{:3} {:50}{:5d} GP X {:3d} = {:5} GP".format(x, item['name'], gp, cnt, tot))
                 total = total + tot
     logging.info("----------------------------------------------------------------------------")
     logging.info("    Total Cost: {} gp".format(total))
@@ -59,14 +62,15 @@ def show_cart(cart):
     if any == 'r':
         num = input("Which item to remove? ")
         if num >= 0 and num <= len(cart['items']):
-            cart['total'] = int(cart['total'])-int(cart['items'][num]['gplo'])
+            cart['total'] = int(cart['total']) - int(cart['items'][num]['gplo'])
             cart['items'][num] = None
             show_cart(cart)
-        
-def checkout(cart,name):
-    date =  datetime.datetime.now().strftime("%Y%m%d%H%M")   
+
+
+def checkout(cart, name):
+    date = datetime.datetime.now().strftime("%Y%m%d%H%M")
     total = 0
-    f = open("{}.{}.cart.txt".format(name,date),"w")
+    f = open("{}.{}.cart.txt".format(name, date), "w")
     f.write("-------- Purchase for {} ----------------------------------------------------\n".format(name))
     logging.info("-------- Purchase for {} ----------------------------------------------------".format(name))
     for x in xrange(len(cart['items'])):
@@ -75,9 +79,9 @@ def checkout(cart,name):
             gp = int(item['gplo'])
             cnt = int(item['cnt'])
             tot = gp * cnt
-            f.write("{:50}{:5d} GP X {:3d} = {:5} GP\n".format(item['name'],gp,cnt,tot))
-            logging.info("{:50}{:5d} GP X {:3d} = {:5} GP".format(item['name'],gp,cnt,tot))
-            total = total + int(item['gplo'])*int(item['cnt'])
+            f.write("{:50}{:5d} GP X {:3d} = {:5} GP\n".format(item['name'], gp, cnt, tot))
+            logging.info("{:50}{:5d} GP X {:3d} = {:5} GP".format(item['name'], gp, cnt, tot))
+            total = total + int(item['gplo']) * int(item['cnt'])
     logging.info("---------------------------------------------------------------------------")
     logging.info(" Total Spent: {}".format(total))
     logging.info("---------------------------------------------------------------------------")
@@ -86,6 +90,7 @@ def checkout(cart,name):
     f.write("---------------------------------------------------------------------------\n")
     f.close()
     exit(0)
+
 
 def Print_Choices():
     logging.info("--------------------------------------------------------------------")
@@ -100,19 +105,20 @@ def Print_Choices():
     logging.info("   (8) Show Cart")
     logging.info("   (9) Exit")
 
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Ye Olde Magick Shoppe of Nystul")
-    parser.add_argument("-l","--logging",help="Logging level",default="INFO")
+    parser.add_argument("-l", "--logging", help="Logging level", default="INFO")
     args = parser.parse_args()
 
     loglevel = args.logging
     numeric_level = getattr(logging, loglevel.upper(), None)
     if not isinstance(numeric_level, int):
-         raise ValueError('Invalid log level: %s' % loglevel)
+        raise ValueError('Invalid log level: %s' % loglevel)
     logFile = "nystuls.log"
-    logging.basicConfig(filename=logFile,format='%(asctime)s - %(levelname)s - %(message)s',
-              datefmt='%m/%d/%Y %I:%M:%S %p',level=numeric_level)
+    logging.basicConfig(filename=logFile, format='%(asctime)s - %(levelname)s - %(message)s',
+                        datefmt='%m/%d/%Y %I:%M:%S %p', level=numeric_level)
     logging.getLogger().addHandler(logging.StreamHandler())
     logging.info("Starting run")
 
@@ -120,8 +126,8 @@ if __name__ == '__main__':
     name = raw_input("Please enter NPC name: ")
 
     cart = {}
-    cart['total']=0
-    cart['items']=[]
+    cart['total'] = 0
+    cart['items'] = []
 
     action = "99"
     while action != -1:
@@ -129,8 +135,8 @@ if __name__ == '__main__':
         action = get_response()
         if action == -1:
             logging.info("Exiting without checkout...")
-            resp = raw_input("Are you sure? (y/n) ") 
-            if resp == "y": 
+            resp = raw_input("Are you sure? (y/n) ")
+            if resp == "y":
                 exit(0)
         elif action == 0:  # Potion
             cart['items'].append(get_potion(tables))
@@ -145,15 +151,15 @@ if __name__ == '__main__':
         elif action == 5:  # Armor
             cart['items'].append(get_armor_shield(tables))
         elif action == 6:  # Sword 
-            cart['items'].append(get_sword(tables)) 
+            cart['items'].append(get_sword(tables))
         elif action == 7:  # Misc Weapon
             cart['items'].append(get_misc_weapon(tables))
         elif action == 8:
             show_cart(cart)
         elif action == 9:
             logging.info("Exiting with checkout...")
-            resp = raw_input("Are you sure you are ready to leave? (y/n) ") 
-            if resp == "y": 
-                checkout(cart,name)
+            resp = raw_input("Are you sure you are ready to leave? (y/n) ")
+            if resp == "y":
+                checkout(cart, name)
         else:
             logging.info("Please enter a valid response!!!")
