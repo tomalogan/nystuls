@@ -4,6 +4,7 @@ import argparse
 import sys
 import logging
 import random
+from random_monster import read_monsters
 
 to_hit_table = {}
 to_hit_level = {}
@@ -77,19 +78,20 @@ def is_hit(attacker,defender):
     col = get_column(attacker)
     row = int(defender['ac']) + 10
     logging.debug(f"Row {row} Column {col}")
-    logging.info(f"    {attacker['name']} type is {attacker['type']}")
-    logging.info(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
-    die_roll = roll_die(20) + attacker['to_hit_mod'] 
+    logging.debug(f"    {attacker['name']} type is {attacker['type']}")
+    logging.debug(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
+    natural_die_roll = roll_die(20) 
+    die_roll = natural_die_roll + attacker['to_hit_mod'] 
     if die_roll > 20:
         die_roll -= 5
         if die_roll < 20:
             die_roll = 20
     if die_roll >= to_hit_table[attacker['type']][col][row]:
         hit = True
-        logging.info(f"    Rolled {die_roll} - hit")
+        logging.info(f"    Rolled {die_roll}({natural_die_roll}) - hit")
     else:
-        hit = False
-        logging.info(f"    Rolled {die_roll} - miss")
+        hit = False 
+        logging.info(f"    Rolled {die_roll}({natural_die_roll}) - miss")
     return(hit)
    
 def attack(attacker,defender):
@@ -136,13 +138,21 @@ def get_opponent(attacker,num_characters):
             done = False
     return combat_over
 
+def determine_monster_hp(monster_name):
+    pass    
 
-def run_combat(characters,monsters):
+
+
+def run_combat():
     logging.info("==================================================")
     logging.info("RUN COMBAT")
     logging.info("==================================================")
 
     # roll up monster treasures
+    print("Getting monster tables")
+    characters = read_char_table(args.char_table)
+    monsters = read_monster_table(args.monster_table)
+    monster_table = read_monsters()
 
     combat_over = False
     round = 1
@@ -194,10 +204,18 @@ def player_damage(monsters):
 def apply_damage(target,damage,monsters):
     m = monsters[target]
     if (damage >= m['hp']):
-        logging.info(f"Player dropped {m['name']}")
+        logging.info("    ++++++++++++++++++++++++++++++++")
+        logging.info(f"    Player dropped {m['name']}")
+        logging.info("    ++++++++++++++++++++++++++++++++")
         monsters.remove(m)
+        if len(monsters)==0:
+            logging.info("******************************************************")
+            logging.info("           ALL MONSTERS HAVE BEEN DEFEATED ")
+            logging.info("******************************************************")
+            exit(0)
     else:
         m['hp'] =  m['hp'] - damage
+
 
 def is_number(n):
     try:
@@ -220,7 +238,7 @@ def set_up_round(monsters):
         attacker['attack_segments'].append(attacker['initiative'])
         if attacker['attacks'] > 1:
             offset = int(attacker['initiative'] / attacker['attacks'])
-            print(f"Offset is {offset}")
+            print(f"    Offset is {offset}")
             for x in range(2,attacker['attacks']):
                 attacker['attack_segments'].append(attacker['initiative'] - (x-1)*offset)
             attacker['attack_segments'].append(0)
@@ -333,8 +351,5 @@ if __name__ == '__main__':
                         datefmt='%m/%d/%Y %I:%M:%S %p', level=numeric_level)
     logging.getLogger().addHandler(logging.StreamHandler())
 
-    chars = read_char_table(args.char_table)
-    monst = read_monster_table(args.monster_table)
-
-    run_combat(chars,monst)
+    run_combat()
 
