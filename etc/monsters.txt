@@ -119,7 +119,7 @@ Eagle (Giant),R,1-20,7,3"/48",4,20,QC,3,1-6/1-6/2-12,Special,Special,0,Average,N
 Ear Seekers,V,1-4,9,1",1 HP,90,None,1,Special,None,None,0,Non,N,S,1
 Eel (Electric),R,1-3,9,12",2,0,None,1,1-3,Jolt,None,0,Non,N,M,3
 Eel (Giant),U,1-4,6,9",5,0,None,1,3-18,None,None,0,,Non,S,2
-Eel (Weed),V,10-60,8,15",1-1,100,OPR,1,1,Poison,None,0,Non,N,S,3
+Eel (Weed),V,10-60,8,15",1=1,100,OPR,1,1,Poison,None,0,Non,N,S,3
 Efreeti,V,1,2,9"/24",10,0,None,1,3-24,Special,None,0,Very,N (tends toward LE),L,7
 Elemental (Air),V,1,2,36",8/12/16,0,None,1,2-20,Special,+2 or better weapon to hit,0,Low,N,L,7
 Elemental (Earth),V,1,2,6",8/12/16,0,None,1,4-32,Special,+2 or better weapon to hit,0,Low,N,L,7
@@ -152,7 +152,7 @@ Storm Giant,R,1-4,1,15",15+2-7,55,EQx10S,1,7-42,Hurl lightning 8-64/Spell use,Im
 Gnoll,U,20-200,5,9",2,20,LM-DQx5S,1,2-8 or by weapon,None,None,0,Low-average,CE,L,2
 Gnome,R,40-400,5,6",1,50,MMM-CQx20,1,1-6 or by weapon,None,Save at 4 levels higher,0,Very,N to LG,S,1
 Goat (Giant),R,1-12,7,18",3+1,0,None,1,2-16,Charge,None,0,Semi,N,L,3
-Goblin,U,40-400,6,6",1-1,40,K-C,1,1-6 or by weapon,None,None,0,Average(low),LE,S,1
+Goblin,U,40-400,6,6",1=1,40,K-C,1,1-6 or by weapon,None,None,0,Average(low),LE,S,1
 Clay Golem,V,1,7,7",50 HP,0,None,1,3-30,Special,Special,Special,Non,N,L,8
 Flesh Golem,V,1,9,8",40 HP,0,None,2,2-16/2-16,Special,Special,Semi,,N,L,7
 Iron Golem,V,1,3,6",80 HP,0,None,1,4-40,Poisonous gas cloud,Special,Special,Non,N,L,10
@@ -162,7 +162,7 @@ Gray Ooze,R,1-3,8,1",3+3,0,None,1,2-16,Special,Special,Special,Animal,N,M to L,4
 Green Slime,R,1-6,9,0",2,0,None,0,0,Special,Special,Special,Non,N,S,6
 Griffon,U,2-12,3,12"/30",7,25,CS,3,1-4/1-4/2-16,None,None,0,Semi,N,L,5
 Groaning Spirit,V,1,0,15",7,70,D,1,1-8,Special,+1 or better weapon to hit,50,Exceptional,CE,M,7
-Halfling,R,30-300,7,9",1-2,70,K-B,1,1-6 or by weapon,+3 with bow or sling,save at 4 levels higher,0,Very,LG,S,1
+Halfling,R,30-300,7,9",1=2,70,K-B,1,1-6 or by weapon,+3 with bow or sling,save at 4 levels higher,0,Very,LG,S,1
 Harpy,R,2-12,7,6"/15",3,25,C,3,1-3/1-3/1-6,Singing and charm,None,0,Low,CE,M,3
 Hell Hound,V,2-8,4,12",4-7,30,C,1,1-10,Breathe fire,Special,0,Low,LE,M,4
 Herd Animal,C,20-200,7,15" to 24",1-5,0,None,Variable,Variable,Stampede,None,0,Animal,N,S/M/L,1
@@ -238,13 +238,13 @@ Mammoth,C,1-12,5,12",13,0,None,5,3-18/3-18/2-16/2-16/2-12,None,None,0,Semi,N,L,7
 Manticore,U,1-4,4,12"/18",6+3,20,E,3,1-3/1-3/1-8,Tail spikes,None,0,Low,LE,L,6
 Mastodon,C,1-12,6,15",12,0,None,5,2-16/2-16/2-12/2-12/2-12,None,None,0,Semi,N,L,6
 Medusa,R,1-3,5,9",6,50,PQx10XV,1,1-4,Gaze turns to stone + poison,None,0,Very,LE,M,6
-Men Bandit,C,20-200,Varies,Varies,1-2,20,M-A,1,By weapon type,Leader types,None,0,Average to very,N(CE),M,1
-Men Berserker,R,10-100,7,12",1-1,10,K-B,1(or2),By weapon type,Leader types,Leader types,0,Average to very,N,M,2
-Men Bucaneer,U,50-300,Varies,12"//6",1-2,80,K-W,1,By weapon type,Leader types,Leader types,0,Average to very,N(CE),M,2
+Men Bandit,C,20-200,Varies,Varies,1=2,20,M-A,1,By weapon type,Leader types,None,0,Average to very,N(CE),M,1
+Men Berserker,R,10-100,7,12",1=1,10,K-B,1(or2),By weapon type,Leader types,Leader types,0,Average to very,N,M,2
+Men Bucaneer,U,50-300,Varies,12"//6",1=2,80,K-W,1,By weapon type,Leader types,Leader types,0,Average to very,N(CE),M,2
 Men Cavemen,R,10-100,8(7),12",2(1),40,special,1,By weapon type,None,None,0,Low (to average),N,M,3
-Men Dervish,U,30-300,Varies,Varies,1-2,5,JL-Z,1,By weapon type,Leader types,Leader types,0,Average to very,LG(N),M,1
-Men Merchant,C,50-300,Varies,Varies,1-2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,N,M,2
-Men Pilgrim,U,10-100,Varies,Varies,1-2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,Varies,M,1
+Men Dervish,U,30-300,Varies,Varies,1=2,5,JL-Z,1,By weapon type,Leader types,Leader types,0,Average to very,LG(N),M,1
+Men Merchant,C,50-300,Varies,Varies,1=2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,N,M,2
+Men Pilgrim,U,10-100,Varies,Varies,1=2,0,special,Varies,By weapon type,Leader types,Leader types,0,Average to very,Varies,M,1
 Merman,U,20-200,7,1//18",1+1,25,CR,1,By weapon type,Special,None,0,Average to very,N,M,1
 Mimic,R,1,7,3",7-10,0,None,1,3-12,Glue,Camoflage,0,Semi to average,N,L,7
 Mind Flayer,R,1-4,5,12",8+4,50,BSTX,4,2,Mind blast,None,90,Genius,LE,M,7
