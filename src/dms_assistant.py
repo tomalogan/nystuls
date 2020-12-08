@@ -1,5 +1,6 @@
 #!/usr/local/bin/python3
 
+import copy
 import argparse
 import sys
 import logging
@@ -226,14 +227,11 @@ def is_number(n):
 
 
 def set_up_round(monsters):
-
     for attacker in monsters:
         attacker['initiative'] = roll_die(10)
-        logging.debug(f"    {attacker['name']} rolled a {attacker['initiative']} initiative")
-
-        if attacker['attack_cycle'] > 1:
+        logging.info(f"    {attacker['name']} rolled a {attacker['initiative']} initiative")
+        if int(attacker['attack_cycle']) > 1:
             swap_attacks(attacker)
-
         attacker['attack_segments'] = []
         attacker['attack_segments'].append(attacker['initiative'])
         if attacker['attacks'] > 1:
@@ -244,6 +242,18 @@ def set_up_round(monsters):
             attacker['attack_segments'].append(0)
         logging.info(f"    {attacker['name']} will attack on segments {attacker['attack_segments']}")
             
+def set_attacks(attacker,natt):
+    if "/" in natt:
+        attacker['attack_round'] = 0
+        attacker['attack_cycle'] = natt.split("/")[1]
+        print(f'natt = {natt.split("/")[0]} / {natt.split("/")[1]}')
+        attacker['attacks_per_round'] = [(int(natt.split("/")[0])/int(natt.split("/")[1]))-0.5, 
+                                         (int(natt.split("/")[0])/int(natt.split("/")[1]))+0.5]
+        logging.info(f"attacks per round is {attacker['attacks_per_round']}")
+    else:
+        attacker['attacks'] = int(natt)
+        attacker['attack_cycle'] = 1
+
     
 def swap_attacks(attacker):
     logging.debug(f"    attack round is {attacker['attack_round']+1}")
@@ -265,58 +275,105 @@ def read_char_table(fi):
             characters.append(c)
     return(characters)
 
+
+
+def parse(line):
+    cnt = 1
+    name = ''
+    level = 0
+    ac = 11 
+    natt = 0
+    dam = ''
+    to_hit = 0
+    to_dam = 0 
+#    string = re.match("\d*\s*\D+(\s+\d+){4,4}",line).group()        
+    string = re.match("\d*\s*\D+\s*(([+-]?\d+\s+){2}((\d/\d)|\d)\s+\d+-\d+((\s+[+-]?\d+){2,2})*)*",line).group()
+    tokens = string.split()
+    print(f"tokens = {tokens}")
+    pop_flag = False 
+    if len(tokens) == 1:		# name
+        name = tokens[0] 
+        pop_flag = True
+    elif len(tokens) == 2:		# cnt name
+        cnt = int(tokens[0])
+        name = tokens[1]
+        pop_flag = True
+    elif len(tokens) == 5:		# name HD AC #ATT DAM
+        name = tokens[0]
+        level = tokens[1]
+        ac = tokens[2]
+        natt = tokens[3]    
+        dam = tokens[4]
+        pop_flag = False 
+    elif len(tokens) == 6:  	# cnt name HD AC #ATT DAM
+        cnt = tokens[0]
+        name = tokens[1]
+        level = tokens[2]
+        ac = tokens[3]
+        natt = tokens[4]    
+        dam = tokens[5]
+        pop_flag = False
+    elif len(tokens) == 7:          # name HD AC #ATT DAM to_hit to_dam
+        name = tokens[0]
+        level = tokens[1]
+        ac = tokens[2]
+        natt = tokens[3]    
+        print(natt)
+        dam = tokens[4]
+        to_hit = tokens[5]
+        to_dam = tokens[6]
+        pop_flag = False 
+    elif len(tokens) == 8:          # cnt name HD AC #ATT DAM to_hit to_dam
+        cnt = tokens[0]
+        name = tokens[1]
+        level = tokens[2]
+        ac = tokens[3]
+        natt = tokens[4]    
+        dam = tokens[5]
+        to_hit = tokens[6]
+        to_dam = tokens[7]
+        pop_flag = False
+
+    return(cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag)
+
+
 def build_monster_roster(monster_names,monster_table):
   
     roster = [] 
     for line in monster_names:
-        to_hit = 0
-        to_dam = 0
-        cnt = 1
-        string = re.match("\d*\s*\D+(\s+\d+){4,4}",line).group()        
-        tokens = string.split()
-        if len(tokens) == 1:
-            name = tokens[0] 
-        elif len(tokens) == 2:
-            cnt = int(tokens[0])
-            name = tokens[1]
-        elif len(tokens) == 3:
-            name = tokens[0]
-            to_hit = int(tokens[1]) 
-            to_dam = int(tokens[2])
-        elif len(tokens) == 4:
-            cnt = int(tokens[0])
-            name = tokens[1]
-            to_hit = int(tokens[2])
-            to_dam = int(tokens[3])
-
-        idx = next((index for (index, d) in enumerate(monster_table) if d["Name"] == name), None) 
-        
-        if idx:
-            for num in range(1,cnt+1):
-                attacker = {}
+        (cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag) =  parse(line)
+        logging.info(f"Parsed string is: {cnt} {name} {level} {ac} {natt} {dam} {to_hit} {to_dam} {pop_flag}")
+        attacker = {} 
+        if pop_flag:
+            idx = next((index for (index, d) in enumerate(monster_table) if d["Name"] == name), None) 
+            if idx:
                 m = monster_table[idx]
-                attacker['type'] = "Monster"
-                attacker['name'] = name + f"_{num}"
-                natt = m['NATT']
-                if "/" in natt:
-                    attacker['attack_round'] = 0
-                    attacker['attack_cycle'] = natt.split("/")[1]
-                    attacker['attacks_per_round'] = [(natt.split("/")[0]/natt.split("/")[1])-0.5, (natt.split("/")[0]/natt.split("/")[1])+0.5] 
-                    logging.debug(f"attacks per round is {attacker['attacks_per_round']}")
-                else:
-                    attacker['attacks'] = int(natt)
-                    attacker['attack_cycle'] = 1
-                attacker['to_hit_mod'] = to_hit
-                attacker['to_dam_mod'] = to_dam
+                set_attacks(attacker,m['NATT'])
+                attacker['ac'] = m['AC']
                 attacker['hp'] = get_monster_hp(m, 1, maxhp=True)[0]
-                attacker['level'] = m['level']
-                attacker['opponent'] = -1 
-                logging.debug(attacker) 
-                roster.append(attacker)
+                attacker['level'] = int(m['level'])
+            else:
+                logging.error(f"Can't find {name} in monster_table!!!")
+                exit(1)
         else:
-            logging.error(f"Can't find {name} in monster_table!!!")
-            exit(1)
+            set_attacks(attacker,natt)
+            attacker['ac'] = ac
+            attacker['level'] = int(level)
+            attacker['hp'] = int(attacker['level']) * 8
+            attacker['damage'] = dam
+        
+        attacker['type'] = "Monster"
+        attacker['opponent'] = -1 
+        attacker['to_hit_mod'] = int(to_hit)
+        attacker['to_dam_mod'] = int(to_dam)
+
+        for num in range(1,cnt+1):
+            new_attacker = copy.deepcopy(attacker)
+            new_attacker['name'] = name + f"_{num}"
+            roster.append(new_attacker)
+            logging.info(new_attacker) 
     return(roster)
+ 
 
 def read_monster_names(fi):
     monsters = []
