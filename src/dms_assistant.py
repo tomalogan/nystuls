@@ -4,7 +4,10 @@ import argparse
 import sys
 import logging
 import random
+import re
+import random
 from random_monster import read_monsters
+from get_monster_hp import get_monster_hp
 
 to_hit_table = {}
 to_hit_level = {}
@@ -88,10 +91,10 @@ def is_hit(attacker,defender):
             die_roll = 20
     if die_roll >= to_hit_table[attacker['type']][col][row]:
         hit = True
-        logging.info(f"    Rolled {die_roll}({natural_die_roll}) - hit")
+        logging.info(f"    Hit -  rolled {die_roll}/{to_hit_table[attacker['type']][col][row]} ({natural_die_roll})")
     else:
         hit = False 
-        logging.info(f"    Rolled {die_roll}({natural_die_roll}) - miss")
+        logging.info(f"    Miss -  rolled {die_roll}/{to_hit_table[attacker['type']][col][row]} ({natural_die_roll})")
     return(hit)
    
 def attack(attacker,defender):
@@ -138,21 +141,18 @@ def get_opponent(attacker,num_characters):
             done = False
     return combat_over
 
-def determine_monster_hp(monster_name):
-    pass    
-
-
 
 def run_combat():
     logging.info("==================================================")
     logging.info("RUN COMBAT")
     logging.info("==================================================")
 
-    # roll up monster treasures
+    # roll up monsters
     print("Getting monster tables")
     characters = read_char_table(args.char_table)
-    monsters = read_monster_table(args.monster_table)
+    monster_names = read_monster_names(args.monster_table)
     monster_table = read_monsters()
+    monsters = build_monster_roster(monster_names,monster_table)
 
     combat_over = False
     round = 1
@@ -229,7 +229,7 @@ def set_up_round(monsters):
 
     for attacker in monsters:
         attacker['initiative'] = roll_die(10)
-        logging.info(f"    {attacker['name']} rolled a {attacker['initiative']} initiative")
+        logging.debug(f"    {attacker['name']} rolled a {attacker['initiative']} initiative")
 
         if attacker['attack_cycle'] > 1:
             swap_attacks(attacker)
@@ -238,7 +238,7 @@ def set_up_round(monsters):
         attacker['attack_segments'].append(attacker['initiative'])
         if attacker['attacks'] > 1:
             offset = int(attacker['initiative'] / attacker['attacks'])
-            print(f"    Offset is {offset}")
+            logging.debug(f"    Offset is {offset}")
             for x in range(2,attacker['attacks']):
                 attacker['attack_segments'].append(attacker['initiative'] - (x-1)*offset)
             attacker['attack_segments'].append(0)
@@ -265,43 +265,76 @@ def read_char_table(fi):
             characters.append(c)
     return(characters)
 
-def read_monster_table(fi):
+def build_monster_roster(monster_names,monster_table):
+  
+    roster = [] 
+    for line in monster_names:
+        to_hit = 0
+        to_dam = 0
+        cnt = 1
+        string = re.match("\d*\s*\D+(\s+\d+){4,4}",line).group()        
+        tokens = string.split()
+        if len(tokens) == 1:
+            name = tokens[0] 
+        elif len(tokens) == 2:
+            cnt = int(tokens[0])
+            name = tokens[1]
+        elif len(tokens) == 3:
+            name = tokens[0]
+            to_hit = int(tokens[1]) 
+            to_dam = int(tokens[2])
+        elif len(tokens) == 4:
+            cnt = int(tokens[0])
+            name = tokens[1]
+            to_hit = int(tokens[2])
+            to_dam = int(tokens[3])
+
+        idx = next((index for (index, d) in enumerate(monster_table) if d["Name"] == name), None) 
+        
+        if idx:
+            for num in range(1,cnt+1):
+                attacker = {}
+                m = monster_table[idx]
+                attacker['type'] = "Monster"
+                attacker['name'] = name + f"_{num}"
+                natt = m['NATT']
+                if "/" in natt:
+                    attacker['attack_round'] = 0
+                    attacker['attack_cycle'] = natt.split("/")[1]
+                    attacker['attacks_per_round'] = [(natt.split("/")[0]/natt.split("/")[1])-0.5, (natt.split("/")[0]/natt.split("/")[1])+0.5] 
+                    logging.debug(f"attacks per round is {attacker['attacks_per_round']}")
+                else:
+                    attacker['attacks'] = int(natt)
+                    attacker['attack_cycle'] = 1
+                attacker['to_hit_mod'] = to_hit
+                attacker['to_dam_mod'] = to_dam
+                attacker['hp'] = get_monster_hp(m, 1, maxhp=True)[0]
+                attacker['level'] = m['level']
+                attacker['opponent'] = -1 
+                logging.debug(attacker) 
+                roster.append(attacker)
+        else:
+            logging.error(f"Can't find {name} in monster_table!!!")
+            exit(1)
+    return(roster)
+
+def read_monster_names(fi):
     monsters = []
     f = open(fi,'r')
     for line in f.readlines():
         line = line.strip()
         if not "Monster_Type" in line:
-            columns = line.split()
-            print(line)
-            print(columns)
-            attacker = {}
-            attacker['type'] = "Monster"
-            attacker['name'] = columns[0]
-            attacker['level'] = int(columns[1])
-            if "/" in columns[2]:
-                attacker['attack_round'] = 0
-                attacker['attack_cycle'] = int(columns[2][2])
-                attacker['attacks_per_round'] = [int(columns[2][0])/int(columns[2][2])-0.5,int(columns[2][0])/int(columns[2][2])+0.5]
-                logging.debug(f"attacks per round is {attacker['attacks_per_round']}")
-            else:
-                attacker['attacks'] = int(columns[2])
-                attacker['attack_cycle'] = 1
-            attacker['to_hit_mod'] = int(columns[3])
-            attacker['to_dam_mod'] = int(columns[4])
-            attacker['hp'] = attacker['level'] * 8
-            attacker['opponent'] = -1 
-            logging.debug(attacker) 
-            monsters.append(attacker)
+            monsters.append(line.strip())
     return(monsters)
 
 
 def print_monster_roster(monsters):
     cnt = 0
     logging.info('')
-    logging.info('    Monster Roster')
+    logging.info(f'{"    Monster Roster" : <28} : HP   : Opponent')
     logging.info('    ================')
     for m in monsters:
-        logging.info(f"    {cnt} : {m['name'] : <20} : {m['opponent'] : <3} : {m['hp']}")
+        logging.info(f"    {cnt} : {m['name'] : <20} : {m['hp'] : <3}  : {m['opponent']}")
         cnt = cnt + 1
 
 

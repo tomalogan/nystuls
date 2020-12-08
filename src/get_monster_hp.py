@@ -1,5 +1,7 @@
 #!/usr/local/bin/python3
 
+import random
+
 def read_monsters():
     etcFile = "monsters.txt"
     etcPath = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'etc'))
@@ -107,17 +109,6 @@ def get_monster_hp(monster, cnt, maxhp=True):
                 hp = 1
             hp_list.append(int(hp))
 
-    if hd < 1:
-        if hd == 0.25:
-            hd = "1/4"
-        else:
-            hd = "1/2"
-    else:
-        hd = int(hd)
-    if plus > 0:
-        hd = "{}+{}".format(hd, plus)
-    elif minus > 0:
-        hd = "{}-{}".format(hd, minus)
-    monster['HD'] = hd
+    monster['level'] = hd
     return hp_list
 
