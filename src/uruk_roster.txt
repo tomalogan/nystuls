@@ -1,4 +1,4 @@
 Monster_Type HD AC #A Dam to_hit to_dam
-Uruk 5 -1 3/2 1-8 5 8
-Uruk 3 -4 5/2 1-8 6 7
+Klarnak 5 -1 3/2 4-13 5 8
+DudeMan 3 -4 5/2 1-8 6 7
 5 Orc
