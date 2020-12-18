@@ -1,0 +1,40 @@
+README			- this file
+character_roster.txt	- list of player characters
+uruk_roster.txt		- newest list (12/2020)
+monster_roster.txt	- list of monsters example
+new_roster.txt          - newer roster of monsters 
+
+dms_assistant.py	- MAIN APP -> takes care of comnbat rolls, etc
+nystuls.py		- MAIN APP -> nystul's olde time magic shop
+random_characters.py    - MAIN APP -> Generates random NPCs
+random_monster.py       - MAIN APP -> Gerneates random momster encounters
+random_treasure.py	- MAIN APP -> Generates random treasure as per rules
+select_magic.py 	- MAIN APP -> for equiping NPCs 
+
+get_quantity.py		- called by misc_magic & weapons
+interp.py		- interpolation  function, called by misc_magic, rings, & potions
+
+drow.py			- subroutines to equip different drow classes
+equip.py		- subroutines to equip basic 4 classes
+misc_magic.py		- get misc magic item
+potions.py		- get misc potion
+rings.py		- set magic ring subtype
+scrolls.py		- set scroll subtype
+sticks.py		- misc magic sticks
+swords.py		- get type of sword
+utils.py		- misc utils for getting items mostly
+weapons.py		- get misc magic weapon
+
+monster_utils.py	- read_monsters from txt file
+			- get_monster_hp from random
+
+
+
+
+
+dms_assistant.py:    from random_monster import read_monsters
+dms_assistant.py:    monster_table = read_monsters()
+get_monster_hp.py:def read_monsters():
+random_monster.py:def read_monsters():
+random_monster.py:    monster_table = read_monsters()
+

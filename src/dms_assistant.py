@@ -7,8 +7,8 @@ import logging
 import random
 import re
 import random
-from random_monster import read_monsters
-from get_monster_hp import get_monster_hp
+from monster_utils import read_monsters
+from monster_utils import get_monster_hp
 
 to_hit_table = {}
 to_hit_level = {}
@@ -77,7 +77,6 @@ def get_column(attacker):
     return col
 
 def is_hit(attacker,defender):
-    roll = roll_die(20)
     logging.debug(f"Attacker type is {attacker['type']}")
     col = get_column(attacker)
     row = int(defender['ac']) + 10
@@ -141,32 +140,51 @@ def attack(attacker,defender):
         if attacker['fumble']:
             roll = roll_die(6)
             logging.info("    FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- ")
-            if roll <3:
-                logging.info(f"    FUMBLE - attacker {attacker['name']} fumbled - make a dexteriry check")
+            if roll < 3:
+                logging.info(f"    FUMBLE -- attacker {attacker['name']} fumbled - make a dexteriry check")
             elif roll <5:
-                logging.info(f"    FUMBLE - attacker {attacker['name']} fumbled - make a 1/2 dexteriry check")
+                logging.info(f"    FUMBLE -- attacker {attacker['name']} fumbled - make a 1/2 dexteriry check")
             else:
-                logging.info(f"    FUMBLE - attacker {attacker['name']} fumbled - make a weapon saving throw")
+                logging.info(f"    FUMBLE -- attacker {attacker['name']} fumbled - make a weapon saving throw")
             logging.info("    FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- ")
 
+        attacker['off_hand'] = ~attacker['off_hand']
+
+
 def calc_damage(attacker):
-    t = attacker['damage'].split("-")
-    upper = int(t[1].split()[0])
-    lower = int(t[0])
-    while lower > 0:
-        if upper%lower == 0:
-            roll = roll_die(int(upper/lower))*lower
-            if attacker['crit']:
-                attacker['crit']=False
-                roll = roll * 2
-            damage = roll + (int(t[0]) - lower)
-            logging.info(f"    Rolling {lower}d{int(upper/lower)} + {int(t[0])-lower+attacker['to_dam_mod']}")
-            break
+    if attacker['off_hand']:
+        print("    Attacking with off hand dagger")
+        roll = roll_die(4)  
+        if attacker['crit']:
+            attacker['crit']=False
+            roll = roll * 2
+        # Remove specialization +3
+        dam_mod = attacker['to_dam_mod'] - 3
+        if dam_mod > 0:
+            damage = roll + dam_mod
         else:
-            lower-=1
-            upper-=1
-    damage += attacker['to_dam_mod']
+            damage = roll 
+    else:
+        t = attacker['damage'].split("-")
+        upper = int(t[1].split()[0])
+        lower = int(t[0])
+        while lower > 0:
+            if upper%lower == 0:
+                roll = 0
+                for x in range(0,lower):
+                    roll += roll_die(int(upper/lower))
+                if attacker['crit']:
+                    attacker['crit']=False
+                    roll = roll * 2
+                damage = roll + (int(t[0]) - lower)
+                logging.info(f"    Rolling {lower}d{int(upper/lower)} + {int(t[0])-lower+attacker['to_dam_mod']}")
+                break
+            else:
+                lower-=1
+                upper-=1
+        damage += attacker['to_dam_mod']
     return damage 
+
 
 def get_opponent(attacker,num_characters):
     target = attacker['opponent']    
@@ -200,7 +218,7 @@ def get_opponent(attacker,num_characters):
             if opponent_int == -1:
                 logging.info("    Setting opponent to None (-1)")
                 attacker['opponent'] = -1
-            elif opponent_int >= 0 and opponent_int <= num_characters:
+            elif opponent_int >= 0 and opponent_int < num_characters:
                 logging.info(f"    Setting opponent to {opponent_int}")
                 attacker['opponent'] = opponent_int
             elif opponent_int == -99:
@@ -249,7 +267,7 @@ def run_combat():
     monster_names = read_monster_names(args.monster_table)
     monster_table = read_monsters()
     monsters = build_monster_roster(monster_names,monster_table)
-
+    monster_backup = copy.deepcopy(monsters) 
     combat_over = False
     round = 1
     while not combat_over:
@@ -278,6 +296,19 @@ def run_combat():
         logging.info('================================================================')
         logging.info('')
         round += 1
+
+    mon_list = []
+    for m in monster_backup:
+        if m['name'] not in mon_list:
+            tmp = m['name'].replace('_',' ')
+            tmp = tmp.split()[0] 
+            mon_list.append(tmp)
+    mon_list = set(mon_list)
+    print(mon_list) 
+    
+    for types in mon_list:
+        print(f"types = {types}") 
+
 
 def get_int_input(str):
     target = 'A'
@@ -345,7 +376,9 @@ def player_actions(monsters,characters):
                 if response:
                     damage = get_int_input("    How much damage did they do? ")
                     damage = int(damage)
-                    apply_damage(target,damage,monsters,attacker['name'])
+                    if apply_damage(target,damage,monsters,attacker['name']):
+                        response=''
+
 
 def apply_damage(target,damage,monsters,char_name):
     m = monsters[target]
@@ -358,9 +391,11 @@ def apply_damage(target,damage,monsters,char_name):
             logging.info("******************************************************")
             logging.info("           ALL MONSTERS HAVE BEEN DEFEATED ")
             logging.info("******************************************************")
-            exit(0)
+            return(1)
+        return(0)
     else:
         m['hp'] =  m['hp'] - damage
+        return(0)
 
 
 def is_number(n):
@@ -378,6 +413,7 @@ def set_up_round(monsters,characters):
             logging.debug(f"    {attacker['name']} rolled a {attacker['initiative']} initiative")
             if int(attacker['attack_cycle']) > 1:
                 swap_attacks(attacker)
+            attacker['off_hand'] = False
             attacker['attack_segments'] = []
             attacker['attack_segments'].append(attacker['initiative'])
             if attacker['attacks'] > 1:
@@ -401,10 +437,11 @@ def set_up_round(monsters,characters):
 def set_attacks(attacker,natt):
     if "/" in natt:
         attacker['attack_round'] = 0
+        total_attacks = natt.split("/")[0]
         attacker['attack_cycle'] = natt.split("/")[1]
-        logging.debug(f'natt = {natt.split("/")[0]} / {natt.split("/")[1]}')
-        attacker['attacks_per_round'] = [(int(natt.split("/")[0])/int(natt.split("/")[1]))-0.5, 
-                                         (int(natt.split("/")[0])/int(natt.split("/")[1]))+0.5]
+        logging.debug(f"natt = {total_attacks} / {attacker['attack_cycle']} ")
+        attacker['attacks_per_round'] = [(int(total_attacks)/int(attacker['attack_cycle']))-0.5, 
+                                         (int(total_attacks)/int(attacker['attack_cycle']))+0.5]
         logging.debug(f"attacks per round is {attacker['attacks_per_round']}")
     else:
         attacker['attacks'] = int(natt)
@@ -416,7 +453,8 @@ def swap_attacks(attacker):
     attacker['attacks'] = int(attacker['attacks_per_round'][attacker['attack_round']])
     logging.debug(f"    set attacks to {attacker['attacks']}")
     attacker['attack_round'] = ~attacker['attack_round']
-    
+
+ 
 def read_char_table(fi):
     characters = []
     f = open(fi,'r')
@@ -441,6 +479,7 @@ def read_char_table(fi):
 
 
 def parse(line):
+    print(f"parsing line {line}")
     cnt = 1
     name = ''
     level = 0
@@ -450,9 +489,10 @@ def parse(line):
     to_hit = 0
     to_dam = 0 
     # [cnt] name [level ac natt dam [to_hit to_dam]] 
-    string = re.match("\d*\s*\D+\s*(([+-]?\d+\s+){2}((\d/\d)|\d)\s+\d+-\d+((\s+[+-]?\d+){2,2})*)*",line).group()
-    tokens = string.split()
-    logging.debug(f"tokens = {tokens}")
+#   string = re.match("\d*\s*\D+\s*(([+-]?\d+\s+){2}((\d/\d)|\d)\s+\d+-\d+((\s+[+-]?\d+){2,2})*)*",line).group()
+#   tokens = string.split()
+    tokens = line.split()
+    logging.info(f"tokens = {tokens}")
     pop_flag = False 
     if len(tokens) == 1:	# name
         name = tokens[0] 
@@ -467,7 +507,6 @@ def parse(line):
         ac = tokens[2]
         natt = tokens[3]    
         dam = tokens[4]
-        pop_flag = False 
     elif len(tokens) == 6:  	# cnt name HD AC #ATT DAM
         cnt = tokens[0]
         name = tokens[1]
@@ -475,7 +514,6 @@ def parse(line):
         ac = tokens[3]
         natt = tokens[4]    
         dam = tokens[5]
-        pop_flag = False
     elif len(tokens) == 7:      # name HD AC #ATT DAM to_hit to_dam
         name = tokens[0]
         level = tokens[1]
@@ -484,7 +522,6 @@ def parse(line):
         dam = tokens[4]
         to_hit = tokens[5]
         to_dam = tokens[6]
-        pop_flag = False 
     elif len(tokens) == 8:      # cnt name HD AC #ATT DAM to_hit to_dam
         cnt = tokens[0]
         name = tokens[1]
@@ -494,13 +531,10 @@ def parse(line):
         dam = tokens[5]
         to_hit = tokens[6]
         to_dam = tokens[7]
-        pop_flag = False
-
     return(cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag)
 
 
 def build_monster_roster(monster_names,monster_table):
-  
     roster = [] 
     for line in monster_names:
         (cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag) =  parse(line)
@@ -541,7 +575,6 @@ def build_monster_roster(monster_names,monster_table):
                 new_attacker['name'] = name
             roster.append(new_attacker)
             logging.debug(new_attacker) 
-
     return(roster)
  
 

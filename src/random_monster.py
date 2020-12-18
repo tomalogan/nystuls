@@ -7,53 +7,8 @@ import random
 from argparse import ArgumentDefaultsHelpFormatter
 import os, re, sys
 from random_treasure import get_random_treasure
-
-
-def read_monsters():
-    etcFile = "monsters.txt"
-    etcPath = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'etc'))
-    etcFile = os.path.join(etcPath, etcFile)
-
-    f = open(etcFile, "r")
-    monsters = []
-    cnt = -1
-    for line in f:
-        t = line.strip().split(",")
-        if len(t) == 1:
-            # New book
-            logging.debug("Reading monsters from {}".format(t[0]))
-        else:
-            m = {}
-            m['Name'] = t[0]
-            m['Freq'] = t[1]
-            m['NAPP'] = t[2]
-            m['AC'] = t[3]
-            m['MV'] = t[4]
-            m['HD'] = t[5]
-            if "-" in m['HD']:
-                logging.debug("Found dash in HD: {} {}".format(t[0], t[5]))
-            m['Lair'] = t[6]
-            m['TT'] = t[7]
-            m['NATT'] = t[8]
-            m['DA'] = t[9]
-            m['SA'] = t[10]
-            m['SD'] = t[11]
-            m['MR'] = t[12]
-            m['Int'] = t[13]
-            m['Ali'] = t[14]
-            m['Size'] = t[15]
-            m['Lvl'] = int(t[16])
-
-            str = "{} Freq: {},NumApp: {},AC: {},MV: {},HD: {},InLair: {},TreasureType: {},NumAtt: {}, \
-Dam/Att: {},SA: {},SD: {},MR: {},I: {},Ali: {},Size: {},Level: {}".format(
-                m['Name'], m['Freq'], m['NAPP'], m['AC'], m['MV'], m['HD'], m['Lair'], m['TT'],
-                m['NATT'], m['DA'], m['SA'], m['SD'], m['MR'], m['Int'], m['Ali'], m['Size'], m['Lvl'])
-            wrapper = textwrap.TextWrapper(initial_indent="\t", width=72, subsequent_indent="\t")
-            out = wrapper.fill(str)
-            logging.debug("{}".format(out))
-            monsters.append(m)
-    return (monsters)
-
+from monster_utils import get_monster_hp
+from monster_utils import read_monsters
 
 def process_list_into_string(mylist):
     out = "{}".format(mylist[0])

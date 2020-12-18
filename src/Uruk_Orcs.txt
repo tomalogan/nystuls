@@ -1,0 +1,3 @@
+Monster_Type HD AC #A Dam to_hit to_dam
+10 Orc
+Uruk 1 -1 3/2 1-8 5 6

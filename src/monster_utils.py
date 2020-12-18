@@ -1,6 +1,10 @@
 #!/usr/local/bin/python3
 
 import random
+import os
+import logging
+from argparse import ArgumentDefaultsHelpFormatter
+import textwrap
 
 def read_monsters():
     etcFile = "monsters.txt"
@@ -47,14 +51,10 @@ Dam/Att: {},SA: {},SD: {},MR: {},I: {},Ali: {},Size: {},Level: {}".format(
             monsters.append(m)
     return (monsters)
 
-
-
-
 def get_monster_hp(monster, cnt, maxhp=True):
     hd = "{}".format(monster['HD'])
     plus = None
     minus = None
-
     if "HP" in hd:
         hp_list = [int(hd.split()[0])]
         return hp_list
@@ -74,17 +74,14 @@ def get_monster_hp(monster, cnt, maxhp=True):
             plus = "0"
         else:
             plus = "0"
-
         if "-" in hd:
             lo = int(hd.split("-")[0])
             hi = int(hd.split("-")[1])
             hd = random.randint(lo, hi)
-
         if "-" in plus:
             lo = int(plus.split("-")[0])
             hi = int(plus.split("-")[1])
             plus = random.randint(lo, hi)
-
     hd = float(hd)
     if plus:
         plus = int(plus)
@@ -94,7 +91,6 @@ def get_monster_hp(monster, cnt, maxhp=True):
         minus = int(minus)
     else:
         minus = 0
-
     hp_list = []
     if maxhp:
         hp = hd * 8 + plus - minus
@@ -108,7 +104,9 @@ def get_monster_hp(monster, cnt, maxhp=True):
             if hp < 0:
                 hp = 1
             hp_list.append(int(hp))
-
     monster['level'] = hd
     return hp_list
+
+
+
 
