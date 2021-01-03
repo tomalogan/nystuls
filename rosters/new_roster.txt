@@ -1,0 +1,3 @@
+Ogre
+6 Goblin
+2 Gnoll

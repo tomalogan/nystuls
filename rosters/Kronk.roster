@@ -1,0 +1,12 @@
+Monster_Type HD AC #A Dam to_hit to_dam
+Kronk 6 -3 3/2 1-10 5 9
+SueBob 4 -3 3/2 1-8 5 5
+Sanchez 4 -1 1 4-9
+George 3 -3 1 3-8 
+Fred 3 -2 1 3-8  
+Rab 1 4 1 1-8 1 1 
+Jeb 1 3 1 1-8 1 1
+Zab 1 5 1 1-8 1 2 
+Zeb 1 5 1 1-8 1 1 
+Zib 1 5 1 1-8 1 1
+Zob 1 5 2 1-8 1 2

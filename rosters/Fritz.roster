@@ -1,0 +1,4 @@
+Monster_Type HD AC #A Dam to_hit to_dam
+Fritz 2 0 1 1-4 2 2
+Guard1 2 3 5/2 1-8 3 3
+Guard1 2 2 3/2 1-8 3 3

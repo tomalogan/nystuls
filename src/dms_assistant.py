@@ -271,7 +271,6 @@ def combat_over(monsters):
 
 def monster_actions(segment, monsters, characters):
     for attacker in monsters:
-        print(f"ma: combat_over() = {combat_over(monsters)}")
         while segment in attacker['attack_segments'] and not combat_over(monsters):
             opponent, healed = get_opponent(attacker,len(characters))
             if attacker['opponent'] == -1:
@@ -281,9 +280,6 @@ def monster_actions(segment, monsters, characters):
                 attacker['attack_segments'].remove(segment) 
             elif attacker['opponent'] == -99:
                 monsters = []
-                print("setting monsters to []")
-                print(f'len monsters = {len(monsters)}')
-                print(f'combat over  = {combat_over(monsters)}')
             else:
                 if not combat_over(monsters) and not healed:
                     attack(attacker,characters[attacker['opponent']])
@@ -304,7 +300,6 @@ def run_combat():
     while not combat_over(monsters):
         set_up_round(round,monsters,characters)
         for segment in range(10,-1,-1):
-            print(f"combat_over() = {combat_over(monsters)}")
             if not combat_over(monsters):
                 logging.info('')
                 print_tables(segment, characters, monsters)
@@ -366,7 +361,6 @@ def cast_spell(who,character,):
 
 def player_actions(monsters,characters):
     response = '1'
-    print(f"pa: combat_over() = {combat_over(monsters)}")
     if not combat_over(monsters):
         while not response == '':
             who = -99
