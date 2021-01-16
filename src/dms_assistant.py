@@ -185,11 +185,27 @@ def calc_damage(attacker):
         damage += attacker['to_dam_mod']
     return damage 
 
+print_opponent(name,target):
+    if target == -1:
+        print(f'{name} holding action until next segment')
+    if target == -2:
+        print(f'{name} taking no action until next round')
+   
+def print_action(name,opponent_int):
+    if opponent_int >= 0 and opponent_int < num_characters:
+        logging.info(f"    {name} opponent set to {opponent_int}")
+    elif opponent_int == -1:
+        logging.info(f"    {name} holding action until next segment")
+    elif opponent_int == -2:
+        logging.info(f"    {name} not attacking this round")
+    elif opponent_int == -99:
+        logging.info( "    Combat is over!!!!")
+ 
 
 def get_opponent(attacker,num_characters):
     target = attacker['opponent']    
-    special = "h"
-    str2 = f"[enter (use {target}), -1 (delay), -2 (forfiet action), {special}]: "
+    specials = ['p']
+    str2 = f"[enter (use {target}), -1 (delay), -2 (forfiet), {specials}]: "
     str1 = f"    Who is {attacker['name']} attacking? "
     str = str1 + str2
 
@@ -197,37 +213,23 @@ def get_opponent(attacker,num_characters):
     done = False
     opponent = ''
     while not done:
-        opponent = get_input(str, special = 'h') 
+        opponent = get_input(str, specials = specials)
         if opponent == '':
-            logging.info(f"    {attacker['name']} re-using opponent {target}")
+            print_action(attacker['name'],target)
             done = True
-        elif opponent == 'h':
-            healing = get_int_input(f"    How any points was {attacker['name']} healed? ")
-            attacker['hp'] += healing
-            if attacker['hp'] > attacker['max_hp']:
-                attacker['hp'] = attacker['max_hp']
-            attacker['attack_segments'] = []
+        elif opponent == 'p':
+            logging.info(f"    {attacker['name']} drinks a healing potion") 
             done = True
             healed = True
         if not done: 
-            opponent_int = int(opponent)
-            logging.debug(f"    opponent_int is {opponent_int}")
-            done = True
-            if opponent_int >= 0 and opponent_int < num_characters:
-                logging.info(f"    Setting opponent to {opponent_int}")
+            if (opponent_int >= -2 and opponent_int < num_characters) or opponent_int == -99:
+                opponent_int = int(opponent)
                 attacker['opponent'] = opponent_int
-            elif opponent_int == -1:
-                logging.info("    Setting opponent to None (-1)")
-                attacker['opponent'] = -1
-            elif opponent_int == -2:
-                logging.info(f"    Dropping {attacker['name']} from this round (-2)")
-                attacker['opponent'] = -2
-            elif opponent_int == -99:
-                logging.info( "    Combat is over!!!!")
-                attacker['opponent'] = -99 
+                logging.debug(f"    opponent_int is {opponent_int}")
+                done = True
+                print_action(attacker[name],opponent_int)
             else:
                 logging.info(f"Invalid opponent entered {opponent}; please enter -99 or -2 to {num_characters}")
-                opponent = ''
                 done = False
     return opponent, healed
 
@@ -272,8 +274,14 @@ def combat_over(monsters):
 def monster_actions(segment, monsters, characters):
     for attacker in monsters:
         while segment in attacker['attack_segments'] and not combat_over(monsters):
-            opponent, healed = get_opponent(attacker,len(characters))
-            if attacker['opponent'] == -1:
+            opponent, healing = get_opponent(attacker,len(characters))
+            if healing:
+                healing = get_int_input(f"    How any points was {attacker['name']} healed? ")
+                attacker['hp'] += healing
+                if attacker['hp'] > attacker['max_hp']:
+                    attacker['hp'] = attacker['max_hp']
+                attacker['attack_segments'] = []
+            elif attacker['opponent'] == -1:
                 attacker['attack_segments'].append(segment-1)
                 attacker['attack_segments'].remove(segment) 
             elif attacker['opponent'] == -2:
@@ -281,10 +289,12 @@ def monster_actions(segment, monsters, characters):
             elif attacker['opponent'] == -99:
                 monsters = []
             else:
-                if not combat_over(monsters) and not healed:
+                if not combat_over(monsters) and not healing:
+                    attacker['attack_segments'].remove(segment) 
                     attack(attacker,characters[attacker['opponent']])
-                    if not attacker['fumble']:
-                        attacker['attack_segments'].remove(segment) 
+                    if characters[attacker['opponent']]['opponent'] == -1:
+                        which =  [i for i, e in enumerate(monsters) if e == attacker]
+                        characters[attacker['opponent']]['opponent'] = which 
 
 
 def run_combat():
@@ -333,20 +343,20 @@ def get_int_input(str):
         target = input(str) 
     return(int(target))
 
-def get_input(str,special=''):
+def get_input(str,specials=None):
     done = False
     while not done:
         response = input(str)
-        if response == special:
+        if specials and response in specials:
             return(response)
         elif response == '':
             return(response)
         elif is_number(response):
             return(int(response))
         else:
-            logging.warning(f"    Invalid entry: must be {special} or a number")
+            logging.warning(f"    Invalid entry: must be {specials} or a number")
                                               
-def cast_spell(who,character,):
+def cast_spell(character):
     spell = {}
     
     spell['name'] = input("    What spell is being cast? ")
@@ -368,33 +378,34 @@ def player_actions(monsters,characters):
                 who = get_input("    Who's action is it (return to exit): ")
                 if not is_number(who):
                     return()
-            response = get_input(f"    Who is {characters[who]['name']} attacking? (s for spell) ",special='s')
+            attacker = characters[who]
+            response = get_input(f"    Who is {attacker['name']} attacking? (s for spell, enter for {attacker['opponent']})  ",specials=['s'])
             if response == 's':
-                cast_spell(who,characters[who])
+                cast_spell(attacker)
+                return
             elif response == '':
-                pass 
+                target = attacker['opponent']
             else:
                 target = int(response) - 100
-                if target < 0 or target >= len(monsters):
-                    logging.warning(f"    Not a valid target; enter a number between 0 and {len(monsters)-1}")
-                else:
-                    attacker = characters[who]
-                    col = get_column(attacker)
-                    defender = monsters[target]
-                    row = int(defender['ac']) + 10
-                    logging.debug(f"Row {row} Column {col}")
-                    logging.debug(f"    {attacker['name']} type is {attacker['type']}")
-                    logging.info(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
- 
-                    # check for hit
-                    response = get_input(f"    Did {attacker['name']} hit? (0/1) ")
-                    if response:
-                        if monsters[target]['opponent'] == -1:
-                            monsters[target]['opponent'] = who                      
-                        damage = get_int_input("    How much damage did they do? ")
-                        damage = int(damage)
-                        if apply_damage(target,damage,monsters,attacker['name']):
-                            response=''
+            if target < 0 or target >= len(monsters):
+                logging.warning(f"    Not a valid target; enter a number between 0 and {len(monsters)-1}")
+            else:
+                col = get_column(attacker)
+                defender = monsters[target]
+                row = int(defender['ac']) + 10
+                logging.debug(f"Row {row} Column {col}")
+                logging.debug(f"    {attacker['name']} type is {attacker['type']}")
+                logging.info(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
+
+                # check for hit
+                response = get_input(f"    Did {attacker['name']} hit? (0/1) ")
+                if response:
+                    if monsters[target]['opponent'] == -1:
+                        monsters[target]['opponent'] = who                      
+                    damage = get_int_input("    How much damage did they do? ")
+                    damage = int(damage)
+                    if apply_damage(target,damage,monsters,attacker['name']):
+                        response=''
                      
 
 
@@ -492,6 +503,7 @@ def read_char_table(fi):
             c['spells_active'] = []
             c['casting'] = False
             c['total_damage'] = 0
+            c['opponent'] = -1
             logging.debug(c)
             characters.append(c)
     return(characters)
