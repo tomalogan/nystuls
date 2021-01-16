@@ -1,6 +1,0 @@
-Monster_Type HD AC #A Dam to_hit to_dam
-Zab 1 -1 3/2 1-8 3 3
-Zeb 1 -1 5/2 1-8 4 4
-Zib 1 -1 3/2 1-8 6 9
-Zob 1 -1 5/2 1-8 5 7
-Zub 1 -1 3/2 1-8 5 6

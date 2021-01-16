@@ -70,7 +70,7 @@ def get_column(attacker):
     col = 0
     for x in to_hit_level[attacker['type']]:
         logging.debug(f"Checking level {x}")
-        if attacker['level'] > x:
+        if attacker['level'] >= x:
             col = col + 1
         else:
             break
@@ -185,13 +185,7 @@ def calc_damage(attacker):
         damage += attacker['to_dam_mod']
     return damage 
 
-print_opponent(name,target):
-    if target == -1:
-        print(f'{name} holding action until next segment')
-    if target == -2:
-        print(f'{name} taking no action until next round')
-   
-def print_action(name,opponent_int):
+def print_action(name, opponent_int, num_characters):
     if opponent_int >= 0 and opponent_int < num_characters:
         logging.info(f"    {name} opponent set to {opponent_int}")
     elif opponent_int == -1:
@@ -215,19 +209,19 @@ def get_opponent(attacker,num_characters):
     while not done:
         opponent = get_input(str, specials = specials)
         if opponent == '':
-            print_action(attacker['name'],target)
+            print_action(attacker['name'],target,num_characters)
             done = True
         elif opponent == 'p':
             logging.info(f"    {attacker['name']} drinks a healing potion") 
             done = True
             healed = True
         if not done: 
+            opponent_int = int(opponent)
             if (opponent_int >= -2 and opponent_int < num_characters) or opponent_int == -99:
-                opponent_int = int(opponent)
                 attacker['opponent'] = opponent_int
                 logging.debug(f"    opponent_int is {opponent_int}")
+                print_action(attacker['name'], opponent_int, num_characters)
                 done = True
-                print_action(attacker[name],opponent_int)
             else:
                 logging.info(f"Invalid opponent entered {opponent}; please enter -99 or -2 to {num_characters}")
                 done = False
@@ -288,13 +282,14 @@ def monster_actions(segment, monsters, characters):
                 attacker['attack_segments'].remove(segment) 
             elif attacker['opponent'] == -99:
                 monsters = []
+                print("Set monsters to zero")
             else:
                 if not combat_over(monsters) and not healing:
                     attacker['attack_segments'].remove(segment) 
                     attack(attacker,characters[attacker['opponent']])
                     if characters[attacker['opponent']]['opponent'] == -1:
                         which =  [i for i, e in enumerate(monsters) if e == attacker]
-                        characters[attacker['opponent']]['opponent'] = which 
+                        characters[attacker['opponent']]['opponent'] = int(which[0])
 
 
 def run_combat():
@@ -314,8 +309,10 @@ def run_combat():
                 logging.info('')
                 print_tables(segment, characters, monsters)
                 monster_actions(segment, monsters, characters)
-                player_actions(monsters,characters)
-                decrement_spell_times(characters)
+                print(f" lenth of monster array {len(monsters)}")
+                if not combat_over(monsters):
+                    player_actions(monsters,characters)
+                    decrement_spell_times(characters)
         finish_spells(characters)
         logging.info('')
         logging.info(f'END OF ROUND {round}')
@@ -384,7 +381,7 @@ def player_actions(monsters,characters):
                 cast_spell(attacker)
                 return
             elif response == '':
-                target = attacker['opponent']
+                target = int(attacker['opponent'])
             else:
                 target = int(response) - 100
             if target < 0 or target >= len(monsters):
@@ -402,6 +399,8 @@ def player_actions(monsters,characters):
                 if response:
                     if monsters[target]['opponent'] == -1:
                         monsters[target]['opponent'] = who                      
+                    if attacker['opponent'] == -1:
+                        attacker['opponent'] = target
                     damage = get_int_input("    How much damage did they do? ")
                     damage = int(damage)
                     if apply_damage(target,damage,monsters,attacker['name']):
@@ -739,7 +738,7 @@ def print_character_roster(characters,monsters):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Dungeon Master's Assitant")
     parser.add_argument("char_table",help="Character roster file")
-    parser.add_argument("monster_table",help="Monster roset file")
+    parser.add_argument("monster_table",help="Monster roster file")
     parser.add_argument("-v", "--verbose", help="Logging level", default="INFO")
 
 
