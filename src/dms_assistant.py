@@ -309,7 +309,6 @@ def run_combat():
                 logging.info('')
                 print_tables(segment, characters, monsters)
                 monster_actions(segment, monsters, characters)
-                print(f" lenth of monster array {len(monsters)}")
                 if not combat_over(monsters):
                     player_actions(monsters,characters)
                     decrement_spell_times(characters)
