@@ -148,7 +148,7 @@ def attack(attacker,defender):
                 logging.info(f"    FUMBLE -- attacker {attacker['name']} fumbled - make a weapon saving throw")
             logging.info("    FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE --- FUMBLE ---")
 
-        attacker['off_hand'] = ~attacker['off_hand']
+#        attacker['off_hand'] = ~attacker['off_hand']
 
 
 def calc_damage(attacker):
@@ -166,6 +166,12 @@ def calc_damage(attacker):
             damage = roll 
     else:
         t = attacker['damage'].split("-")
+        list = attacker['damage'].split("/")
+        print(f"Damage values {list}")
+        if len(list) <= attacker['attack_number']:
+            attacker['attack_number'] = 0
+        t = list[attacker['attack_number']].split("-")
+
         upper = int(t[1].split()[0])
         lower = int(t[0])
         while lower > 0:
@@ -194,6 +200,7 @@ def print_action(name, opponent_int, num_characters):
         logging.info(f"    {name} not attacking this round")
     elif opponent_int == -99:
         logging.info( "    Combat is over!!!!")
+        exit(1)
  
 
 def get_opponent(attacker,num_characters):
@@ -287,6 +294,7 @@ def monster_actions(segment, monsters, characters):
                 if not combat_over(monsters) and not healing:
                     attacker['attack_segments'].remove(segment) 
                     attack(attacker,characters[attacker['opponent']])
+                    attacker['attack_number'] += 1
                     if characters[attacker['opponent']]['opponent'] == -1:
                         which =  [i for i, e in enumerate(monsters) if e == attacker]
                         characters[attacker['opponent']]['opponent'] = int(which[0])
@@ -382,36 +390,43 @@ def player_actions(monsters,characters):
             elif response == '':
                 target = int(attacker['opponent'])
             else:
-                target = int(response) - 100
-            if target < 0 or target >= len(monsters):
-                logging.warning(f"    Not a valid target; enter a number between 0 and {len(monsters)-1}")
-            else:
-                col = get_column(attacker)
-                defender = monsters[target]
-                row = int(defender['ac']) + 10
-                logging.debug(f"Row {row} Column {col}")
-                logging.debug(f"    {attacker['name']} type is {attacker['type']}")
-                logging.info(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
+                target = int(response)
 
-                # check for hit
-                response = get_input(f"    Did {attacker['name']} hit? (0/1) ")
-                if response:
-                    if monsters[target]['opponent'] == -1:
-                        monsters[target]['opponent'] = who                      
-                    if attacker['opponent'] == -1:
-                        attacker['opponent'] = target
-                    damage = get_int_input("    How much damage did they do? ")
-                    damage = int(damage)
-                    if apply_damage(target,damage,monsters,attacker['name']):
-                        response=''
+            hi = max(m['number'] for m in monsters)
+            if target < 0 or target > hi:
+                logging.warning(f"    Not a valid target; enter a number between 0 and {hi}")
+            else:
+                defender_list = [d for i,d in enumerate(monsters) if d['number'] == target]
+                if not defender_list:
+                    logging.warning(f"    No target {target} exists!; enter a valid target")
+                    response = 1
+                else:
+                    defender = defender_list[0]
+                    col = get_column(attacker)
+                    row = int(defender['ac']) + 10
+                    logging.debug(f"Row {row} Column {col}")
+                    logging.debug(f"    {attacker['name']} type is {attacker['type']}")
+                    logging.info(f"    {attacker['name']} (level {attacker['level']}) needs a {to_hit_table[attacker['type']][col][row]} to hit AC {defender['ac']}")
+
+                    # check for hit
+                    response = get_input(f"    Did {attacker['name']} hit? (0/1) ")
+                    if response:
+                        if defender['opponent'] == -1:
+                            defender['opponent'] = who                      
+                        if attacker['opponent'] == -1:
+                            attacker['opponent'] = target
+                        damage = get_int_input("    How much damage did they do? ")
+                        damage = int(damage)
+                        if apply_damage(target,damage,monsters,attacker):
+                            response=''
                      
 
 
-def apply_damage(target,damage,monsters,char_name):
-    m = monsters[target]
+def apply_damage(target,damage,monsters,attacker):
+    m = [m for i,m in enumerate(monsters) if m['number'] == target][0]
     if (damage >= m['hp']):
         logging.info("    ++++++++++++++++++++++++++++++++")
-        logging.info(f"    {char_name} dropped {m['name']}")
+        logging.info(f"    {attacker['name']} dropped {m['name']}")
         logging.info("    ++++++++++++++++++++++++++++++++")
         monsters.remove(m)
         if len(monsters)==0:
@@ -442,6 +457,7 @@ def set_up_round(round,monsters,characters):
             if int(attacker['attack_cycle']) > 1:
                 swap_attacks(attacker)
             attacker['off_hand'] = False
+            attacker['attack_number'] = 0
             attacker['attack_segments'] = []
             attacker['attack_segments'].append(attacker['initiative'])
             if attacker['attacks'] > 1:
@@ -534,7 +550,7 @@ def parse(line):
         natt = tokens[3]    
         dam = tokens[4]
     elif len(tokens) == 6:  	# cnt name HD AC #ATT DAM
-        cnt = tokens[0]
+        cnt = int(tokens[0])
         name = tokens[1]
         level = tokens[2]
         ac = tokens[3]
@@ -549,7 +565,7 @@ def parse(line):
         to_hit = tokens[5]
         to_dam = tokens[6]
     elif len(tokens) == 8:      # cnt name HD AC #ATT DAM to_hit to_dam
-        cnt = tokens[0]
+        cnt = int(tokens[0])
         name = tokens[1]
         level = tokens[2]
         ac = tokens[3]
@@ -564,21 +580,27 @@ def build_monster_roster(names_table):
     monster_names = read_monster_names(names_table)
     monster_table = read_monsters()
     roster = [] 
+    total_cnt = 0
     for line in monster_names:
         (cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag) =  parse(line)
         logging.debug(f"Parsed string is: {cnt} {name} {level} {ac} {natt} {dam} {to_hit} {to_dam} {pop_flag}")
         attacker = {} 
         if pop_flag:
-            idx = next((index for (index, d) in enumerate(monster_table) if d["Name"] == name), None) 
-            if idx:
-                m = monster_table[idx]
-                set_attacks(attacker,m['NATT'])
-                attacker['ac'] = m['AC']
-                attacker['hp'] = get_monster_hp(m, 1, maxhp=True)[0]
-                attacker['max_hp'] = attacker['hp'] 
-                attacker['level'] = int(m['level'])
-                attacker['damage'] = m['DA']
-            else:
+            found = False
+            for m in monster_table:
+                new_name = ''
+                for word in m['Name'].split():
+                    new_name = new_name + word
+                if new_name == name:
+                    set_attacks(attacker,m['NATT'])
+                    attacker['ac'] = m['AC']
+                    attacker['hp'] = get_monster_hp(m, 1, maxhp=True)[0]
+                    attacker['max_hp'] = attacker['hp']
+                    attacker['level'] = int(m['level'])
+                    attacker['damage'] = m['DA']
+                    found = True
+                    break
+            if not found:
                 logging.error(f"Can't find {name} in monster_table!!!")
                 exit(1)
         else:
@@ -595,12 +617,14 @@ def build_monster_roster(names_table):
         attacker['to_dam_mod'] = int(to_dam)
         attacker['crit'] = False
         attacker['fumble'] = False
-        for num in range(1,cnt+1):
+        for num in range(0,cnt):
             new_attacker = copy.deepcopy(attacker)
-            if cnt > 1:
+            if cnt > 0:
                 new_attacker['name'] = name + f"_{num}"
             else:
                 new_attacker['name'] = name
+            new_attacker['number'] = total_cnt
+            total_cnt += 1
             roster.append(new_attacker)
             logging.debug(new_attacker) 
     return(roster)
@@ -618,7 +642,7 @@ def read_monster_names(fi):
 def print_tables(segment, characters,monsters):
     print('')
     print("================================================================================")
-    logging.info(f"==================================  SEGMENT {segment : >2}   =============================")
+    logging.info(f"==================================  SEGMENT {segment : >2}   ===============================")
     print("================================================================================")
     print("  # : NAME            : DAM :  #  : OPPONENT NAME: HP :")
     print("================================================================================")
@@ -632,11 +656,8 @@ def print_tables(segment, characters,monsters):
         str2 = ':'
         str3 = ''
 
-        mcnt = 100
-
         hit_monster = False
         hit_spell = False
-     
         opponents = [] 
         for m in monsters:
             if m['opponent'] == cnt:
@@ -644,20 +665,12 @@ def print_tables(segment, characters,monsters):
         monst_cnt = len(opponents)
         spell_cnt = len(c['spells_active'])
 
-        logging.debug(f"spell_cnt = {spell_cnt}   monst_cnt = {monst_cnt}")
-
-        while monst_cnt > 0 or spell_cnt > 0:
-            logging.debug(f"Inside while loop: monst_cnt = {monst_cnt}  spell_cnt = {spell_cnt}")
-            if monst_cnt > 0:
-                m = opponents[mcnt-100]
-                m1_cnt = 100
-                for m1 in monsters:
-                    if m == m1:
-                        str2 = f": {m1_cnt} : {m['name'] : <12} : {m['hp'] : <3}:"
-                        monsters_done.append(m)
-                        monst_cnt -= 1
-                        mcnt += 1
-                    m1_cnt += 1
+        while monst_cnt or spell_cnt:
+            if monst_cnt:
+                m = opponents.pop()
+                monst_cnt -= 1
+                str2 = f": {m['number'] : <3} : {m['name'] : <12} : {m['hp'] : <3}:"
+                monsters_done.append(m)
             else:
                 str2 = ":     :              :    :"
 
@@ -688,10 +701,9 @@ def print_tables(segment, characters,monsters):
     for m in monsters:
         if m not in monsters_done:
             tmp = "                            "
-            tmp = tmp + f": {cnt} : {m['name'] : <12} : {m['hp'] : <3}:"
+            tmp = tmp + f": {m['number'] : <3} : {m['name'] : <12} : {m['hp'] : <3}:"
             monster_strings.append(tmp)
             monster_strings.append('--------------------------------------------------------------------------------')
-        cnt = cnt + 1  
    
     for s in char_strings:
         print(s)
@@ -699,54 +711,11 @@ def print_tables(segment, characters,monsters):
         print(m)
 
 
-def print_monster_roster(monsters):
-    cnt = 0
-    logging.info('')
-    logging.info(f'{"    Monster Roster" : <28} : HP : Opponent')
-    logging.info('    ========================================')
-    for m in monsters:
-        logging.info(f"    {cnt} : {m['name'] : <20} : {m['hp'] : <3}  : {m['opponent']}")
-        cnt = cnt + 1
-    logging.info('    ========================================')
-
-
-def print_character_roster(characters,monsters):
-    cnt = 0
-    logging.info('')
-    logging.info(f'    {"Character Roster" : <20}:DAM: Opponent(s) : Active spells')
-    logging.info('    ====================================')
-    for c in characters:
-        str = ''
-        str1 = str + f"    {cnt} : {c['name'] : <16}:{c['total_damage'] : 3}"
-        str2 = ': '
-        for m in monsters:
-            if m['opponent'] ==  cnt:
-                str2 = str2 + f" {m['name']} :"
-        str3 = ' '
-        for spell in c['spells_active']:
-            if spell['casting']:
-                str3 = str3 + f" casting {spell['name']} {spell['casting_time']}; "
-            else:
-                str3 = str3 + f" {spell['name']} has {spell['duration']} rds; "
-        str = str1 + str2 +str3
-        logging.info(str)
-        cnt += 1
-    logging.info('    ====================================')
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Dungeon Master's Assitant")
     parser.add_argument("char_table",help="Character roster file")
     parser.add_argument("monster_table",help="Monster roster file")
     parser.add_argument("-v", "--verbose", help="Logging level", default="INFO")
-
-
-#    group.add_argument("-c", "--class_name", help="Character class to generate",
-#                       choices=["Cleric", "Druid", "Fighter", "Paladin", "Ranger", "Magic-User", "Illusionist", "Thief",
-#                                "Assassin", "Monk", "CA", "CF", "CM", "CR", "CT", "CFM", "FA", "FI", "FM", "FT", "FMT",
-#                                "IT", "MT"])
-#    group.add_argument("-p", "--party", help="Generate an NPC Party of specified type",
-#                       choices=["DrowPatrol", "DrowParty", "Patrol", "NPCParty"])
 
     if len(sys.argv) == 1:
         parser.print_help()
