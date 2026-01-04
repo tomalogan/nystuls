@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/Users/thomaslogan/miniconda3/bin/python
 
 import logging
 import argparse
@@ -28,8 +28,8 @@ def get_cnt(monster):
     return (cnt)
 
 
-def Print_Monster(m, cnt, hp_list, inlair):
-    if inlair:
+def Print_Monster(m, cnt, hp_list, in_lair):
+    if in_lair:
         out = "{} {} (in lair) ".format(cnt, m['Name'])
     else:
         out = "{} {} (not in lair) ".format(cnt, m['Name'])
@@ -39,20 +39,19 @@ def Print_Monster(m, cnt, hp_list, inlair):
         m['HD'], hp_string, m['AC'], m['MV'], m['NATT'], m['DA'], m['SA'], m['SD'])
 
     if m['MR'] != 0:
-        out = out + "MR: {}%, I: {}, Ali: {}, Size: {})".format(m['MR'], m['Int'], m['Ali'], m['Size'])
-    else:
-        out = out + "I: {}, Ali: {}, Size: {})".format(m['Int'], m['Ali'], m['Size'])
+        out = out + "MR: {}, ".format(m['MR'])
+    out = out + "I: {}, Ali: {}, Size: {})".format(m['Int'], m['Ali'], m['Size'])
 
     wrapper = textwrap.TextWrapper(initial_indent="\t", width=72, subsequent_indent="\t")
     out = wrapper.fill(out)
     logging.info("{}".format(out))
-
+    logging.debug("{}".format(m['TT']))
 
 def get_water_monster(freq_list):
     water_monsters = [d for d in freq_list if '//' in d.get('MV')]
     if len(water_monsters) > 0:
-        num = random.randint(0, len(water_monsters) - 1)
-        return water_monsters[num]
+        monster_index = random.randint(0, len(water_monsters) - 1)
+        return water_monsters[monster_index]
     else:
         return None
 
@@ -61,8 +60,8 @@ def get_flying_monster(freq_list):
     tmp = [d for d in freq_list if '/' in d.get('MV')]
     flying_monsters = [d for d in tmp if '//' not in d.get('MV')]
     if len(flying_monsters) > 0:
-        num = random.randint(0, len(flying_monsters) - 1)
-        return flying_monsters[num]
+        monster_index = random.randint(0, len(flying_monsters) - 1)
+        return flying_monsters[monster_index]
     else:
         return None
 
@@ -85,23 +84,29 @@ encounter_table = [[16, 19, 20, -1, -1, -1, -1, -1, -1, -1],  # 1st
                    [1, 2, 3, 4, 5, 6, 7, 10, 16, 20]]  # 16th
 
 
-def get_random_monster(monser_table, level=None, name=None, water=False, flying=False):
-    if level:
-        num = random.randint(1, 20)
-        logging.debug("Rolled a {} for level determination matrix".format(num))
-        if level > 16:
-            level = 16
-        mylist = encounter_table[level - 1]
-        for x in range(len(mylist)):
-            if num <= mylist[x]:
-                monster_level = x + 1
-                break
+def get_random_monster(monster_table, party_level=None, name=None, water=False, flying=False): 
 
-        logging.debug("For a party of level {}, looking for monsters of level {}".format(level, monster_level))
+    if name:
+        monster = [d for d in monster_table if d.get('Name') == name][0]
+
+    elif party_level: 
+        logging.info("Found party_level: {}".format(party_level))
+        encounter_table_level = random.randint(1, 20)
+        logging.info("Rolled a {} for level determination matrix".format(encounter_table_level))
+        if party_level > 16:
+            party_level = 16
+        for index,encounter_table_level in enumerate(encounter_table[party_level - 1]):
+            logging.info("encounter_table_level {} : party_level {}".format(encounter_table_level, party_level))
+            if encounter_table_level >= party_level:
+                monster_level = index + 1
+                break
+        logging.info("For a party of level {}, looking for monsters of level {}".format(party_level, monster_level))
 
         # Make a list of monsters for this level
         lvl_list = [d for d in monster_table if int(d.get('Lvl')) == monster_level]
-        logging.debug("Got level {} list of {}".format(monster_level, lvl_list))
+        logging.info("Got level {} list:".format(monster_level))
+        for monster in lvl_list:
+            logging.info("    {}".format(monster['Name']))
 
         # Determine frequency type to choose
         freqs = ['C', 'U', 'R', 'V']
@@ -137,64 +142,50 @@ def get_random_monster(monser_table, level=None, name=None, water=False, flying=
                     cnt = cnt + 1
             else:
                 cnt = cnt + 1
-        if monster:
-            cnt = get_cnt(monster)
-            hp_list = get_monster_hp(monster, cnt)
-            if monster['Lair'] != 0:
-                pct = random.randint(1, 100)
-                if pct < int(monster['Lair']):
-                    inlair = True
-                else:
-                    inlair = False
-            else:
-                inlair = False
-            Print_Monster(monster, cnt, hp_list, inlair)
-            get_treasure(monster)
-        else:
-            logging.info("Sorry, unable to find requested encounter.  Try again...")
-
-    elif name:
-        monster = [d for d in monster_table if d.get('Name') == name][0]
+    if monster:
         cnt = get_cnt(monster)
-        hp_list = get_monster_hp(monster, cnt)
-        if monster['Lair'] != 0:
-            pct = random.randint(1, 100)
-            if pct < int(monster['Lair']):
-                inlair = True
-            else:
-                inlair = False
-        else:
-            inlair = False
-        Print_Monster(monster, cnt, hp_list, inlair)
-        get_treasure(monster)
+        hp_list = get_monster_hp(monster, cnt, maxhp = False)
+        in_lair = determine_in_lair(monster)
+        Print_Monster(monster, cnt, hp_list, in_lair)
+        get_treasure(monster,in_lair)
+    else:
+        logging.info("Sorry, unable to find requested encounter.  Try again...")
 
 
-def get_treasure(monster):
-    t = monster['TT']
-    if t == "special":
+def determine_in_lair(monster):
+    in_lair = False
+    if monster['Lair'] != 0:
+        pct = random.randrange(1, 100)
+        if pct < int(monster['Lair']):
+            in_lair = True
+    return(in_lair)
+
+    
+def get_treasure(monster,in_lair):
+    logging.debug("Looking for treasure type: {}".format(monster['TT']))
+    if monster['TT'] == "special":
         out = "Treasure: special"
-    elif t == None:
+    elif monster['TT'] == None:
         out = "Treasure: None"
     else:
-        for x in range(len(t)):
-            letter = t[x]
-            if not letter.isdigit() and letter != "-":
-                num = 1
-                if letter == "x":
-                    if len(t) >= x + 2:  # may have 2 digit number
-                        if t[x + 2].isdigit():
-                            num = int(t[x + 1:x + 2])
-                        else:
-                            num = int(t[x + 1])
-                    else:
-                        num = int(t[x + 1])
-                    out = 'Treasure: '
-                    for x in range(num - 1):
-                        out = out + get_random_treasure(last)
+        out = 'Treasure: '
+        tokens = re.findall('([A-Z](x[\d]+)?)',monster['TT'])
+        logging.info('tokens: {}'.format(tokens))
+        for token in tokens:
+            logging.info('token is {}'.format(token))
+            if '-' in token:
+                if not in_lair:
+                    break
+            else:
+                multiplier = 1
+                parts = token[0].split('x')
+                if len(parts) == 2:
+                    multiplier = list(filter(lambda x: x.isdigit(), parts[1]))
+                    print('found {} multiplier for treasure type: {}', multiplier, parts[0])
+                if re.match('[A-Z]',parts[0]):
+                    out = out + get_random_treasure(parts[0], multiplier)
                 else:
-                    out = 'Treasure: '
-                    out = out + get_random_treasure(letter)
-                last = letter
+                    logging.info("Unable to find treasure")
 
     wrapper = textwrap.TextWrapper(initial_indent="\t", width=72, subsequent_indent="\t")
     out = wrapper.fill(out)
@@ -226,6 +217,9 @@ if __name__ == '__main__':
     logging.basicConfig(filename=logFile, format='%(asctime)s - %(levelname)s - %(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p', level=numeric_level)
     logging.getLogger().addHandler(logging.StreamHandler())
-
+   
+    logging.info("Reading monster table")
     monster_table = read_monsters()
-    get_random_monster(monster_table, level=args.level, name=args.name, water=args.water, flying=args.flying)
+    logging.info("Starting random monster generation") 
+
+    get_random_monster(monster_table, party_level=args.level, name=args.name, water=args.water, flying=args.flying)

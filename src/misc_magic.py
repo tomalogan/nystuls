@@ -58,7 +58,7 @@ def set_misc_subtype(item):
 
 
 def get_ioun_stone_type(item):
-    rand = random.randint(1, 20)
+    rand = random.randrange(1, 20)
     if rand <= 1:
         item['name'] = item['name'] + " pale blue rhomboid (+1 str)"
     elif rand <= 2:
@@ -92,7 +92,7 @@ def get_ioun_stone_type(item):
 
 
 def get_instrument_type(item):
-    rand = random.randint(1, 20)
+    rand = random.randrange(1, 20)
     if rand <= 5:
         item['name'] = item['name'] + " - Fochlucan Bandore"
     elif rand <= 10:
@@ -122,7 +122,7 @@ def get_instrument_type(item):
 
 
 def get_flask_type(item):
-    rand = random.randint(1, 100)
+    rand = random.randrange(1, 100)
     if rand > 50:
         item['xplo'] = item['xphi']
         item['gplo'] = item['gphi']
@@ -165,13 +165,13 @@ def get_flask_type(item):
 
 
 def get_jewel_type(item):
-    rand = random.randint(10, 100)
+    rand = random.randrange(10, 100)
     item['gplo'] = int(item['gplo']) * rand
     item['name'] = item['name'] + " ({} faucets)".format(rand)
 
 
 def get_medallion_type(item):
-    rand = random.randint(1, 20)
+    rand = random.randrange(1, 20)
     item['xplo'] = interp(item['xplo'], item['xphi'], rand, 100)
     item['gplo'] = interp(item['gplo'], item['gphi'], rand, 100)
     if rand <= 15:
@@ -185,7 +185,7 @@ def get_medallion_type(item):
 
 
 def get_missile_type(item):
-    rand = random.randint(1, 20)
+    rand = random.randrange(1, 20)
     if rand <= 4:
         item['name'] = item['name'] + " (1x5HD,2x3)"
         item['gplo'] = int(item['gplo']) * 11
@@ -217,9 +217,9 @@ def get_missile_type(item):
 
 
 def get_prayer_type(item):
-    rand = random.randint(3, 6)
-    for x in xrange(rand):
-        rand = random.randint(1, 20)
+    rand1 = random.randrange(3, 6)
+    for x in range(rand1):
+        rand =  random.randrange(1, 20)
         if rand <= 5:
             item['name'] = item['name'] + ", atonement"
         elif rand <= 10:
@@ -244,7 +244,7 @@ def get_pigment_type(item):
 
 
 def get_pearl_type(item):
-    rand = random.randint(1, 100)
+    rand = random.randrange(1, 100)
     if rand <= 25:
         item['name'] = item['name'] + " (1st lvl)"
     elif rand <= 45:

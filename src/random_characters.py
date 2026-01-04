@@ -160,7 +160,7 @@ dice['MT'] = [6, 9, 7, 9, 7, 4]
 
 def best_of(dice):
     nums = []
-    for x in xrange(dice):
+    for x in range(dice):
         nums.append(random.randint(1, 6))
     nums = sorted(nums, reverse=True)
     result = nums[0] + nums[1] + nums[2]
@@ -171,7 +171,7 @@ def get_hp_level(level, hd, class_num=None, class_name=None):
     if class_num is None:
         class_num = classes.index(class_name)
     hp = 0
-    for x in xrange(int(level)):
+    for x in range(int(level)):
         if hd < maxhd[class_num]:
             hp_add = random.randint(3, hitdice[class_num])
             hd = hd + 1
@@ -203,7 +203,7 @@ def get_hp(c):
         hp = hp + random.randint(3, hitdice[c['class_num']])
         hd = hd + 1
 
-    for x in xrange(c['class_cnt']):
+    for x in range(c['class_cnt']):
         class_name = c['classes'][x]
         logging.debug("Rolling hit points for class {}".format(class_name))
         level = c['class_lvl'][x]
@@ -216,7 +216,7 @@ def get_hp(c):
 
 
 def get_abilities(character):
-    for x in xrange(len(ability_types)):
+    for x in range(len(ability_types)):
         ability = ability_types[x]
         character[ability] = best_of(dice[character['class']][x])
         if character[ability] < min_abilities[character['class_num']][x]:
@@ -235,7 +235,7 @@ def get_abilities(character):
 
 
 def fix_level(c):
-    for x in xrange(c['class_cnt']):
+    for x in range(c['class_cnt']):
         logging.debug("Class cnt is {}; class levels are {}".format(c['class_cnt'], c['class_lvl']))
         level = c['class_lvl'][x]
         logging.debug("Found level of {}".format(level))
@@ -247,7 +247,7 @@ def fix_level(c):
                 logging.debug("Racial level maximum exceeded; reset to {}".format(newlvl))
                 c['class_lvl'][x] = newlvl
     str = ""
-    for x in xrange(c['class_cnt']):
+    for x in range(c['class_cnt']):
         str = str + "{}/".format(c['class_lvl'][x])
     c['level'] = str[0:len(str) - 1]
 

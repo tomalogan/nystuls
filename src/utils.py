@@ -157,7 +157,7 @@ def get_item_from_list(tables, names, pcts):
     logging.debug("Looking for table name {}".format(name))
 
     cnt = len(tables)
-    for x in xrange(cnt):
+    for x in range(cnt):
         logging.debug("Table name {}".format(tables[x]['name']))
         if tables[x]['name'] == name:
             mytype = tables[x]['type']
@@ -249,9 +249,9 @@ def read_tables():
 def add_to_inventory(tables, inventory, target, cnt):
     # First, check if it is in our inventory already
     found = False
-    for x in xrange(len(inventory)):
-        if target == inventory[x]['name']:
-            inventory[x]['cnt'] += cnt
+    for item  in inventory:
+        if target == item['name']:
+            iten['cnt'] += cnt
             found = True
 
     # If its not there, add it

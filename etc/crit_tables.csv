@@ -1,0 +1,132 @@
+die % roll,Critical hit effects table - Edged weapons 
+01-31,Double damage 
+32-62,Triple damage 
+63,Shield destroyed (no effect if no shield) 
+64,Shield destroyed (roll again if no shield) 
+65,Helm removed (lose ear; stunned 1-6 rounds if no helm) 
+66,Helm removed (lose ear; stunned 1-6 rounds) 
+67,Voice box punctured; no talking (no effect if helmed) 
+68-69,Ear removed (no effect if helmed) 
+70,Ear removed (helm removed if helmed) 
+71-72,Eye removed (no effect if helmed) 
+73,Eye removed
+74,Knee split; movement halved 
+75,Knee split; no movement 
+76,Fingers removed; dexterity reduced 1-3 points 
+77,Leg removed at ankle
+78,Leg removed at knee 
+79,Leg removed at hip 
+80,Shield arm removed at wrist (no effect if shield) 
+81,Shield arm removed at elbow (no effect if shield) 
+82,Shield arm removed at elbow (no effect if shield) 
+83,Shield arm removed at wrist 
+84,Shield arm removed at elbow 
+85,Shield arm removed at shoulder
+86,Weapon arm removed at wrist 
+87,Weapon arm removed at elbow 
+88,Weapon arm removed at shoulder 
+89,Abdominal injuries; carrying capacity halved 
+90,Chest injuries; carrying capacity halved 
+91,Abdominal injuries; death in 1-6 days 
+92,Chest injuries; death in 1-4 days 
+93,Abdominal injuries; death in 2-12 turns 
+94,Chest injuries; death in 2-8 turns 
+95,Abdominal injuries; immediate death 
+96,Chest injuries; immediate death 
+97,Throat cut; immediate death (no effect if helmed) 
+98,Throat cut; immediate death 
+99,Decapitated; immediate death (no effect if helmed) 
+100,Decapitated; immediate death 
+die % roll,Critical hit effects table - Blunt weapons 
+01-31,Double damage 
+32-64,Triple damage
+65-66,Shield destroyed (no effect if no shield) 
+67-68,Shield destroyed (roll again if no shield) 
+69-70,Helm removed (lose ear; stunned 1-6 rounds if no helm) 
+71-72,Helm removed (lose ear; stunned 1-6 rounds) 
+73-74,Voice box punctured; no talking (no effect if helmed) 
+75-76,Ear removed (no effect if helmed) 
+77-78,Ear removed (helm removed if helmed) 
+79-80,Eye removed (no effect if helmed) 
+81-82,Eye removed 
+83-84,Knee split; movement halved 
+85-86,Knee split; no movement 
+87-88,Fingers removed; dexterity reduced 1-3 points 
+89-90,Leg removed at ankle 
+91-92,Leg removed at knee 
+95,Leg removed at hip 
+96,Shield arm removed at wrist (no effect if shield) 
+97,Shield arm removed at elbow (no effect if shield) 
+98,Shield arm removed at elbow (no effect if shield)
+99,Shield arm removed at wrist 
+100,Shield arm removed at elbow
+die % roll,Critical hit effects table - Missile & Thrusting weapons
+01-34,Double damage 
+35-70,Triple damage 
+71-72,Shield arm struck (no effect if shield present) 
+73-74,Shield arm struck 
+75-76,Weapon arm struck; hit probability - 2 for 1-4 rounds 
+77-78,Weapon arm struck; hit probability - 4 for 1-4 hours 
+79-80,Weapon arm struck; no attacks until healed 
+83-84,Struck in chest; death in 1-4 days 
+85-86,Struck in abdomen; death in 2-12 turns 
+87-88,Struck in chest; death in 2-8 turns 
+89-90,Struck in abdomen; immediate death 
+91-92,Struck in chest; immediate death 
+93,Blinded in eye (no effect if helmed) 
+94,Blinded in eye 
+95,Larynx punctured (no effect if helmed) 
+96,Larynx punctured 
+97,Head struck; lose 1-3 points intelligence (no effect if helmed) 
+98,Head struck; lose 1-4 points intelligence 
+99,Head struck; immediate death (no effect if helmed) 
+100,Head struck; immediate death 
+die % roll,Critical hit effects table - Animal
+01-29,Double damage
+30-58,Triple damage
+59-60,Limb removed at body; speed halved
+61-62,Limb removed at midpoint; speed halved
+63-64,Limb removed at midpoint; hit probability - 2
+65-66,Limb removed at body; hit probability - 4
+67-68,Limb removed at midpoint; speed halved; hit prob. - 2
+69-70,Limb removed at at body; speed halved; hit probability - 4
+71-72,Throat cut; immediate death
+73-74,Decapitated
+75-76,Abdominal injuries; immediate death
+77-78,Abdominal injuries; death in 2-12 turns
+79-80,Abdominal injuries; death in 1-6 days
+81-82,Chest injuries; immediate death
+83-84,Chest injuries; death in 2-8 turns
+85-86,Chest injuries; death in 1-4 days
+87-90,Snout struck; immediate retreat
+91-94,Snout struck; hit probability - 2 for 1-4 rounds
+95-98,Snout struck; hit probability - 4 for 1-4 rounds
+99,Struck; stunned for 1-6-rounds
+100,Head struck; immediate death
+% roll,Fumble effects table - All weapons
+01-19,Slip; roll dexterity or less on d20; or fall and be stunned for 1-4 rounds
+20-33,Stumble; roll dexterity or less on d20; or fall and be stunned for 1-6 rounds
+34-39,Trip and fall; stunned for 1-6 rounds
+40-44,Off balance; roll dexterity or less on d20; or no action next round
+45-49,Lose grip on weapon; roll dexterity or less on d20; or no attack next round
+50-54,Lose grip; roll dexterity or less on d20; or drop weapon
+55-59,Lose grip; drop weapon
+60-61,Shield becomes tangled with opponent (no effect if no shield)
+62-63,Shield tangled with opponent; neither character attacks next round
+64-65,Weapon tangled with opponent; no attack next round
+66-69,Weapon knocked away; roll d8 for direction; d10 for distance in feet
+70-74," Weapon breaks (base 100% chance; - 20% for each ""plus"" fr ability of weapon)"
+75-77,Hit self; half damage
+78-79,Hit self; normal damage
+80,Hit self; double damage
+81-83,Hit friend; half damage
+84-85,Hit friend; normal damage
+86,Hit friend; double damage
+87-88,Critical hit; self
+89-90,Critical hit; friend
+91-92,Twist ankle; half speed for 1 turn; roll dexterity or less on d20; or fall
+93-95,Helm slips; roll dexterity or less to fix; hit probability - 4 until fixed
+96-97,Helm slips; roll dexterity to fix; no attacks until fixed
+98,Distracted; opponent's next attack at + 3 ""to hit"""
+99,Roll twice; ignoring rolls of 99 or 00
+100,Roll three times; ignoring rolls of 99 or 00

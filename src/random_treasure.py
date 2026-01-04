@@ -1,6 +1,5 @@
-#!/usr/bin/python
-
-from utils import *
+#!/usr/b}in/python
+from utils import * 
 import string
 import argparse
 import logging
@@ -109,8 +108,8 @@ gold = [[1, 10, 40],  # A
         [0, 0, 0],  # U
         [0, 0, 0],  # V
         [5, 30, 60],  # W
-        [0, 0, 0],  # X
-        [2, 12, 70],  # Y
+        [0, 0, 0], # X
+        [2, 12, 70], # Y
         [1, 4, 30]]  # Z
 platinum = [[1, 4, 25],  # A
             [0, 0, 0],  # B
@@ -191,43 +190,39 @@ jewelry = [[3, 30, 50],  # A
            [0, 0, 0],  # Y
            [5, 30, 50]]  # Z
 
-
-def get_coins(lo, hi, pct):
-    roll = random.randint(1, 100)
-    if roll <= pct:
-        coins = random.randint(lo, hi)
+def get_quantity(lo, hi, pct):
+    if random.randrange(1, 100)<=pct:
+        return(random.randrange(lo, hi))
     else:
-        coins = None
-    return (coins)
-
+        return(None)
 
 def consolidate(items):
     types = []
     cnts = []
-    for x in xrange(len(items)):
-        value = items[x]
+    for value in items:
         if not value in types:
             types.append(value)
             cnts.append(1)
         else:
             cnts[types.index(value)] = cnts[types.index(value)] + 1
-
-    Z = sorted(zip(types, cnts))
-    types = [x[0] for x in Z]
-    cnts = [x[1] for x in Z]
-
-    return (types, cnts)
+    type_count_list = sorted(zip(types, cnts))
+    gems = []
+    for item in type_count_list:
+        gem = {}
+        gem['count'] = item[1] 
+        gem['value'] = item[0] 
+        gems.append(gem)
+    return (gems)
 
 
 base_value = [0.05, 0.25, 0.5, 1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000]
 
-
 def get_gems(cnt):
     total = 0
-    list = []
-
-    for x in xrange(cnt):
-        pct = random.randint(1, 100)
+    gem_list = []
+     
+    for x in range(cnt):
+        pct = random.randrange(1, 100)
         if pct <= 25:
             first_base = 5
         elif pct <= 50:
@@ -240,15 +235,14 @@ def get_gems(cnt):
             first_base = 9
         else:
             first_base = 10
-
-        roll = random.randint(1, 10)
+        base = first_base 
+        roll = random.randrange(1, 10)
         done = False
-        base = first_base
         while not done:
             if roll == 1:
                 if base - first_base < 7:
                     base = base + 1
-                    roll = random.randint(1, 8)
+                    roll = random.randrange(1, 8)
                 else:
                     value = base_value[base]
                     done = True
@@ -256,36 +250,36 @@ def get_gems(cnt):
                 value = base_value[base] * 2
                 done = True
             elif roll == 3:
-                value = base_value[base] * (1 + random.randint(1, 6) * 10 / 100)
+                value = base_value[base] * (1 + random.randrange(1, 6) / 10)
                 done = True
             elif roll >= 4 and roll <= 8:
                 value = base_value[base]
                 done = True
             elif roll == 9:
-                value = base_value[base] * (1 - random.randint(1, 4) * 10 / 100)
+                value = base_value[base] * (1 - random.randrange(1, 4) / 10)
                 done = True
             else:
                 if first_base - base < 5:
                     base = base - 1
-                    roll = random.randint(2, 10)
+                    roll = random.randrange(2, 10)
                 else:
                     value = base_value[base]
                     done = True
 
         total = total + value
-        list.append(value)
+        gem_list.append(value)
 
-    list, cnts = consolidate(list)
-    return (list, cnts, total)
+    sorted_list = consolidate(gem_list)
+    return (sorted_list, total)
 
 
 def get_jewelry(cnt):
-    list = []
+    jewelry_list = []
     total = 0
-    for x in xrange(cnt):
+    for x in range(cnt):
 
         # Set base class for this piece of jewelry
-        roll = random.randint(1, 100)
+        roll = random.randrange(1, 100)
         if roll <= 10:
             base = 0
         elif roll <= 20:
@@ -305,7 +299,7 @@ def get_jewelry(cnt):
         done = False
         value = 0
         while not done:
-            roll = random.randint(1, 10)
+            roll = random.randrange(1, 10)
             if roll == 1:
                 if base == 6:
                     done = True
@@ -318,39 +312,39 @@ def get_jewelry(cnt):
         # Set the base value
         if value == 0:
             if base == 0:
-                value = random.randint(1, 10) * 100
+                value = random.randrange(1, 10) * 100
             elif base == 1:
-                value = random.randint(2, 12) * 100
+                value = random.randrange(2, 12) * 100
             elif base == 2:
-                value = random.randint(3, 18) * 100
+                value = random.randrange(3, 18) * 100
             elif base == 3:
-                value = random.randint(5, 30) * 100
+                value = random.randrange(5, 30) * 100
             elif base == 4:
-                value = random.randint(1, 6) * 1000
+                value = random.randrange(1, 6) * 1000
             elif base == 5:
-                value = random.randint(2, 8) * 1000
+                value = random.randrange(2, 8) * 1000
             else:
-                value = random.randint(2, 12) * 1000
+                value = random.randrange(2, 12) * 1000
 
         # Check for exceptional stones
         if base >= 4:
-            roll = random.randint(1, 8)
+            roll = random.randrange(1, 8)
             adder = 0
             if roll == 1:
                 adder = 5000
                 while adder < 640000:
-                    roll = random.randint(1, 6)
+                    roll = random.randrange(1, 6)
                     if roll > 1:
                         break
                     else:
                         adder = adder * 2
             value = value + adder
 
-        list.append(value)
+        jewelry_list.append(value)
         total = total + value
 
-    list, cnts = consolidate(list)
-    return (list, cnts, total)
+    sorted_list = consolidate(jewelry_list)
+    return (sorted_list, total)
 
 
 def print_coins(cp, sp, ep, gp, pp, p):
@@ -380,46 +374,41 @@ def print_coins(cp, sp, ep, gp, pp, p):
         return None
 
 
-def print_gems(s, p):
-    out = "Gems: "
-    for x in xrange(len(s['gem_list'])):
-        out = out + "{} (x{}),".format(s['gem_list'][x], s['gem_cnts'][x])
-    out = out[:len(out) - 1]
+def print_gems(gems,total_value):
+    text = "Gems: "
+    for gem in gems:
+        text = text + "{} (x{}),".format(gem['value'], gem['count'])
+    text = text[:len(text) - 1]
     wrapper = textwrap.TextWrapper(initial_indent="", width=72, subsequent_indent="\t")
-    out = wrapper.fill(out)
-    if p:
-        logging.info("{}".format(out))
-        logging.info("Total Gem Value: {}".format(s['gem_total']))
-    return (out)
+    text = wrapper.fill(text)
+    logging.info("{}".format(text))
+    logging.info("Total Gem Value: {}".format(total_value))
+    return (text)
 
 
-def print_jewelry(s, p):
+def print_jewelry(jewels,total_value):
     out = "Jewelry: "
-    for x in xrange(len(s['jewelry_list'])):
-        out = out + "{} (x{}),".format(s['jewelry_list'][x], s['jewelry_cnts'][x])
+    for jewel in jewels:
+        out = out + "{} (x{}),".format(jewels['value'], jewels['count'])
     out = out[:len(out) - 1]
     wrapper = textwrap.TextWrapper(initial_indent="", width=72, subsequent_indent="\t")
     out = wrapper.fill(out)
-    if p:
-        logging.info("{}".format(out))
-        logging.info("Total Jewelry Value: {}".format(s['jewelry_total']))
+    logging.info("Total Jewelry Value: {}".format(total_value))
     return (out)
 
 
-def print_magic(magic, p):
+def print_magic(magic):
     out = "Magic: "
     for item in magic:
         out = out + "{},".format(item['name'])
     out = out[:len(out) - 1]
     wrapper = textwrap.TextWrapper(initial_indent="", width=72, subsequent_indent="\t")
     out = wrapper.fill(out)
-    if p:
-        logging.info("{}".format(out))
     return (out)
 
 
 def get_any_magic(tables):
-    pct = random.randint(1, 100)
+    pct = random.randrange(1, 100)
     if pct <= 20:
         item = get_potion(tables)
     elif pct <= 35:
@@ -441,41 +430,41 @@ def get_any_magic(tables):
 
 def get_magic(tables, x):
     list = []
-    pct = random.randint(1, 100)
-    logging.debug("Treasure type: {}".format(x))
-    if x == 'a':
+    pct = random.randrange(1, 100)
+    logging.info("Treasure type: {}".format(x))
+    if x == 'A':
         if pct <= 30:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
-    elif x == 'b':
+    elif x == 'B':
         if pct <= 10:
-            num = random.randint(1, 3)
+            num = random.randrange(1, 3)
             if num == 1:
                 list.append(get_armor_shield(tables))
             elif num == 2:
                 list.append(get_sword(tables))
             else:
                 list.append(get_misc_weapon(tables))
-    elif x == 'c':
+    elif x == 'C':
         if pct <= 10:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
-    elif x == 'd':
+    elif x == 'D':
         if pct <= 15:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_potion(tables))
-    elif x == 'e':
+    elif x == 'E':
         if pct <= 25:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_scroll(tables))
-    elif x == 'f':
+    elif x == 'F':
         if pct <= 30:
-            for x in xrange(3):
-                num = random.randint(1, 6)
+            for x in range(3):
+                num = random.randrange(1, 6)
                 if num == 1:
                     list.append(get_potion(tables))
                 elif num == 2:
@@ -490,14 +479,14 @@ def get_magic(tables, x):
                     list.append(get_armor_shield(tables))
             list.append(get_potion(tables))
             list.append(get_scroll(tables))
-    elif x == 'g':
+    elif x == 'G':
         if pct <= 35:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
             list.append(get_scroll(tables))
-    elif x == 'h':
+    elif x == 'H':
         if pct <= 15:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
@@ -505,20 +494,20 @@ def get_magic(tables, x):
             list.append(get_any_magic(tables))
             list.append(get_potion(tables))
             list.append(get_scroll(tables))
-    elif x == 'i':
+    elif x == 'I':
         if pct <= 15:
             list.append(get_any_magic(tables))
-    elif x == 's':
+    elif x == 'S':
         if pct <= 40:
-            num = random.randint(2, 8)
-            for x in xrange(num):
+            num = random.randrange(2, 8)
+            for x in range(num):
                 list.append(get_potion(tables))
-    elif x == 't':
+    elif x == 'T':
         if pct <= 50:
-            num = random.randint(1, 4)
-            for x in xrange(num):
+            num = random.randrange(1, 4)
+            for x in range(num):
                 list.append(get_scroll(tables))
-    elif x == 'u':
+    elif x == 'U':
         if pct <= 70:
             list.append(get_ring(tables))
             list.append(get_rod_staff(tables))
@@ -526,66 +515,66 @@ def get_magic(tables, x):
             list.append(get_armor_shield(tables))
             list.append(get_sword(tables))
             list.append(get_misc_weapon(tables))
-    elif x == 'v':
+    elif x == 'V':
         if pct <= 85:
-            logging.debug("Got treasure type v")
-            logging.debug("\n")
-            logging.debug("Getting ring")
-            logging.debug("\n")
+            logging.info("Got treasure type v")
+            logging.info("\n")
+            logging.info("Getting ring")
+            logging.info("\n")
             list.append(get_ring(tables))
-            logging.debug("\n")
-            logging.debug("Getting ring")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting ring")
+            logging.info("\n")
             list.append(get_ring(tables))
-            logging.debug("\n")
-            logging.debug("Getting rod-staff-wand")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting rod-staff-wand")
+            logging.info("\n")
             list.append(get_rod_staff(tables))
-            logging.debug("\n")
-            logging.debug("Getting rod-staff-wand")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting rod-staff-wand")
+            logging.info("\n")
             list.append(get_rod_staff(tables))
-            logging.debug("\n")
-            logging.debug("Getting misc-magic")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting misc-magic")
+            logging.info("\n")
             list.append(get_misc_magic(tables))
-            logging.debug("\n")
-            logging.debug("Getting misc-magic")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting misc-magic")
+            logging.info("\n")
             list.append(get_misc_magic(tables))
-            logging.debug("\n")
-            logging.debug("Getting armor-shield")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting armor-shield")
+            logging.info("\n")
             list.append(get_armor_shield(tables))
-            logging.debug("\n")
-            logging.debug("Getting armor-shield")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting armor-shield")
+            logging.info("\n")
             list.append(get_armor_shield(tables))
-            logging.debug("\n")
-            logging.debug("Getting sword")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting sword")
+            logging.info("\n")
             list.append(get_sword(tables))
-            logging.debug("\n")
-            logging.debug("Getting sword")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting sword")
+            logging.info("\n")
             list.append(get_sword(tables))
-            logging.debug("\n")
-            logging.debug("Getting misc-weapon")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting misc-weapon")
+            logging.info("\n")
             list.append(get_misc_weapon(tables))
-            logging.debug("\n")
-            logging.debug("Getting misc-weapon")
-            logging.debug("\n")
+            logging.info("\n")
+            logging.info("Getting misc-weapon")
+            logging.info("\n")
             list.append(get_misc_weapon(tables))
-            logging.debug("\n")
-    elif x == 'w':
+            logging.info("\n")
+    elif x == 'W':
         if pct <= 55:
             list.append(new_item("Map", 1000, 100))
-    elif x == 'x':
+    elif x == 'X':
         if pct <= 60:
             list.append(get_any_magic(tables))
             list.append(get_potion(tables))
-    elif x == 'z':
+    elif x == 'Z':
         if pct <= 50:
             list.append(get_any_magic(tables))
             list.append(get_any_magic(tables))
@@ -594,84 +583,93 @@ def get_magic(tables, x):
     return (list)
 
 
-def get_random_treasure(x, p=False):
+def find_quantity(x, lo, hi, pct, multiplier,platinum=False):
+    if lo == 0 and hi == 0 and pct == 0:
+        return(None)
+    else:
+        num = get_quantity(lo, hi, pct)
+    if num:
+        num = num * multiplier
+    return(num)
+
+
+def find_coin_quantity(x, lo, hi, pct, multiplier,platinum=False):
+    if lo == 0 and hi == 0 and pct == 0:
+        return(None)
+    else:
+        if x >= 'J' and x <= 'N':
+            num = get_quantity(lo, hi, pct)
+        elif platinum:
+            num = get_quantity(lo*100, hi*100, pct)
+        else:
+            num = get_quantity(lo*1000, hi*1000, pct)
+    if num:
+        num = num * multiplier
+    return(num)
+
+
+
+def get_random_treasure(x, p=False, multiplier=1):
     tables = read_tables()
-    stuff = {}
+    loot = {}
 
-    logging.debug("Looking for treasure type {}".format(x))
+    logging.info("Looking for treasure type {}".format(x))
+    logging.info("passed in Multiplier of ".format(multiplier))
 
-    cplo = copper[types.index(x)][0]
-    cphi = copper[types.index(x)][1]
-    cppct = copper[types.index(x)][2]
-    logging.debug("Copper lo, hi, pct = {} {} {}".format(cplo, cphi, cppct))
-    if x >= "j" and x <= "n":
-        cp = get_coins(cplo, cphi, cppct)
-    else:
-        cp = get_coins(cplo * 1000, cphi * 1000, cppct)
+    logging.info("Copper lo, hi, pct = {} {} {}".format(copper[types.index(x)][0], \
+        copper[types.index(x)][1], copper[types.index(x)][2]))
 
-    splo = silver[types.index(x)][0]
-    sphi = silver[types.index(x)][1]
-    sppct = silver[types.index(x)][2]
-    logging.debug("Silver lo, hi, pct = {} {} {}".format(splo, sphi, sppct))
-    if x >= "j" and x <= "n":
-        sp = get_coins(splo, sphi, sppct)
-    else:
-        sp = get_coins(splo * 1000, sphi * 1000, sppct)
+    logging.info("Silver lo, hi, pct = {} {} {}".format(silver[types.index(x)][0], \
+        silver[types.index(x)][1], silver[types.index(x)][2]))
 
-    eplo = electrum[types.index(x)][0]
-    ephi = electrum[types.index(x)][1]
-    eppct = electrum[types.index(x)][2]
-    logging.debug("Electrum lo, hi, pct = {} {} {}".format(eplo, ephi, eppct))
-    if x >= "j" and x <= "n":
-        ep = get_coins(eplo, ephi, eppct)
-    else:
-        ep = get_coins(eplo * 1000, ephi * 1000, eppct)
+    logging.info("Electrum lo, hi, pct = {} {} {}".format(electrum[types.index(x)][0], \
+        electrum[types.index(x)][1], electrum[types.index(x)][2]))
 
-    gplo = gold[types.index(x)][0]
-    gphi = gold[types.index(x)][1]
-    gppct = gold[types.index(x)][2]
-    logging.debug("Gold lo, hi, pct = {} {} {}".format(gplo, gphi, gppct))
-    if x >= "j" and x <= "n":
-        gp = get_coins(gplo, gphi, gppct)
-    else:
-        gp = get_coins(gplo * 1000, gphi * 1000, gppct)
+    logging.info("Gold lo, hi, pct = {} {} {}".format(gold[types.index(x)][0], \
+        gold[types.index(x)][1], gold[types.index(x)][2]))
+ 
+    logging.info("Platinum lo, hi, pct = {} {} {}".format(platinum[types.index(x)][0], \
+        platinum[types.index(x)][1], platinum[types.index(x)][2]))
 
-    pplo = platinum[types.index(x)][0]
-    pphi = platinum[types.index(x)][1]
-    pppct = platinum[types.index(x)][2]
-    logging.debug("Platinum lo, hi, pct = {} {} {}".format(pplo, pphi, pppct))
-    if x >= "j" and x <= "n":
-        pp = get_coins(pplo, pphi, pppct)
-    else:
-        pp = get_coins(pplo * 100, pphi * 100, pppct)
+    logging.info("Gems lo, hi, pct = {} {} {}".format(gems[types.index(x)][0], \
+        gems[types.index(x)][1], gems[types.index(x)][2]))
 
-    gemlo = gems[types.index(x)][0]
-    gemhi = gems[types.index(x)][1]
-    gempct = gems[types.index(x)][2]
-    logging.debug("Gems lo, hi, pct = {} {} {}".format(gemlo, gemhi, gempct))
-    gem = get_coins(gemlo, gemhi, gempct)
+    cp = find_coin_quantity(x, copper[types.index(x)][0], copper[types.index(x)][1], \
+        copper[types.index(x)][2],multiplier)
 
-    jwllo = jewelry[types.index(x)][0]
-    jwlhi = jewelry[types.index(x)][1]
-    jwlpct = jewelry[types.index(x)][2]
-    logging.debug("Jewelry lo, hi, pct = {} {} {}".format(jwllo, jwlhi, jwlpct))
-    jwl = get_coins(jwllo, jwlhi, jwlpct)
+    sp = find_coin_quantity(x, silver[types.index(x)][0], silver[types.index(x)][1], \
+        silver[types.index(x)][2],multiplier)
+
+    ep = find_coin_quantity(x, electrum[types.index(x)][0], electrum[types.index(x)][1], \
+        electrum[types.index(x)][2],multiplier)
+
+    gp = find_coin_quantity(x, gold[types.index(x)][0], gold[types.index(x)][1], \
+        gold[types.index(x)][2],multiplier)
+
+    pp = find_coin_quantity(x, platinum[types.index(x)][0], platinum[types.index(x)][1], \
+        platinum[types.index(x)][2],multiplier,platinum=True)
+
+    gem = find_quantity(x, gems[types.index(x)][0], gems[types.index(x)][1], \
+        gems[types.index(x)][2],multiplier)
+    logging.info("Found {} gems".format(gem))
+
+    jwl = find_quantity(x, jewelry[types.index(x)][0], jewelry[types.index(x)][1], \
+        jewelry[types.index(x)][2],multiplier)
+    logging.info("Found {} pieces of jewelry".format(jwl))
 
     if gem:
-        stuff['gem_list'], stuff['gem_cnts'], stuff['gem_total'] = get_gems(gem)
+        loot['gems'], loot['gem_total'] = get_gems(gem)
     else:
-        stuff['gem_cnts'] = None
-        stuff['gem_list'] = None
-        stuff['gem_total'] = None
+        loot['gems'] = None
+        loot['gem_total'] = None
 
     if jwl:
-        stuff['jewelry_list'], stuff['jewelry_cnts'], stuff['jewelry_total'] = get_jewelry(jwl)
+        loot['jewelry'], loot['jewelry_total'] = get_jewelry(jwl)
     else:
-        stuff['jewelry_cnts'] = 0
-        stuff['jewelry_list'] = None
-        stuff['jewelry_total'] = None
+        loot['jewelry'] = None
+        loot['jewelry_total'] = None
 
-    stuff['magic'] = get_magic(tables, x)
+    loot['magic'] = get_magic(tables, x)
 
     out = print_coins(cp, sp, ep, gp, pp, p)
     if not out:
@@ -679,14 +677,14 @@ def get_random_treasure(x, p=False):
     else:
         out = out + " "
 
-    if stuff['gem_cnts']:
-        out = out + print_gems(stuff, p) + " "
+    if loot['gem_total']:
+        out = out + print_gems(loot['gems'],loot['gem_total']) + " "
 
-    if stuff['jewelry_cnts']:
-        out = out + print_jewelry(stuff, p) + " "
+    if loot['jewelry_total']:
+        out = out + print_jewelry(loot['jewelry'],loot['jewelry_total']) + " "
 
-    if len(stuff['magic']) > 0:
-        out = out + print_magic(stuff['magic'], p)
+    if len(loot['magic']) > 0:
+        out = out + print_magic(loot['magic'])
 
     return (out)
 

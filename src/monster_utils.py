@@ -30,7 +30,7 @@ def read_monsters():
             if "-" in m['HD']:
                 logging.debug("Found dash in HD: {} {}".format(t[0], t[5]))
             m['Lair'] = t[6]
-            m['TT'] = t[7]
+            m['TT'] = t[7] if t[7] != 'None' else None
             m['NATT'] = t[8]
             m['DA'] = t[9]
             m['SA'] = t[10]
@@ -51,8 +51,21 @@ Dam/Att: {},SA: {},SD: {},MR: {},I: {},Ali: {},Size: {},Level: {}".format(
             monsters.append(m)
     return (monsters)
 
-def get_monster_hp(monster, cnt, maxhp=True):
-    hd = "{}".format(monster['HD'])
+#
+# Returns a list of cnt hp roled as per monster HD
+#
+#    monster to role from
+#    cnt     numnber of item on return list
+#    maxhp   user 8 hit [oomts per die instead of roling
+#
+
+def get_monster_hp(monster, cnt=1, maxhp=True):
+
+    try: 
+        hd = "{}".format(monster['HD'])
+    except:
+        hd = "{}".format(monster['hd'])
+       
     plus = None
     minus = None
     if "HP" in hd:
@@ -99,14 +112,11 @@ def get_monster_hp(monster, cnt, maxhp=True):
         hp_list = []
         for x in range(cnt):
             hp = plus - minus
-            for x in range(hd):
+            for x in range(int(hd)):
                 hp = hp + random.randint(1, 8)
-            if hp < 0:
+            if hp < 1:
                 hp = 1
             hp_list.append(int(hp))
-    monster['level'] = hd
     return hp_list
-
-
 
 
