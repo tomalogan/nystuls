@@ -673,36 +673,35 @@ def player_actions(segment, monsters, characters):
                 response = get_input(f"    Who is {actor['name']} attacking? (s for spell, enter for {actor['opponent']})  ",specials=['s'])
                 if response == 's':
                     cast_spell(actor)
-                    break
                     actor['attack_segments'].remove(segment)
                 elif response == '':
                     target = int(actor['opponent'])
-                else:
-                    target = int(response) - 100
-                if target < 0 or target >= len(monsters):
-                    logging.warning(f"    Not a valid target; enter a number between 100 and {len(monsters)-1+100}")
-                else:
-                    col = get_column(actor)
-                    defender = monsters[target]
-                    row = int(defender['ac']) + 10
-                    logging.debug(f"Row {row} Column {col}")
-                    logging.debug(f"    {actor['name']} type is {actor['attack_type']}")
-                    logging.info(f"    {actor['name']} (level {actor['hd']}) needs a {to_hit_table[actor['attack_type']][col][row]} to hit AC {defender['ac']}")
+   #             else:
+   #                target = int(response) - 100
+                    if target < 100 or target >= len(monsters)+100:
+                        logging.warning(f"    Not a valid target; enter a number between 100 and {len(monsters)-1+100}")
+                    else:
+                        col = get_column(actor)
+                        defender = monsters[target]
+                        row = int(defender['ac']) + 10
+                        logging.debug(f"Row {row} Column {col}")
+                        logging.debug(f"    {actor['name']} type is {actor['attack_type']}")
+                        logging.info(f"    {actor['name']} (level {actor['hd']}) needs a {to_hit_table[actor['attack_type']][col][row]} to hit AC {defender['ac']}")
    
-                    # check for hit
-                    response = get_input(f"    Did {actor['name']} hit? (0/1) ")
-
-                    # if hit, set monster and character's opponent fields
-                    if response:
-                        if monsters[target]['opponent'] == -1:
-                            monsters[target]['opponent'] = actor['id'] 
-                        if actor['opponent'] == -1:
-                            actor['opponent'] = target
-                        damage = get_int_input("    How much damage did they do? ")
-                        damage = int(damage)
-                        tmp =  apply_damage(target,damage,monsters,actor['name'])
-                    actor['attack_segments'].remove(segment)
-                    response = ''
+                        # check for hit
+                        response = get_input(f"    Did {actor['name']} hit? (0/1) ")
+    
+                        # if hit, set monster and character's opponent fields
+                        if response:
+                            if monsters[target]['opponent'] == -1:
+                                monsters[target]['opponent'] = actor['id'] 
+                            if actor['opponent'] == -1:
+                                actor['opponent'] = target
+                            damage = get_int_input("    How much damage did they do? ")
+                            damage = int(damage)
+                            tmp =  apply_damage(target,damage,monsters,actor['name'])
+                        actor['attack_segments'].remove(segment)
+                        response = ''
 
 
 
@@ -824,8 +823,8 @@ def dm_actions(segment, monsters, characters):
     elif action == 'd':
         select = get_int_input("id of entity to damage: ")
         amount = get_int_input("hit points to damage: ")
-        if valid_id(select):
-            select['hp'] -= amount
+        if valid_id(select, monsters=monsters):
+            monsters[select]['hp'] -= amount
             logging.info("Reduced {select['name']} hit points by {amount}")
             if select['hp'] <= 0:
                 logging.info(f"{select['name']} is down")   
@@ -834,8 +833,8 @@ def dm_actions(segment, monsters, characters):
     elif action == 'h':
         select = get_int_input("id of entity to heal: ")
         amount = get_int_input("hit points to heal: ")
-        if valid_id(select):
-            select['hp'] += amount
+        if valid_id(select,characters=characters):
+            characters[select]['hp'] += amount
             logging.info("increased {select['name']} hit points by {amount}")
         else:
             logging.info(f"{select} is not a valid ID.  Try again")
