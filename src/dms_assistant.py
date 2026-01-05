@@ -621,8 +621,6 @@ def attack(attacker,defender):
 
     # commented out for future  use     attacker['off_hand'] = ~attacker['off_hand']
         
- 
-
 #
 #
 #            
@@ -658,6 +656,7 @@ def monster_actions(segment, monsters, characters):
                 if not combat_over(monsters):
                     attacker['attack_segments'].remove(segment)
                     attack(attacker,characters[attacker['opponent']])
+                    attacker['attack_number'] += 1
                     if characters[attacker['opponent']]['opponent'] == -1:
                         which =  [i for i, e in enumerate(monsters) if e == attacker]
                         characters[attacker['opponent']]['opponent'] = int(which[0])
@@ -846,11 +845,6 @@ def dm_actions(segment, monsters, characters):
             pass
 
 
-
-
-                
- 
-#
 # Set up attack segments
 #
 def set_attack_segments(attacker):
@@ -863,7 +857,6 @@ def set_attack_segments(attacker):
 
     attacker['attacks_this_round'] = attacks_this_round
     attacker['attack_segments'] = []
-
     # First attack on initiative
     attacker['attack_segments'].append(attacker['initiative'])
 
@@ -1005,7 +998,7 @@ def parse(line):
         to_hit = tokens[5]
         to_dam = tokens[6]
     elif len(tokens) == 8:      # cnt name HD AC #ATT DAM to_hit to_dam
-        cnt = tokens[0]
+        cnt = int(tokens[0])
         name = tokens[1]
         level = tokens[2]
         ac = tokens[3]
@@ -1019,9 +1012,6 @@ def parse(line):
     logging.debug(f"pop_flag = {pop_flag}")
 
     return(cnt,name,level,ac,natt,dam,to_hit,to_dam,pop_flag)
-
-
-    return(roster)
 
 #
 #
@@ -1177,7 +1167,6 @@ if __name__ == '__main__':
     parser.add_argument("char_table",help="Character roster file")
     parser.add_argument("monster_table",help="Monster roster file")
     parser.add_argument("-v", "--verbose", help="Logging level", default="INFO")
-
 
 #    group.add_argument("-c", "--class_name", help="Character class to generate",
 #                       choices=["Cleric", "Druid", "Fighter", "Paladin", "Ranger", "Magic-User", "Illusionist", "Thief",
