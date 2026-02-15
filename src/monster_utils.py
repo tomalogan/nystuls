@@ -47,7 +47,7 @@ Dam/Att: {},SA: {},SD: {},MR: {},I: {},Ali: {},Size: {},Level: {}".format(
                 m['NATT'], m['DA'], m['SA'], m['SD'], m['MR'], m['Int'], m['Ali'], m['Size'], m['Lvl'])
             wrapper = textwrap.TextWrapper(initial_indent="\t", width=72, subsequent_indent="\t")
             out = wrapper.fill(str)
-            logging.debug("{}".format(out))
+            logging.info("{}".format(out))
             monsters.append(m)
     return (monsters)
 
